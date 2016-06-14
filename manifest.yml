@@ -6,6 +6,7 @@ declared-services:
 applications:
 - services:
   - conversation-experimental
+  name: personalized-conversation
   command: npm start
   path: .
   instances: 1
