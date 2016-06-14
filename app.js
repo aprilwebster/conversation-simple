@@ -54,12 +54,19 @@ var tone_analyzer = watson.tone_analyzer({
 
 // Endpoint to be call from the client side
 app.post('/api/message', function(req, res) {
+	var workspace = process.env.WORKSPACE_ID || '<workspace-id>';
+	  	if (!workspace || workspace === '<workspace-id>') {
+	  		return res.json({'output': {'text': 'The app has not been configured with a <b>WORKSPACE_ID</b> environment variable. Please refer to the ' +
+	  			'<a href="https://github.com/watson-developer-cloud/conversation-simple">README</a> documentation on how to set this variable. <br>' +
+	  			'Once a workspace has been defined the intents may be imported from ' +
+	  			'<a href="https://github.com/watson-developer-cloud/conversation-simple/blob/master/training/car_intents.csv">here</a> in order to get a working application.'}});
+	  	}
 	  
 	// Payload object to send to the dialog interpreter
 	// workspace_id is the identifier for the workspace containing the dialog (nodes) for this application
 	// context contains both client state (e.g., current_tone, tone_history, etc) and dialog service state
 	var conversation_payload = {
-		workspace_id: process.env.WORKSPACE_ID || '<workspace-id>',
+		workspace_id: workspace,
 		context: {}
 	};
 	
@@ -116,6 +123,7 @@ app.post('/api/message', function(req, res) {
 				return res.json(updateMessage(data));
 			});
 	});	
+
 });
 
 /**
