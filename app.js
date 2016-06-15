@@ -42,17 +42,17 @@ var conversation = nodeSdk.conversation({	// Using local nodeSdk
 });
 
 
-// Create the tone_analyzer service wrapper
+//Create the tone_analyzer service wrapper
 var tone_analyzer = watson.tone_analyzer({
-	  url: 'https://gateway.watsonplatform.net/tone-analyzer/api',
-	  username: '8ab73753-faeb-42f5-96ad-604b5b1c146e',		//tone_username
-	  password: '1VRWJmmypy15',  
-	  version: 'v3',
-	  version_date: '2016-05-19'
+	url: 'https://gateway.watsonplatform.net/tone-analyzer/api',
+	username: process.env.TONE_ANALYZER_USERNAME, //'8ab73753-faeb-42f5-96ad-604b5b1c146e'
+	password: process.env.TONE_ANALYZER_PASSWORD,  //'1VRWJmmypy15'
+	version_date: '2016-05-19',
+	version: 'v3'
 });
 
 
-// Endpoint to be call from the client side
+// message endpoint to be called from the client side
 app.post('/api/message', function(req, res) {
 	var workspace = process.env.WORKSPACE_ID || '<workspace-id>';
 	  	if (!workspace || workspace === '<workspace-id>') {
@@ -67,34 +67,86 @@ app.post('/api/message', function(req, res) {
 	// context contains both client state (e.g., current_tone, tone_history, etc) and dialog service state
 	var conversation_payload = {
 		workspace_id: workspace,
-		context: {}
+		//context: {}
+		/*
+		
+		context: {
+			user: {
+				current_emotion: null,
+				emotion_history: []
+			}
+		}
+		*/
 	};
 	
 
 	// Add the input and context to the payload
 	if (req.body) {
+		
+		console.log('app.post: the request has a body.  This should be called!');
+		
+		// INPUT - check for input in the body of the request; this is required to converse with the conversation service 
 		if (req.body.input) {
+			console.log('app.post: the request has input.  This should be called!');
 			conversation_payload.input = req.body.input;
+		}else{
+			console.log('ERROR - no input');
+			return res.json({'output': {'text': 'No input has been provided.  Please state your intent.'}});
 		}
+		
 
+		// CONTEXT - check for context in the body of the request; this should be the context for the conversation payload!
 		if (req.body.context) { // The client must maintain context/state
+			console.log('app.post: the request body has a context.  This will not be called with first user input!');	
 			
-			// If there is no user object in the context, add it
-			var user = req.body.context.user;
-			if(typeof user == 'undefined'){
-				user = {
+			// Add the request context to the conversation_payload
+			conversation_payload.context = req.body.context;
+			
+			// USER - if there is not user, initialize this object in the context
+			if(typeof req.body.context.user == 'undefined'){
+				console.log('app.post: user is undefined.  Add empty user to context');
+				conversation_payload.context = extend(conversation_payload.context, {
+					user: {
+						current_emotion: null,
+						emotion_history: []
+					}
+				});
+				console.log('app.post: user should be defined at this point: ' + JSON.stringify(conversation_payload.context,2,null));
+				
+			}else{ //USER exists
+				// EMOTION_HISTORY - initialize it if it doesn't exist in the user
+				if(typeof req.body.context.user.emotion_history == 'undefined'){
+					console.log('app.post: emotion_history is undefined.  Add it to context.user');
+					user.emotion_history = [];  
+				}
+			}
+		} else{
+			console.log('app.post: the request has no context.  Add an empty user to the conversation_payload.');
+			console.log('app.post: conversation_payload is ' + JSON.stringify(conversation));
+			
+			var user = {
+				user: {
+					current_emotion: null,
 					emotion_history: []
-				};  
+				}
 			}
+			conversation_payload.context = user;
 			
-			// Create user.emotion_history if it doesn't exist
-			if(typeof user.emotion_history == 'undefined'){
-				user.emotion_history = [];  
-			}
-			
-			// Add the user to req.body.context
-			conversation_payload.context = extend(context,user);
+			console.log('app.post: the request has no context.  Conversation_payload is now: ' + JSON.stringify(conversation_payload,2,null));
 		}
+		
+			
+		console.log('app.post: user is ' + JSON.stringify(user,2,null));
+		console.log('app.post: context before adding user to payload is ' + JSON.stringify(conversation_payload.context,2,null));
+			
+			
+		// this is NOT working!!
+		conversation_payload.context = extend(conversation_payload.context,{
+			user: user
+		});
+			
+		console.log('app.post: context after adding user to payload is ' + JSON.stringify(conversation_payload.context,2,null));
+		
 	}
   
 	// Pull the user input from the body of the request - this is the text that will be analyzed by 
@@ -102,18 +154,30 @@ app.post('/api/message', function(req, res) {
 	var input = req.body.input;
 
 	invokeTone(req.body.input.text, 
-		function(err, data){		
+		//function(err, data){	
+		function(data){
 		// after invokeTone returns a primary_emotion (err or data), this function needs to be called to add
 		// the primary_emotion to the payload.context
 
+			/*
 			if(err){
 				console.log(err);
 				data = "No emotion was returned by tone_analyzer.";
 			}
+			*/
 			
-			conversation_payload.context = extend(conversation_payload.context, {
-				current_emotion: data
+			var emotion_history = conversation_payload.context.user.emotion_history;
+			if(typeof conversation_payload.context.user.emotion_history == 'undefined'){
+				emotion_history = [data];
+			}else{
+				conversation_payload.context.user.emotion_history.push(data);
+			}
+			
+			conversation_payload.context.user = extend(conversation_payload.context.user, {
+				current_emotion: data,
+				emotion_history: emotion_history
 			})
+			console.log('app.post.invokeTone: conversation_payload is ' + JSON.stringify(conversation_payload,null,2));
 	
 			// Send the input to the conversation service
 			conversation.message(conversation_payload, function(err, data) {
@@ -144,7 +208,7 @@ function invokeTone(text, callback)
 	          callback(null);
 	        }
 	        else{
-	          console.log(JSON.stringify(tone, null, 2));
+	          //console.log(JSON.stringify(tone, null, 2));  //works, but don't want it printing right now
 	          callback(getPrimaryEmotion(tone));
 	        }
 	    });
