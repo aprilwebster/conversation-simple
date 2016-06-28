@@ -51,6 +51,18 @@ var tone_analyzer = watson.tone_analyzer({
 	version: 'v3'
 });
 
+//Create the personality insights service wrapper
+// There does not appear to be a version_date required for personality insights - any particular reason?
+/*
+var personality_insights = watson.personality_insights({
+	url: 'https://gateway.watsonplatform.net/personality-insights/api',
+	username: process.env.PERSONALITY_INSIGHTS_USERNAME,
+	password: process.env.PERSONALITY_INSIGHTS_PASSWORD,  
+	//version_date: '2016-05-19',
+	version: 'v2'
+});
+*/
+
 
 // message endpoint to be called from the client side
 app.post('/api/message', function(req, res) {
@@ -118,10 +130,12 @@ app.post('/api/message', function(req, res) {
 	var input = req.body.input;
 
 	invokeTone(req.body.input.text, 
-		//function(err, data){	
 		function(data){
+		// error handled by invokeTone - if no emotion is returned by the Tone Analyzer, the emotion is set to null
 		// after invokeTone returns a primary_emotion (err or data), this function needs to be called to add
 		// the primary_emotion to the payload.context
+		
+			console.log('app.post: invokeTone called and return value is ' + JSON.stringify(data,2,null));
 			
 			var emotion_history = conversation_payload.context.user.emotion_history;
 			if(typeof conversation_payload.context.user.emotion_history == 'undefined'){
@@ -140,7 +154,7 @@ app.post('/api/message', function(req, res) {
 				if (err) {
 					return res.status(err.code || 500).json(err);
 				}
-				return res.json(updateMessage(data));
+				return res.json(personalizeMessage(data));
 			});
 	});	
 
@@ -169,10 +183,14 @@ function invokeTone(text, callback)
 }
 
 
+
+//function updateUser(tone_payload)
+// parse response from conversation service - pull user out of context object and update
+
 /**
  * 
  */
-//function parseTone(tone_payload)
+
 function getPrimaryEmotion(tone_analyzer_payload)
 {
 	  var emotion_tone = null;
@@ -200,38 +218,75 @@ function getPrimaryEmotion(tone_analyzer_payload)
 	  return primary_emotion;
 }
 
-/**
- * Updates the response text using the intent confidence
- * @param  {Object} response The response from the Conversation service
- * @return {Object}          The response with the updated message
- */
-function updateMessage(response) {
-	var responseText = null;
-	var tone = null;
 
-	//response = 'undefined';
-	if (response == 'undefined') {
-		response = {
+
+/**
+ * Get the tone expression
+ */
+
+
+
+/**
+ * Personalizes the output text of the conversation service response
+ * @param  {Object} conversationResopnse 	The response from the Conversation service
+ * @return {Object}          				The response from the Conversation service with a personalized output.text.
+ */
+function personalizeMessage(conversationResponse) {
+	var personalizedMessage = null;
+
+	if (conversationResponse == 'undefined') {
+		conversationResponse = {
 			'output' : {
 				'text' : 'ERROR: I\'m sorry, an error was returned by the Watson Conversation service.  Please try again later.'
 			}
 
 		};
-		return response;
+		return conversationResponse;
 	}
 
-	if (!response.output) {
-		response.output = {};
+	if (!conversationResponse.output) {
+		conversationResponse.output = {
+				'text' : 'There was no output provided by the Conversation service.'
+		};
 	}
 
-	if (response.context.user.current_emotion) {
-		var tone = response.context.user.current_emotion;
-		responseText = "The primary emotion of your last conversation turn was "
-				+ tone + ".  ";
+	// If a current_emotion (tone) is provided for the user input, 
+	// prepend the output text from the Conversation Service with the matching tone expression header
+	if (conversationResponse.context.user.current_emotion) {
+		var toneHeader = getToneExpression(conversationResponse.context.user.current_emotion);
+		if(toneHeader){
+			personalizedMessage = toneHeader + ' ' + conversationResponse.output.text;
+		}
 	}
 
-	response.output.text = responseText;
-	return response;
+	conversationResponse.output.text = personalizedMessage;
+	return conversationResponse;
+}
+
+function getToneExpression(tone){
+	var toneExpression = null;
+	
+	switch(tone) {
+    	case "anger":
+	        toneExpression = "I'm sorry you're frustrated.";
+	        break;
+	    case "joy":
+	    	toneExpression = "Great!";
+	        break;
+	    case "sadness":
+	    	toneExpression = "Cheer up!";
+	        break;
+	    case "disgust":
+	    	toneExpression = "Ugh, I'm sorry you feel that way.";
+	        break;
+	    case "fear":
+	    	toneExpression = "Not to worry, I'm here to help you.";
+	        break;
+	    default:
+	    	console.log('tone is neutral or null ' + tone);
+	        toneExpression = "";
+	}
+	return toneExpression;
 }
 
 module.exports = app;
