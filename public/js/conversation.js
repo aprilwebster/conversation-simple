@@ -29,7 +29,7 @@ var ConversationPanel = (function() {
     // The client displays the initial message to the end user
     displayMessage(
       {output:
-        {text: 'This Watson app shows how intents work. Try testing some below, using the examples in the app description.'}
+        {text: 'This app shows how Watson Tone and Personality Insights can be integrated into Conversation. Enter some text below to try it out!'}
       },
       settings.authorTypes.watson);
     setupInputBox();
