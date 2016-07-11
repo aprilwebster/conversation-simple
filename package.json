@@ -14,9 +14,11 @@
   "dependencies": {
     "dotenv": "^2.0.0",
     "express": "4.13.4",
+    "extend": "3.0.0",
     "body-parser": "1.15.1",
-    "watson-developer-cloud": "^1.8.0",
-    "node-sdk": "../node-sdk"
+    "json-query": "2.1.0",
+    "twitter-node-client": "0.0.6",
+    "watson-developer-cloud": "^1.8.0"
   },
   "devDependencies": {
     "babel-eslint": "^6.0.4",
@@ -30,5 +32,17 @@
   },
   "engine": {
     "node": ">= 4.2.4"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aprilwebster/conversation-simple.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/aprilwebster/conversation-simple/issues"
+  },
+  "homepage": "https://github.com/aprilwebster/conversation-simple#readme"
 }

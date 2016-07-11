@@ -7,8 +7,6 @@ module.exports = function()
 {
 
     function getPersonalityProfile (screenName, count, callback) {
-
-    	console.log('twitter_helper: getPersonalityProfile called');
     	
     	var twitter_payload = { 
     			screen_name: screenName, 
