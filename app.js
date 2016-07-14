@@ -24,9 +24,10 @@ var express = require('express');  // app server
 var bodyParser = require('body-parser');  // parser for post requests
 var watson = require('watson-developer-cloud');  // watson sdk
 //var nodeSdk = require('../node-sdk');  
-var personality_insights_helper = require('./personality_insights_helper');
-var jsonQuery = require('json-query');
 
+var tone_conversation_addon = require("./addons/tone_conversation_detection_addon.js");
+var tone_conversation_expression = require("./addons/tone_conversation_expression_addon.js");
+var personality_addon = require("./addons/personality_conversation_addon.js");
 
 var app = express();
 
@@ -39,11 +40,11 @@ app.use(bodyParser.json());
 // Create the conversation service wrapper
 var conversation = watson.conversation({  // Using watson-developer-cloud
 //var conversation = nodeSdk.conversation({	// Using local nodeSdk
-  url: 'https://gateway.watsonplatform.net/conversation-experimental/api',
+  url: 'https://gateway.watsonplatform.net/conversation/api',
   username: process.env.CONVERSATION_USERNAME || '<username>',
   password: process.env.CONVERSATION_PASSWORD || '<password>',
-  version_date: '2016-05-19',
-  version: 'v1-experimental',
+  version_date: '2016-07-01',
+  version: 'v1',
 });
 
 //Create the tone_analyzer service wrapper
@@ -56,7 +57,6 @@ var tone_analyzer = watson.tone_analyzer({
 });
 
 var USER_TWITTER_HANDLE = 'adele';
-var TWEET_COUNT = 300;
 
 
 // message endpoint to converse with the Watson Conversation Service
@@ -100,224 +100,66 @@ app.post('/api/message', function(req, res) {
 		// CONTEXT - context/state maintained by client app
 		if (req.body.context) { 		
 			conversation_payload.context = req.body.context;				
-
+			
 			// USER - if there is no user in the context, initialize one and add to the context
 			if(typeof req.body.context.user == 'undefined'){
-				var emptyUser = initUser();
+				var emptyUser = tone_conversation_addon.initToneContext(tone_analyzer);
 				conversation_payload.context = extend(conversation_payload.context, { emptyUser });
-			}
-		} 
+				invokeAddOns_PersonalityAndTone(conversation_payload,req,res);
+	
+		}
+		else {
+			invokeAddOns_Tone(conversation_payload,req,res);
+		}
+              } 
 		// If there is no context, create it and add a user object to it
 		else {
-			conversation_payload.context = initUser();
+			conversation_payload.context = tone_conversation_addon.initToneContext(tone_analyzer);
+			invokeAddOns_PersonalityAndTone(conversation_payload,req,res);
 		}	
-	}
 
 	
-	invokePersonality(USER_TWITTER_HANDLE, 
-		function(personality_payload){
-			var updated_user = updateUserPersonality(conversation_payload.context.user, personality_payload);
+	}
+});
 
-			invokeTone(req.body.input.text, 
+function invokeAddOns_PersonalityAndTone(conversation_payload,req,res)
+{
+				personality_addon.invokePersonality(USER_TWITTER_HANDLE, 
+					function(personality_payload){
+					var updated_user = personality_addon.updateUserPersonality(conversation_payload.context.user, personality_payload);
+					tone_conversation_addon.invokeTone(req.body.input.text, 
 					function(tone_payload){
-						updateUserTone(conversation_payload.context.user, tone_payload);
+						tone_conversation_addon.updateUserTone(conversation_payload.context.user, tone_payload);
 
 						// Send the input to the conversation service
 						conversation.message(conversation_payload, function(err, data) {
 							if (err) {
 								return res.status(err.code || 500).json(err);
 							}
-							return res.json(personalizeMessage(data));
+							return res.json(tone_conversation_expression.personalizeMessage(data));
 						});
 				});	
+			});
+}
 
-		});	
-
-	//invokeTone should be here after separate personality and tone
-
-});
-
-
-/**
- * invokeTone calls the tone_analyzer.tone function to get the tone, and calls the callback function on the primary_emotion
- * @param text
- * @param callback
- */
-function invokeTone(text, callback)
+function invokeAddOns_Tone(conversation_payload,req,res)
 {
-	var tone_analyzer_payload = { text: text };
-	
-	 tone_analyzer.tone( tone_analyzer_payload,
-	    function(err, tone) {
-	        if (err){
-	          callback(null);
-	        }
-	        else{
-	          callback(tone);
-	        }
-	    });
-}
+			tone_conversation_addon.invokeTone(req.body.input.text, 
+					function(tone_payload){
+						tone_conversation_addon.updateUserTone(conversation_payload.context.user, tone_payload);
 
-function invokePersonality(twitterHandle, callback)
-{
-	personality_insights_helper.personalityProfile(twitterHandle, TWEET_COUNT, function (profile) {
-		callback(profile);
-	});
+						// Send the input to the conversation service
+						conversation.message(conversation_payload, function(err, data) {
+							if (err) {
+								return res.status(err.code || 500).json(err);
+							}
+							return res.json(tone_conversation_expression.personalizeMessage(data));
+						});
+				});	
 }
 
 
-function getPrimaryEmotion(emotionTone){
-	var max_score = 0;
-	var primary_emotion = null;
-	  
-	emotionTone.tones.forEach(function(emotion){
-		if (emotion.score > max_score){
-			max_score = emotion.score;
-			primary_emotion = emotion.tone_id;
-		  }
-	  });
-	  
-	  // There is a primary emotion only if the highest score is > 0.5
-	  if(max_score <= 0.5){
-		  primary_emotion = 'neutral';
-	  }
-	  
-	  return primary_emotion;
-}
 
 
-function updateUserPersonality(user, personality_payload)
-{
-	user.personality_profile = personality_payload;
-	return user;
-}
-
-function updateUserTone(user, tone_analyzer_payload)
-{
-	var emotionTone = null;
-	var languageTone = null;
-	var socialTone = null;
-	  
-	tone_analyzer_payload.document_tone.tone_categories.forEach(function(toneCategory){
-		if(toneCategory.category_id == 'emotion_tone'){
-			emotionTone = toneCategory;
-		}
-		if(toneCategory.category_id == 'language_tone'){
-			languageTone = toneCategory;
-		}
-		if(toneCategory.category_id == 'social_tone'){
-			socialTone = toneCategory;
-		} 
-	});
-	
-	var primaryEmotion = getPrimaryEmotion(emotionTone);
-	user.tone.emotion.current = primaryEmotion;
-	if(typeof user.tone.emotion.history == 'undefined'){
-		user.tone.emotion.history = [primaryEmotion];
-	}else{
-		user.tone.emotion.history.push(primaryEmotion);
-	}
-	
-	user.tone.language.analytical = jsonQuery('tones[tone_id=analytical].score', { data: languageTone }).value;
-	user.tone.language.confident = jsonQuery('tones[tone_id=confident].score', { data: languageTone }).value;
-	user.tone.language.tentative = jsonQuery('tones[tone_id=tentative].score', { data: languageTone }).value;
-	
-	user.tone.social.openness_big5 = jsonQuery('tones[tone_id=openness_big5].score', { data: socialTone }).value;
-	user.tone.social.conscientiousness_big5 = jsonQuery('tones[tone_id=conscientiousness_big5].score', { data: socialTone }).value;
-	user.tone.social.extraversion_big5 = jsonQuery('tones[tone_id=extraversion_big5].score', { data: socialTone }).value;
-	user.tone.social.agreeableness_big5 = jsonQuery('tones[tone_id=agreeableness_big5].score', { data: socialTone }).value;
-	user.tone.social.emotional_range_big5 = jsonQuery('tones[tone_id=emotional_range_big5].score', { data: socialTone }).value;
-
-	return user;
-}
-
-
-/**
- * Personalizes the output text of the conversation service response
- * @param  {Object} conversationResopnse 	The response from the Conversation service
- * @return {Object}          				The response from the Conversation service with personalized output.text.
- */
-function personalizeMessage(conversationResponse) {
-	var personalizedMessage = null;
-
-	if (conversationResponse == 'undefined') {
-		conversationResponse = {
-			'output' : {
-				'text' : 'ERROR: I\'m sorry, an error was returned by the Watson Conversation service.  Please try again later.'
-			}
-
-		};
-		return conversationResponse;
-	}
-
-	if (!conversationResponse.output) {
-		conversationResponse.output = {
-				'text' : 'There was no output provided by the Conversation service.'
-		};
-	}
-
-	// If a current_emotion (tone) is provided for the user input, prepend the output.text from the Conversation Service with the matching tone expression header
-	if (conversationResponse.context.user.tone.emotion.current) {
-		var toneHeader = getToneExpression(conversationResponse.context.user.tone.emotion.current);
-		if(toneHeader){
-			personalizedMessage = toneHeader + ' ' + conversationResponse.output.text;
-		}
-	}
-
-	conversationResponse.output.text = personalizedMessage;
-	return conversationResponse;
-}
-
-function getToneExpression(emotion_tone){
-	var toneExpression = null;
-	
-	switch(emotion_tone) {
-    	case "anger":
-	        toneExpression = "I'm sorry you're frustrated.";
-	        break;
-	    case "joy":
-	    	toneExpression = "Great!";
-	        break;
-	    case "sadness":
-	    	toneExpression = "Cheer up!";
-	        break;
-	    case "disgust":
-	    	toneExpression = "Ugh, I'm sorry you feel that way.";
-	        break;
-	    case "fear":
-	    	toneExpression = "Not to worry, I'm here to help you.";
-	        break;
-	    default:
-	    	console.log('tone is neutral or null ' + emotion_tone);
-	        toneExpression = "NEUTRAL";
-	}
-	return toneExpression;
-}
-
-function initUser(){
-	return { 
-		"user": {
-			"tone": {
-		      	"emotion": {      
-		      		"current": null,
-		      		"history": []
-		      	},
-		      	"language": {
-		      		"confident": null,
-		      		"tentative": null,
-		      		"analytical": null
-		      	},
-		      	"social": {
-		      		"openness_big5": null,
-		      		"conscientiousness_big5": null,
-		      		"extraversion_big5": null,
-		      		"agreeableness_big5": null,
-		      		"emotional_range_big5": null
-		      	}
-		    },
-		    "personality_profile": {}
-		 }
-	}
-};
 
 module.exports = app;
