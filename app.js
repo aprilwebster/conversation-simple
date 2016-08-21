@@ -22,24 +22,10 @@ var express = require( 'express' );  // app server
 var bodyParser = require( 'body-parser' );  // parser for post requests
 var watson = require( 'watson-developer-cloud' );  // watson sdk
 
-/**aw**/
-require('json-query');
-var extend = require('extend');  // app server
-/**end aw**/
-
 // The following requires are needed for logging purposes
 var uuid = require( 'uuid' );
 var vcapServices = require( 'vcap_services' );
 var basicAuth = require( 'basic-auth-connect' );
-//var nodeSdk = require('../node-sdk');
-
-var tone_detection = require(../node-sdk/tone_detection.js");
-
-/**aw**/
-var tone_conversation_addon = require("./addons/tone_conversation_detection_addon.js");
-var tone_conversation_expression = require("./addons/tone_conversation_expression_addon.js");
-var personality_addon = require("./addons/personality_conversation_addon.js");
-/**end aw**/
 
 // The app owner may optionally configure a cloudand db to track user input.
 // This cloudand db is not required, the app will operate without it.
@@ -58,77 +44,17 @@ var app = express();
 app.use( express.static( './public' ) ); // load UI from public folder
 app.use( bodyParser.json() );
 
-
-
-// Create the conversation service wrapper
+// Create the service wrapper
 var conversation = watson.conversation( {
   url: 'https://gateway.watsonplatform.net/conversation/api',
   username: process.env.CONVERSATION_USERNAME || '<username>',
   password: process.env.CONVERSATION_PASSWORD || '<password>',
-  version_date: '2016-07-01',
-  version: 'v1',
+  version_date: '2016-07-11',
+  version: 'v1'
 } );
 
-//Create the tone_analyzer service wrapper
-var tone_analyzer = watson.tone_analyzer({
-	url: 'https://gateway.watsonplatform.net/tone-analyzer/api',
-	username: process.env.TONE_ANALYZER_USERNAME,
-	password: process.env.TONE_ANALYZER_PASSWORD,  
-	version_date: '2016-05-19',
-	version: 'v3'
-});
-
-
-var USER_TWITTER_HANDLE = 'adele';
-
-
-// message endpoint to converse with the Watson Conversation Service
+// Endpoint to be call from the client side
 app.post( '/api/message', function(req, res) {
-
-	
-	
-	
-
-	// Extract the input and context from the request, and add it to the payload to be sent to the 
-	// conversation service
-	if (req.body) {
-
-		// INPUT - check for input in the body of the request 
-		if (req.body.input) {
-			conversation_payload.input = req.body.input;
-		}else{
-			return new Error('Error: no input provided in request.');
-		}
-		
-		// INPUT - user's input text is whitespace - no intent provided
-		if (!(req.body.input.text).trim().length){
-			return res.json({'output': {'text': 'No input has been provided.  Please state your intent.'}});
-		}
-		
-		// CONTEXT - context/state maintained by client app
-		if (req.body.context) { 		
-			conversation_payload.context = req.body.context;				
-			
-			// USER - if there is no user in the context, initialize one and add to the context
-			if(typeof req.body.context.user == 'undefined'){
-				var emptyUser = tone_conversation_addon.initToneContext(tone_analyzer);
-				conversation_payload.context = extend(conversation_payload.context, { emptyUser });
-				invokeAddOns_PersonalityAndTone(conversation_payload,req,res);
-	
-		}
-		else {
-			invokeAddOns_Tone(conversation_payload,req,res);
-		}
-              } 
-		// If there is no context, create it and add a user object to it
-		else {
-			conversation_payload.context = tone_conversation_addon.initToneContext(tone_analyzer);
-			invokeAddOns_PersonalityAndTone(conversation_payload,req,res);
-		}	
-
-	
-	}
-});
   var workspace = process.env.WORKSPACE_ID || '<workspace-id>';
   if ( !workspace || workspace === '<workspace-id>' ) {
     return res.json( {
@@ -140,16 +66,6 @@ app.post( '/api/message', function(req, res) {
       }
     } );
   }
-
-/*// Payload object to send to the Watson Conversation Service
-  // workspace_id is the identifier for the workspace containing the dialog (nodes) for this application
-  // input is what the user of the web app 'said'
-  // context contains both client state (e.g., current_tone, tone_history, etc) and Conversation service state
-  var conversation_payload = {
-      workspace_id: workspace
-};
-*/
-
   var payload = {
     workspace_id: workspace,
     context: {},
@@ -172,51 +88,6 @@ app.post( '/api/message', function(req, res) {
     return res.json( updateMessage( payload, data ) );
   } );
 } );
-
-
-function invokeToneConversation(payload)
-{
-  tone_detection.invokeToneAsync(payload,tone_analyzer)
-  .then( (tone) => {
-    tone_detection.updateUserTone(payload, tone);
-    conversation.message(payload, function(err, data) {
-      if (err) {
-        // APPLICATION-SPECIFIC CODE TO PROCESS THE ERROR
-        // FROM CONVERSATION SERVICE
-        console.error(JSON.stringify(err, null, 2));
-      }
-      else {
-        // APPLICATION-SPECIFIC CODE TO PROCESS THE DATA
-        // FROM CONVERSATION SERVICE
-        console.log(JSON.stringify(data, null, 2));
-      }
-    });
-  })
-  .catch(function(err){
-    console.log(JSON.stringify(err, null, 2));
-  })
-}
-
-
-/*
-
-function invokeAddOns_Tone(conversation_payload,req,res)
-{
-			tone_conversation_addon.invokeTone(req.body.input.text, 
-					function(tone_payload){
-						tone_conversation_addon.updateUserTone(conversation_payload.context.user, tone_payload);
-
-						// Send the input to the conversation service
-						conversation.message(conversation_payload, function(err, data) {
-							if (err) {
-								return res.status(err.code || 500).json(err);
-							}
-							return res.json(tone_conversation_expression.personalizeMessage(data));
-						});
-				});
-
-*/
-
 
 /**
  * Updates the response text using the intent confidence
@@ -260,10 +131,6 @@ function updateMessage(input, response) {
   }
   return response;
 }
-
-
-
-
 
 if ( cloudantUrl ) {
   // If logging has been enabled (as signalled by the presence of the cloudantUrl) then the
@@ -356,3 +223,4 @@ if ( cloudantUrl ) {
 }
 
 module.exports = app;
+
