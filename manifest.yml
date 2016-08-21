@@ -1,13 +1,16 @@
 ---
 declared-services:
-  conversation-experimental:
+  conversation-service:
     label: conversation
-    plan: experimental
+    plan: free
 applications:
-- services:
-  - conversation-experimental
+- name: conversation-simple
   name: personalized-conversation
   command: npm start
   path: .
+  memory: 256M
   instances: 1
-  memory: 512MB
+  services:
+  - conversation-service
+  env:
+    NPM_CONFIG_PRODUCTION: false
