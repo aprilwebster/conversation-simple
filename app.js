@@ -20,7 +20,19 @@ require( 'dotenv' ).config( {silent: true} );
 
 var express = require( 'express' );  // app server
 var bodyParser = require( 'body-parser' );  // parser for post requests
-var watson = require( 'watson-developer-cloud' );  // watson sdk
+var watson = require('watson-developer-cloud');
+var ConversationV1 = require('watson-developer-cloud/conversation/v1');
+var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+
+/**
+ * @author April Webster
+ * The following is required for tone detection
+ */
+//var tone_detection = require("../node-sdk/examples/conversation_tone_analyzer_integration/tone_detection.js"); //required for tone detection
+var tone_detection = require("./addons/tone_detection.js"); //required for tone detection
+var Promise = require('bluebird'); //required for es6 promises
+var moment = require('moment'); //required for timestamps
+
 
 // The following requires are needed for logging purposes
 var uuid = require( 'uuid' );
@@ -44,7 +56,18 @@ var app = express();
 app.use( express.static( './public' ) ); // load UI from public folder
 app.use( bodyParser.json() );
 
-// Create the service wrapper
+
+/**
+ * Instantiate the Watson Conversation Service
+ */
+
+var conversation = new ConversationV1({
+  username: process.env.CONVERSATION_USERNAME || '<conversation_username>',
+  password: process.env.CONVERSATION_PASSWORD || '<conversation_password>',
+  version_date: '2016-07-11'
+});
+
+/*
 var conversation = watson.conversation( {
   url: 'https://gateway.watsonplatform.net/conversation/api',
   username: process.env.CONVERSATION_USERNAME || '<username>',
@@ -52,9 +75,32 @@ var conversation = watson.conversation( {
   version_date: '2016-07-11',
   version: 'v1'
 } );
+*/
 
-// Endpoint to be call from the client side
+/**
+ * Instantiate the Watson Tone Analyzer Service
+ */
+
+var tone_analyzer = new ToneAnalyzerV3({
+  username: process.env.TONE_ANALYZER_USERNAME || '<tone_analyzer_username>',
+  password: process.env.TONE_ANALYZER_PASSWORD || '<tone_analyzer_password>',
+  version_date: '2016-05-19'
+});
+
+
+/*
+var tone_analyzer = watson.tone_analyzer( {
+  url: 'https://gateway.watsonplatform.net/tone_analyzer/api',
+  username: process.env.TONE_ANALYZER_USERNAME || '<tone_analyzer_username>',
+  password: process.env.TONE_ANALYZER_PASSWORD || '<tone_analyzer_password>',
+  version_date: '2016-05-19',
+  version: 'v3'
+} );
+*/
+
+// Endpoint to be called from the client side
 app.post( '/api/message', function(req, res) {
+  console.log("message endpoint called");
   var workspace = process.env.WORKSPACE_ID || '<workspace-id>';
   if ( !workspace || workspace === '<workspace-id>' ) {
     return res.json( {
@@ -71,23 +117,25 @@ app.post( '/api/message', function(req, res) {
     context: {},
     input: {}
   };
+
+
   if ( req.body ) {
     if ( req.body.input ) {
       payload.input = req.body.input;
+      console.log("payload is " + JSON.stringify(payload,2,null));
+
     }
     if ( req.body.context ) {
-      // The client must maintain context/state
       payload.context = req.body.context;
     }
-  }
-  // Send the input to the conversation service
-  conversation.message( payload, function(err, data) {
-    if ( err ) {
-      return res.status( err.code || 500 ).json( err );
+    else{
+      payload.context = tone_detection.initUser();
     }
-    return res.json( updateMessage( payload, data ) );
-  } );
-} );
+    payload.context.time = "breakfast";
+    payload.context.timestamp = getTimeValue();
+    invokeToneConversation(payload, res);
+  }
+});
 
 /**
  * Updates the response text using the intent confidence
@@ -96,6 +144,8 @@ app.post( '/api/message', function(req, res) {
  * @return {Object}          The response with the updated message
  */
 function updateMessage(input, response) {
+  console.log("CONVERSATION NEW: updateMessage called");
+  
   var responseText = null;
   var id = null;
   if ( !response.output ) {
@@ -131,6 +181,56 @@ function updateMessage(input, response) {
   }
   return response;
 }
+
+/**
+ * @author April Webster
+ * invokeToneConversation calls the invokeToneAsync function to get the tone information for the user's
+ * input text (input.text in the payload json object), adds/updates the user's tone in the payload's context,
+ * and sends the payload to the conversation service to get a response which is printed to screen.
+ * @param payload a json object containing the basic information needed to converse with the Conversation Service's
+ *        message endpoint.
+ *
+ * Note: as indicated below, the console.log statements can be replaced with application-specific code to process
+ *               the err or data object returned by the Conversation Service.
+ */
+function invokeToneConversation(payload, res)
+{
+  tone_detection.invokeToneAsync(payload,tone_analyzer)
+  .then( (tone) => {
+    tone_detection.updateUserTone(payload, tone);
+    conversation.message(payload, function(err, data) {
+      if (err) {
+        console.error(JSON.stringify(err, null, 2));
+        return res.status(err.code || 500).json(err);
+      }
+      else {
+        console.log(JSON.stringify(data, null, 2));
+        return res.json( updateMessage( payload, data ) );
+      }
+    });
+  })
+  .catch(function(err){
+    console.log(JSON.stringify(err, null, 2));
+  })
+}
+
+/**
+ * @author April Webster
+ * @returns
+ * Quick function to get a timestamp - work in progress
+ */
+function getTimeValue(){
+  var d = new Date();
+  //var BREAKFAST_START = Date();
+  //var BREAKFAST_END = Date();
+  var timeString = moment(d.getTime()).format("HH:mm:ss");
+  //localize the time, then convert to 
+  var localTime = timeString;
+  //var breakfast = dates.inRange (d,start,end)
+
+  return timeString;
+}
+
 
 if ( cloudantUrl ) {
   // If logging has been enabled (as signalled by the presence of the cloudantUrl) then the
@@ -221,6 +321,10 @@ if ( cloudantUrl ) {
     } );
   } );
 }
+
+
+
+
 
 module.exports = app;
 
