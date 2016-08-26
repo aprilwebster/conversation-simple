@@ -26,7 +26,8 @@ var ConversationPanel = (function() {
   // Initialize the module
   function init() {
     chatUpdateSetup();
-    Api.sendRequest( '', null );
+    //Api.sendRequest( '', null );
+    Api.sendRequest( ' ', null );
     setupInputBox();
   }
   // Set up callbacks on payload setters in Api module
@@ -170,6 +171,7 @@ var ConversationPanel = (function() {
           'children': [{
             // <div class='from-user/from-watson latest'>
             'tagName': 'div',
+            //AW - change colour of watson tag
             'classNames': [(isUser ? 'from-user' : 'from-watson'), 'latest', ((messageArray.length === 0) ? 'top' : 'sub')],
             'children': [{
               // <div class='message-inner'>
@@ -211,6 +213,8 @@ var ConversationPanel = (function() {
     // Submit on enter key, dis-allowing blank messages
     if (event.keyCode === 13 && inputBox.value) {
       // Retrieve the context from the previous server response
+      //var context = {};
+      //context.test = "TEST";
       var context;
       var latestResponse = Api.getResponsePayload();
       if (latestResponse) {
@@ -218,6 +222,8 @@ var ConversationPanel = (function() {
       }
 
       // Send the user message
+      // AW - inputBox contains the user's input text
+      // AW - context is maintained and sent to the Api.sendRequest function
       Api.sendRequest(inputBox.value, context);
 
       // Clear input box for further messages
