@@ -131,8 +131,10 @@ app.post( '/api/message', function(req, res) {
     else{
       payload.context = tone_detection.initUser();
     }
-    payload.context.time = "breakfast";
-    payload.context.timestamp = getTimeValue();
+    
+    var d = new Date();
+    payload.context.time =  getTimeValue();
+    payload.context.timestamp = moment(d.getTime()).format("HH:mm:ss");
     invokeToneConversation(payload, res);
   }
 });
@@ -221,16 +223,70 @@ function invokeToneConversation(payload, res)
  */
 function getTimeValue(){
   var d = new Date();
-  //var BREAKFAST_START = Date();
-  //var BREAKFAST_END = Date();
+  var time = d.getTime();
   var timeString = moment(d.getTime()).format("HH:mm:ss");
-  //localize the time, then convert to 
-  var localTime = timeString;
   //var breakfast = dates.inRange (d,start,end)
+  
+  const BREAKFAST_START = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 5,0,0,0);
+  const LUNCH_START = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11,0,0,0);
+  const DINNER_START = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17,0,0,0);
+  
+
+  if ( BREAKFAST_START.getTime() <= time && time < LUNCH_START.getTime() ){
+    console.log("breakfast");
+    timeString = "breakfast";
+  }
+  else if( LUNCH_START.getTime() <= time && time < DINNER_START.getTime() ){
+    console.log("lunch");
+    timeString = "lunch";
+  }
+  else if (DINNER_START.getTime() <= time || time < BREAKFAST_START.getTime()){
+    console.log("dinner");
+    timeString = "dinner";
+  }
+
+  
+  var test1 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 5,0,0,0);
+  var test2 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11,0,0,0);
+  var test3 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17,0,0,0);
+  console.log("current time is " + moment(d.getTime()).format("HH:mm:ss"));
+  console.log("breakfast start is " + moment(BREAKFAST_START.getTime()).format("HH:mm:ss"));
+  console.log("lunch start is " + moment(LUNCH_START.getTime()).format("HH:mm:ss"));
+  console.log("dinner start is " + moment(DINNER_START.getTime()).format("HH:mm:ss"));
+  console.log("test1: " + moment(test1.getTime()).format("HH:mm:ss"));
+  console.log("test1 meal: " + getMeal(test1) );
+  console.log("test2: " + moment(test2.getTime()).format("HH:mm:ss"));
+  console.log("test2 meal: " + getMeal(test2) );
+  console.log("test3: " + moment(test3.getTime()).format("HH:mm:ss"));
+  console.log("test3 meal: " + getMeal(test3) );
 
   return timeString;
 }
 
+function getMeal(d){
+  //var d = new Date();
+  var time = d.getTime();
+  var breakfastStart = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 5,0,0,0);
+  var lunchStart = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11,0,0,0);
+  var dinnerStart = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17,0,0,0);
+  
+  var meal = "";
+  if ( breakfastStart.getTime() <= time && time < lunchStart.getTime() ){
+    console.log("time is " + time);
+    console.log("breakfast");
+    meal = "breakfast";
+  }
+  else if( lunchStart.getTime() <= time && time < dinnerStart.getTime() ){
+    console.log("lunch");
+    meal = "lunch";
+  }
+  else if (dinnerStart.getTime() <= time || time < breakfastStart.getTime()) {
+    console.log("dinner");
+    meal = "dinner";
+  }
+  
+  return meal;
+}
 
 if ( cloudantUrl ) {
   // If logging has been enabled (as signalled by the presence of the cloudantUrl) then the
@@ -243,15 +299,15 @@ if ( cloudantUrl ) {
   // If the cloudantUrl has been configured then we will want to set up a nano client
   var nano = require( 'nano' )( cloudantUrl );
   // add a new API which allows us to retrieve the logs (note this is not secure)
-  nano.db.get( 'car_logs', function(err) {
+  nano.db.get( 'food_coach', function(err) {
     if ( err ) {
       console.error(err);
-      nano.db.create( 'car_logs', function(errCreate) {
+      nano.db.create( 'food_coach', function(errCreate) {
         console.error(errCreate);
-        logs = nano.db.use( 'car_logs' );
+        logs = nano.db.use( 'food_coach' );
       } );
     } else {
-      logs = nano.db.use( 'car_logs' );
+      logs = nano.db.use( 'food_coach' );
     }
   } );
 
@@ -266,6 +322,8 @@ if ( cloudantUrl ) {
   } );
 
   // Endpoint which allows conversation logs to be fetched
+  //csv - user input, conversation_id, timestamp
+  
   app.get( '/chats', auth, function(req, res) {
     logs.list( {include_docs: true, 'descending': true}, function(err, body) {
       console.error(err);
