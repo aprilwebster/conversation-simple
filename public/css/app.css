@@ -237,6 +237,11 @@ input:-moz-placeholder {
   margin-right: 0.5rem;
 }
 
+.appDescription {
+  text-align: center;
+  color: #B5B5B5;
+}
+
 #textInputDummy {
   position:absolute;
   white-space:pre;
