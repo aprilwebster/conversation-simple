@@ -75,9 +75,10 @@ function invokeToneAsync(conversationPayload, tone_analyzer) {
  * The conversationPayload json object is updated to include these tones.
  * @param conversationPayload json object returned by the Watson Conversation Service
  * @param toneAnalyzerPayload json object returned by the Watson Tone Analyzer Service
+ * @param maintainHistory set history for each user turn in the  history context variable
  * @returns conversationPayload where the user object has been updated with tone information from the toneAnalyzerPayload
  */
-function updateUserTone (conversationPayload, toneAnalyzerPayload) {
+function updateUserTone (conversationPayload, toneAnalyzerPayload, maintainHistory) {
 
   var emotionTone = null;
   var languageTone = null;
@@ -109,9 +110,9 @@ function updateUserTone (conversationPayload, toneAnalyzerPayload) {
           }
         });
 
-    updateEmotionTone(user, emotionTone);
-    updateLanguageTone(user, languageTone);
-    updateSocialTone(user, socialTone);
+    updateEmotionTone(user, emotionTone, maintainHistory);
+    updateLanguageTone(user, languageTone, maintainHistory);
+    updateSocialTone(user, socialTone, maintainHistory);
 
   }
 
@@ -131,16 +132,13 @@ function initUser() {
     'user': {
       'tone': {
         'emotion': {
-          'current': null,
-          'history': []
+          'current': null
         },
         'language': {
-          'current': null,
-          'history': []
+          'current': null
         },
         'social': {
-          'current': null,
-          'history': []
+          'current': null
         }
       }
     }
@@ -153,7 +151,7 @@ function initUser() {
  * @param user a json object representing user information (tone) to be used in conversing with the Conversation Service
  * @param emotionTone a json object containing the emotion tones in the payload returned by the Tone Analyzer
  */
-function updateEmotionTone(user, emotionTone) {
+function updateEmotionTone(user, emotionTone, maintainHistory) {
 
   var maxScore = 0.0;
   var primaryEmotion = null;
@@ -171,19 +169,20 @@ function updateEmotionTone(user, emotionTone) {
     primaryEmotion = 'neutral';
     primaryEmotionScore = null;
   }
-
-
-  if (typeof user.tone.emotion.history === 'undefined') {
-    user.tone.emotion.history = [];
-  }
-
   // update user emotion tone
   user.tone.emotion.current = primaryEmotion;
 
-  user.tone.emotion.history.push({
-    'tone_name': primaryEmotion,
-    'score': primaryEmotionScore
-  });
+  if(maintainHistory)
+  {
+   if (typeof user.tone.emotion.history === 'undefined') {
+     user.tone.emotion.history = [];
+   }
+   
+   user.tone.emotion.history.push({
+     'tone_name': primaryEmotion,
+     'score': primaryEmotionScore
+   });
+  }
 }
 
 
@@ -192,7 +191,7 @@ function updateEmotionTone(user, emotionTone) {
  * @param user a json object representing user information (tone) to be used in conversing with the Conversation Service
  * @param languageTone a json object containing the language tones in the payload returned by the Tone Analyzer
  */
-function updateLanguageTone(user, languageTone) {
+function updateLanguageTone(user, languageTone, maintainHistory) {
 
   var currentLanguage = [];
   var currentLanguageObject = [];
@@ -222,14 +221,18 @@ function updateLanguageTone(user, languageTone) {
       });
     }
   });
-
-  if (typeof user.tone.language.history === 'undefined') {
-    user.tone.language.history = [];
-  }
-
+  
   // update user language tone
   user.tone.language.current = currentLanguage;
-  user.tone.language.history.push(currentLanguageObject);
+
+  if(maintainHistory)
+  {
+   if (typeof user.tone.language.history === 'undefined') {
+     user.tone.language.history = [];
+   }
+
+   user.tone.language.history.push(currentLanguageObject);
+  }
 }
 
 
@@ -238,7 +241,7 @@ function updateLanguageTone(user, languageTone) {
  * @param user a json object representing user information (tone) to be used in conversing with the Conversation Service
  * @param socialTone a json object containing the social tones in the payload returned by the Tone Analyzer
  */
-function updateSocialTone(user, socialTone) {
+function updateSocialTone(user, socialTone, maintainHistory) {
 
   var currentSocial = [];
   var currentSocialObject = [];
@@ -270,12 +273,16 @@ function updateSocialTone(user, socialTone) {
     }
   });
 
-  if (typeof user.tone.social.history === 'undefined') {
-    user.tone.social.history = [];
-  }
-
   // update user social tone
   user.tone.social.current = currentSocial;
-  user.tone.social.history.push(currentSocialObject);
+  
+  if(maintainHistory)
+  {
+   if (typeof user.tone.social.history === 'undefined') {
+     user.tone.social.history = [];
+   }
+
+   user.tone.social.history.push(currentSocialObject);
+  }
 }
 

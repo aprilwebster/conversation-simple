@@ -157,6 +157,16 @@ var ConversationPanel = (function() {
   // Constructs new DOM element from a message payload
   function buildMessageDomElements(newPayload, isUser) {
     var textArray = isUser ? newPayload.input.text : newPayload.output.text;
+    var emotionClass = "top";
+    
+    if(newPayload.context)
+    {
+      var emotion = newPayload.context.user.tone.emotion.current;
+      if(emotion == "joy") emotionClass = "positive";
+      else if(emotion == "neutral") emotionClass = "top";
+      else emotionClass = "negative";
+    }
+
     if (Object.prototype.toString.call( textArray ) !== '[object Array]') {
       textArray = [textArray];
     }
@@ -172,7 +182,7 @@ var ConversationPanel = (function() {
             // <div class='from-user/from-watson latest'>
             'tagName': 'div',
             //AW - change colour of watson tag
-            'classNames': [(isUser ? 'from-user' : 'from-watson'), 'latest', ((messageArray.length === 0) ? 'top' : 'sub')],
+            'classNames': [(isUser ? 'from-user' : 'from-watson'), 'latest', ((messageArray.length === 0) ? emotionClass : 'sub')],
             'children': [{
               // <div class='message-inner'>
               'tagName': 'div',

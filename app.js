@@ -21,14 +21,12 @@ require( 'dotenv' ).config( {silent: true} );
 var express = require( 'express' );  // app server
 var bodyParser = require( 'body-parser' );  // parser for post requests
 var watson = require('watson-developer-cloud');
-var ConversationV1 = require('watson-developer-cloud/conversation/v1');
-var ToneAnalyzerV3 = require('watson-developer-cloud/tone-analyzer/v3');
+var maintainToneHistory = false;
 
 /**
  * @author April Webster
  * The following is required for tone detection
  */
-//var tone_detection = require("../node-sdk/examples/conversation_tone_analyzer_integration/tone_detection.js"); //required for tone detection
 var tone_detection = require("./addons/tone_detection.js"); //required for tone detection
 var Promise = require('bluebird'); //required for es6 promises
 var moment = require('moment'); //required for timestamps
@@ -61,46 +59,28 @@ app.use( bodyParser.json() );
  * Instantiate the Watson Conversation Service
  */
 
-var conversation = new ConversationV1({
+var conversation = new watson.conversation({
   username: process.env.CONVERSATION_USERNAME || '<conversation_username>',
   password: process.env.CONVERSATION_PASSWORD || '<conversation_password>',
-  version_date: '2016-07-11'
-});
-
-/*
-var conversation = watson.conversation( {
-  url: 'https://gateway.watsonplatform.net/conversation/api',
-  username: process.env.CONVERSATION_USERNAME || '<username>',
-  password: process.env.CONVERSATION_PASSWORD || '<password>',
   version_date: '2016-07-11',
   version: 'v1'
-} );
-*/
+});
+
 
 /**
  * Instantiate the Watson Tone Analyzer Service
  */
 
-var tone_analyzer = new ToneAnalyzerV3({
-  username: process.env.TONE_ANALYZER_USERNAME || '<tone_analyzer_username>',
-  password: process.env.TONE_ANALYZER_PASSWORD || '<tone_analyzer_password>',
-  version_date: '2016-05-19'
-});
-
-
-/*
-var tone_analyzer = watson.tone_analyzer( {
-  url: 'https://gateway.watsonplatform.net/tone_analyzer/api',
+var tone_analyzer = new watson.tone_analyzer({
   username: process.env.TONE_ANALYZER_USERNAME || '<tone_analyzer_username>',
   password: process.env.TONE_ANALYZER_PASSWORD || '<tone_analyzer_password>',
   version_date: '2016-05-19',
   version: 'v3'
-} );
-*/
+});
+
 
 // Endpoint to be called from the client side
 app.post( '/api/message', function(req, res) {
-  console.log("message endpoint called");
   var workspace = process.env.WORKSPACE_ID || '<workspace-id>';
   if ( !workspace || workspace === '<workspace-id>' ) {
     return res.json( {
@@ -122,7 +102,6 @@ app.post( '/api/message', function(req, res) {
   if ( req.body ) {
     if ( req.body.input ) {
       payload.input = req.body.input;
-      console.log("payload is " + JSON.stringify(payload,2,null));
 
     }
     if ( req.body.context ) {
@@ -146,7 +125,6 @@ app.post( '/api/message', function(req, res) {
  * @return {Object}          The response with the updated message
  */
 function updateMessage(input, response) {
-  console.log("CONVERSATION NEW: updateMessage called");
   
   var responseText = null;
   var id = null;
@@ -199,14 +177,13 @@ function invokeToneConversation(payload, res)
 {
   tone_detection.invokeToneAsync(payload,tone_analyzer)
   .then( (tone) => {
-    tone_detection.updateUserTone(payload, tone);
+    tone_detection.updateUserTone(payload, tone, maintainToneHistory);
     conversation.message(payload, function(err, data) {
       if (err) {
         console.error(JSON.stringify(err, null, 2));
         return res.status(err.code || 500).json(err);
       }
       else {
-        console.log(JSON.stringify(data, null, 2));
         return res.json( updateMessage( payload, data ) );
       }
     });
@@ -233,15 +210,12 @@ function getTimeValue(){
   
 
   if ( BREAKFAST_START.getTime() <= time && time < LUNCH_START.getTime() ){
-    console.log("breakfast");
     timeString = "breakfast";
   }
   else if( LUNCH_START.getTime() <= time && time < DINNER_START.getTime() ){
-    console.log("lunch");
     timeString = "lunch";
   }
   else if (DINNER_START.getTime() <= time || time < BREAKFAST_START.getTime()){
-    console.log("dinner");
     timeString = "dinner";
   }
 
@@ -249,16 +223,6 @@ function getTimeValue(){
   var test1 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 5,0,0,0);
   var test2 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11,0,0,0);
   var test3 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17,0,0,0);
-  console.log("current time is " + moment(d.getTime()).format("HH:mm:ss"));
-  console.log("breakfast start is " + moment(BREAKFAST_START.getTime()).format("HH:mm:ss"));
-  console.log("lunch start is " + moment(LUNCH_START.getTime()).format("HH:mm:ss"));
-  console.log("dinner start is " + moment(DINNER_START.getTime()).format("HH:mm:ss"));
-  console.log("test1: " + moment(test1.getTime()).format("HH:mm:ss"));
-  console.log("test1 meal: " + getMeal(test1) );
-  console.log("test2: " + moment(test2.getTime()).format("HH:mm:ss"));
-  console.log("test2 meal: " + getMeal(test2) );
-  console.log("test3: " + moment(test3.getTime()).format("HH:mm:ss"));
-  console.log("test3 meal: " + getMeal(test3) );
 
   return timeString;
 }
@@ -313,9 +277,9 @@ if ( cloudantUrl ) {
 
   // Endpoint which allows deletion of db
   app.post( '/clearDb', auth, function(req, res) {
-    nano.db.destroy( 'car_logs', function() {
-      nano.db.create( 'car_logs', function() {
-        logs = nano.db.use( 'car_logs' );
+    nano.db.destroy( 'food_coach', function() {
+      nano.db.create( 'food_coach', function() {
+        logs = nano.db.use( 'food_coach' );
       } );
     } );
     return res.json( {'message': 'Clearing db'} );

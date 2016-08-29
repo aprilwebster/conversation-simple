@@ -188,6 +188,32 @@ div {
   line-height: 1.3125rem;
 }
 
+.from-watson.latest.positive p:before {
+  content: ".";
+  color: #9855D4;
+  background-image: url("../img/marker_image_positive.png");
+  background-size: 0.3125rem 1.3125rem;
+  position: absolute;
+  z-index: 2;
+  left: 0.4375rem;
+  width: 0.3125rem;
+  height: 1.3125rem;
+  line-height: 1.3125rem;
+}
+
+.from-watson.latest.negative p:before {
+  content: ".";
+  color: #9855D4;
+  background-image: url("../img/marker_image_negative.png");
+  background-size: 0.3125rem 1.3125rem;
+  position: absolute;
+  z-index: 2;
+  left: 0.4375rem;
+  width: 0.3125rem;
+  height: 1.3125rem;
+  line-height: 1.3125rem;
+}
+
 #textInput {
   border: none;
   outline: none;
