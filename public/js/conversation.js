@@ -141,9 +141,8 @@ var ConversationPanel = (function() {
       // Move chat to the most recent messages when new messages are added
       scrollToChatBottom();
       var input = document.getElementById('textInput');
-      if (newPayload.context && newPayload.context.conversationEnd == true)
-      {
-	                                                                                input.disabled = 'disabled';
+      if (newPayload.context && newPayload.context.conversationEnd === true) {
+        input.disabled = 'disabled';
         input.value = ' ';
       }
     }
@@ -166,11 +165,10 @@ var ConversationPanel = (function() {
     var textArray = isUser ? newPayload.input.text : newPayload.output.text;
     var emotionClass = 'top';
 
-    if (newPayload.context)
-    {
+    if (newPayload.context) {
       var emotion = newPayload.context.user.tone.emotion.current;
-      if (emotion == 'joy') emotionClass = 'positive';
-      else if (emotion == 'neutral') emotionClass = 'top';
+      if (emotion === 'joy') emotionClass = 'positive';
+      else if (emotion === 'neutral') emotionClass = 'top';
       else emotionClass = 'negative';
     }
 
