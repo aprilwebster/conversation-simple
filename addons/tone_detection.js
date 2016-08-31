@@ -15,7 +15,7 @@
  */
 
 'use strict';
-/*eslint-env es6*/
+/* eslint-env es6*/
 
 var Promise = require('bluebird');
 
@@ -42,9 +42,9 @@ var SOCIAL_TONE_LABEL = 'social_tone';
  * Public functions for this module
  */
 module.exports = {
-    updateUserTone: updateUserTone,
-    invokeToneAsync: invokeToneAsync,
-    initUser: initUser
+  updateUserTone: updateUserTone,
+  invokeToneAsync: invokeToneAsync,
+  initUser: initUser
 };
 
 /**
@@ -56,13 +56,13 @@ module.exports = {
  */
 function invokeToneAsync(conversationPayload, tone_analyzer) {
   return new Promise(
-      function (resolve, reject){
+      function(resolve, reject) {
         tone_analyzer.tone(
             {text: conversationPayload.input.text},
             (error, data) => {
               if (error) {
                 reject(error);
-              }else {
+              } else {
                 resolve(data);
               }
             });
@@ -78,17 +78,16 @@ function invokeToneAsync(conversationPayload, tone_analyzer) {
  * @param maintainHistory set history for each user turn in the  history context variable
  * @returns conversationPayload where the user object has been updated with tone information from the toneAnalyzerPayload
  */
-function updateUserTone (conversationPayload, toneAnalyzerPayload, maintainHistory) {
-
+function updateUserTone(conversationPayload, toneAnalyzerPayload, maintainHistory) {
   var emotionTone = null;
   var languageTone = null;
   var socialTone = null;
 
-  if(typeof conversationPayload.context === 'undefined'){
+  if (typeof conversationPayload.context === 'undefined') {
     conversationPayload.context = {};
   }
 
-  if(typeof conversationPayload.context.user === 'undefined'){
+  if (typeof conversationPayload.context.user === 'undefined') {
     conversationPayload.context = initUser();
   }
 
@@ -113,7 +112,6 @@ function updateUserTone (conversationPayload, toneAnalyzerPayload, maintainHisto
     updateEmotionTone(user, emotionTone, maintainHistory);
     updateLanguageTone(user, languageTone, maintainHistory);
     updateSocialTone(user, socialTone, maintainHistory);
-
   }
 
   conversationPayload.context.user = user;
@@ -152,7 +150,6 @@ function initUser() {
  * @param emotionTone a json object containing the emotion tones in the payload returned by the Tone Analyzer
  */
 function updateEmotionTone(user, emotionTone, maintainHistory) {
-
   var maxScore = 0.0;
   var primaryEmotion = null;
   var primaryEmotionScore = null;
@@ -172,16 +169,16 @@ function updateEmotionTone(user, emotionTone, maintainHistory) {
   // update user emotion tone
   user.tone.emotion.current = primaryEmotion;
 
-  if(maintainHistory)
+  if (maintainHistory)
   {
-   if (typeof user.tone.emotion.history === 'undefined') {
-     user.tone.emotion.history = [];
-   }
-   
-   user.tone.emotion.history.push({
-     'tone_name': primaryEmotion,
-     'score': primaryEmotionScore
-   });
+    if (typeof user.tone.emotion.history === 'undefined') {
+      user.tone.emotion.history = [];
+    }
+
+    user.tone.emotion.history.push({
+      'tone_name': primaryEmotion,
+      'score': primaryEmotionScore
+    });
   }
 }
 
@@ -192,7 +189,6 @@ function updateEmotionTone(user, emotionTone, maintainHistory) {
  * @param languageTone a json object containing the language tones in the payload returned by the Tone Analyzer
  */
 function updateLanguageTone(user, languageTone, maintainHistory) {
-
   var currentLanguage = [];
   var currentLanguageObject = [];
 
@@ -221,17 +217,17 @@ function updateLanguageTone(user, languageTone, maintainHistory) {
       });
     }
   });
-  
+
   // update user language tone
   user.tone.language.current = currentLanguage;
 
-  if(maintainHistory)
+  if (maintainHistory)
   {
-   if (typeof user.tone.language.history === 'undefined') {
-     user.tone.language.history = [];
-   }
+    if (typeof user.tone.language.history === 'undefined') {
+      user.tone.language.history = [];
+    }
 
-   user.tone.language.history.push(currentLanguageObject);
+    user.tone.language.history.push(currentLanguageObject);
   }
 }
 
@@ -242,7 +238,6 @@ function updateLanguageTone(user, languageTone, maintainHistory) {
  * @param socialTone a json object containing the social tones in the payload returned by the Tone Analyzer
  */
 function updateSocialTone(user, socialTone, maintainHistory) {
-
   var currentSocial = [];
   var currentSocialObject = [];
 
@@ -275,14 +270,14 @@ function updateSocialTone(user, socialTone, maintainHistory) {
 
   // update user social tone
   user.tone.social.current = currentSocial;
-  
-  if(maintainHistory)
-  {
-   if (typeof user.tone.social.history === 'undefined') {
-     user.tone.social.history = [];
-   }
 
-   user.tone.social.history.push(currentSocialObject);
+  if (maintainHistory)
+  {
+    if (typeof user.tone.social.history === 'undefined') {
+      user.tone.social.history = [];
+    }
+
+    user.tone.social.history.push(currentSocialObject);
   }
 }
 

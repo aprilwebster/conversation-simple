@@ -27,9 +27,9 @@ var maintainToneHistory = false;
  * @author April Webster
  * The following is required for tone detection
  */
-var tone_detection = require("./addons/tone_detection.js"); //required for tone detection
-var Promise = require('bluebird'); //required for es6 promises
-var moment = require('moment'); //required for timestamps
+var tone_detection = require('./addons/tone_detection.js'); // required for tone detection
+var Promise = require('bluebird'); // required for es6 promises
+var moment = require('moment'); // required for timestamps
 
 
 // The following requires are needed for logging purposes
@@ -102,18 +102,17 @@ app.post( '/api/message', function(req, res) {
   if ( req.body ) {
     if ( req.body.input ) {
       payload.input = req.body.input;
-
     }
     if ( req.body.context ) {
       payload.context = req.body.context;
     }
-    else{
+    else {
       payload.context = tone_detection.initUser();
     }
-    
+
     var d = new Date();
     payload.context.time =  getTimeValue();
-    payload.context.timestamp = moment(d.getTime()).format("HH:mm:ss");
+    payload.context.timestamp = moment(d.getTime()).format('HH:mm:ss');
     invokeToneConversation(payload, res);
   }
 });
@@ -125,7 +124,6 @@ app.post( '/api/message', function(req, res) {
  * @return {Object}          The response with the updated message
  */
 function updateMessage(input, response) {
-  
   var responseText = null;
   var id = null;
   if ( !response.output ) {
@@ -175,7 +173,7 @@ function updateMessage(input, response) {
  */
 function invokeToneConversation(payload, res)
 {
-  tone_detection.invokeToneAsync(payload,tone_analyzer)
+  tone_detection.invokeToneAsync(payload, tone_analyzer)
   .then( (tone) => {
     tone_detection.updateUserTone(payload, tone, maintainToneHistory);
     conversation.message(payload, function(err, data) {
@@ -188,9 +186,9 @@ function invokeToneConversation(payload, res)
       }
     });
   })
-  .catch(function(err){
+  .catch(function(err) {
     console.log(JSON.stringify(err, null, 2));
-  })
+  });
 }
 
 /**
@@ -198,57 +196,57 @@ function invokeToneConversation(payload, res)
  * @returns
  * Quick function to get a timestamp - work in progress
  */
-function getTimeValue(){
+function getTimeValue() {
   var d = new Date();
   var time = d.getTime();
-  var timeString = moment(d.getTime()).format("HH:mm:ss");
-  //var breakfast = dates.inRange (d,start,end)
-  
-  const BREAKFAST_START = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 5,0,0,0);
-  const LUNCH_START = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11,0,0,0);
-  const DINNER_START = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17,0,0,0);
-  
+  var timeString = moment(d.getTime()).format('HH:mm:ss');
+  // var breakfast = dates.inRange (d,start,end)
 
-  if ( BREAKFAST_START.getTime() <= time && time < LUNCH_START.getTime() ){
-    timeString = "breakfast";
+  const BREAKFAST_START = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 5, 0, 0, 0);
+  const LUNCH_START = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11, 0, 0, 0);
+  const DINNER_START = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17, 0, 0, 0);
+
+
+  if ( BREAKFAST_START.getTime() <= time && time < LUNCH_START.getTime() ) {
+    timeString = 'breakfast';
   }
-  else if( LUNCH_START.getTime() <= time && time < DINNER_START.getTime() ){
-    timeString = "lunch";
+  else if ( LUNCH_START.getTime() <= time && time < DINNER_START.getTime() ) {
+    timeString = 'lunch';
   }
-  else if (DINNER_START.getTime() <= time || time < BREAKFAST_START.getTime()){
-    timeString = "dinner";
+  else if (DINNER_START.getTime() <= time || time < BREAKFAST_START.getTime()) {
+    timeString = 'dinner';
   }
 
-  
-  var test1 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 5,0,0,0);
-  var test2 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11,0,0,0);
-  var test3 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17,0,0,0);
+
+  var test1 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 5, 0, 0, 0);
+  var test2 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11, 0, 0, 0);
+  var test3 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17, 0, 0, 0);
 
   return timeString;
 }
 
-function getMeal(d){
-  //var d = new Date();
+function getMeal(d) {
+  // var d = new Date();
   var time = d.getTime();
-  var breakfastStart = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 5,0,0,0);
-  var lunchStart = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11,0,0,0);
-  var dinnerStart = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17,0,0,0);
-  
-  var meal = "";
-  if ( breakfastStart.getTime() <= time && time < lunchStart.getTime() ){
-    console.log("time is " + time);
-    console.log("breakfast");
-    meal = "breakfast";
+  var breakfastStart = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 5, 0, 0, 0);
+  var lunchStart = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11, 0, 0, 0);
+  var dinnerStart = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17, 0, 0, 0);
+
+  var meal = '';
+  if ( breakfastStart.getTime() <= time && time < lunchStart.getTime() ) {
+    console.log('time is ' + time);
+    console.log('breakfast');
+    meal = 'breakfast';
   }
-  else if( lunchStart.getTime() <= time && time < dinnerStart.getTime() ){
-    console.log("lunch");
-    meal = "lunch";
+  else if ( lunchStart.getTime() <= time && time < dinnerStart.getTime() ) {
+    console.log('lunch');
+    meal = 'lunch';
   }
   else if (dinnerStart.getTime() <= time || time < breakfastStart.getTime()) {
-    console.log("dinner");
-    meal = "dinner";
+    console.log('dinner');
+    meal = 'dinner';
   }
-  
+
   return meal;
 }
 
@@ -286,8 +284,8 @@ if ( cloudantUrl ) {
   } );
 
   // Endpoint which allows conversation logs to be fetched
-  //csv - user input, conversation_id, timestamp
-  
+  // csv - user input, conversation_id, timestamp
+
   app.get( '/chats', auth, function(req, res) {
     logs.list( {include_docs: true, 'descending': true}, function(err, body) {
       console.error(err);
@@ -343,9 +341,6 @@ if ( cloudantUrl ) {
     } );
   } );
 }
-
-
-
 
 
 module.exports = app;

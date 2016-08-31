@@ -26,7 +26,7 @@ var ConversationPanel = (function() {
   // Initialize the module
   function init() {
     chatUpdateSetup();
-    //Api.sendRequest( '', null );
+    // Api.sendRequest( '', null );
     Api.sendRequest( ' ', null );
     setupInputBox();
   }
@@ -108,7 +108,7 @@ var ConversationPanel = (function() {
     // Any time the input changes, or the window resizes, adjust the size of the input box
     input.addEventListener('input', adjustInput);
     window.addEventListener('resize', adjustInput);
-    
+
 
     // Trigger the input event once to set up the input box and dummy element
     Common.fireEvent(input, 'input');
@@ -141,14 +141,12 @@ var ConversationPanel = (function() {
       // Move chat to the most recent messages when new messages are added
       scrollToChatBottom();
       var input = document.getElementById('textInput');
-      if(newPayload.context && newPayload.context.conversationEnd == true)
+      if (newPayload.context && newPayload.context.conversationEnd == true)
       {
-	input.disabled = "disabled";
-        input.value = " ";
+	                                                                                input.disabled = 'disabled';
+        input.value = ' ';
       }
     }
-
-    
   }
 
   // Checks if the given typeValue matches with the user "name", the Watson "name", or neither
@@ -166,14 +164,14 @@ var ConversationPanel = (function() {
   // Constructs new DOM element from a message payload
   function buildMessageDomElements(newPayload, isUser) {
     var textArray = isUser ? newPayload.input.text : newPayload.output.text;
-    var emotionClass = "top";
-    
-    if(newPayload.context)
+    var emotionClass = 'top';
+
+    if (newPayload.context)
     {
       var emotion = newPayload.context.user.tone.emotion.current;
-      if(emotion == "joy") emotionClass = "positive";
-      else if(emotion == "neutral") emotionClass = "top";
-      else emotionClass = "negative";
+      if (emotion == 'joy') emotionClass = 'positive';
+      else if (emotion == 'neutral') emotionClass = 'top';
+      else emotionClass = 'negative';
     }
 
     if (Object.prototype.toString.call( textArray ) !== '[object Array]') {
@@ -190,7 +188,7 @@ var ConversationPanel = (function() {
           'children': [{
             // <div class='from-user/from-watson latest'>
             'tagName': 'div',
-            //AW - change colour of watson tag
+            // AW - change colour of watson tag
             'classNames': [(isUser ? 'from-user' : 'from-watson'), 'latest', ((messageArray.length === 0) ? emotionClass : 'sub')],
             'children': [{
               // <div class='message-inner'>
@@ -232,8 +230,8 @@ var ConversationPanel = (function() {
     // Submit on enter key, dis-allowing blank messages
     if (event.keyCode === 13 && inputBox.value) {
       // Retrieve the context from the previous server response
-      //var context = {};
-      //context.test = "TEST";
+      // var context = {};
+      // context.test = "TEST";
       var context;
       var latestResponse = Api.getResponsePayload();
       if (latestResponse) {
