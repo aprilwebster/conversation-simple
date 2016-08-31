@@ -1,2542 +1,1110 @@
 {
-	"name": "food_coach_workspace_v3.2",
-	"created": "2016-08-31T00:37:35.870Z",
-	"intents": 
-	[
-		{
-			"intent": "anything_else",
-			"created": "2016-08-31T00:37:35.870Z",
-			"examples": 
-			[
-				
-			],
-
-			"description": null
-		},
-
-		{
-			"intent": "conversation_start",
-			"created": "2016-08-31T00:37:35.870Z",
-			"examples": 
-			[
-				
-			],
-
-			"description": null
-		},
-
-		{
-			"intent": "help",
-			"created": "2016-08-31T00:37:35.870Z",
-			"examples": 
-			[
-				{
-					"text": "help",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I don't know what to do",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "please help",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "what can I do?",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "what can you do?",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "what should I type?",
-					"created": "2016-08-31T00:37:35.870Z"
-				}
-			],
-
-			"description": null
-		},
-
-		{
-			"intent": "no",
-			"created": "2016-08-31T00:37:35.870Z",
-			"examples": 
-			[
-				{
-					"text": "did not have it",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "had a heavy dinner so not hungry",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "had an apple but not a real breakfast",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "had a snack instead",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "had too much to eat",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "haven't had a chance",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I did not",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I didn't",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I didn't have anything",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I didn't have lunch yet",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I forgot!",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I forgot to have dinner",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I forgot to have lunch",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I haven't had a chance",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I lost track of time",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I've been too busy",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "no",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "no I didn't",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "no, I had a lunch meeting",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "no not yet",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "nope",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "not hungry",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "not yet",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "nuh uh",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "oops no",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "oops, no I haven't",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "sigh no",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "soon I hope",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "unfortunately no",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "unfortunately not",
-					"created": "2016-08-31T00:37:35.870Z"
-				}
-			],
-
-			"description": null
-		},
-
-		{
-			"intent": "unhealthy_foods",
-			"created": "2016-08-31T00:37:35.870Z",
-			"examples": 
-			[
-				{
-					"text": "list of foods that are not good for you",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "list of unhealthy foods?",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "What are some examples of unhealthy foods?",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "What would be an example of something that's bad for you?",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "What would be considered unhealthy?",
-					"created": "2016-08-31T00:37:35.870Z"
-				}
-			],
-
-			"description": null
-		},
-
-		{
-			"intent": "yes",
-			"created": "2016-08-31T00:37:35.870Z",
-			"examples": 
-			[
-				{
-					"text": "I ate",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I ate a lot, yes",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I ate a sandwich",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I did",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I did, yes",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I had",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I had a snack yes",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I had cereal",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I had oats and milk",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I had some",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I had some bacon",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I had some cereal",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I had some chicken and rice",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I had some toast",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "indeed",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "indeed!",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "I was good yes",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "thankfully yes!",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "uh huh",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "y",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "yeah",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "yeah, I ate lunch",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "yes",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "Yes I ate something",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "yes I had breakfast",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "yes I remembered to have lunch today",
-					"created": "2016-08-31T00:37:35.870Z"
-				},
-
-				{
-					"text": "yup",
-					"created": "2016-08-31T00:37:35.870Z"
-				}
-			],
-
-			"description": null
-		}
-	],
-
-	"entities": 
-	[
-		{
-			"entity": "food",
-			"values": 
-			[
-				{
-					"value": "bacon",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "bagel",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"bagels"
-					]
-				},
-
-				{
-					"value": "bread",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "burger",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"burgers"
-					]
-				},
-
-				{
-					"value": "burrito",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"burritos"
-					]
-				},
-
-				{
-					"value": "cake",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "candy",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"candies"
-					]
-				},
-
-				{
-					"value": "cereal",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "chips",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "chocolate",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "cinnamon roll",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"cinnamon bun",
-						"cinnamon buns",
-						"cinnamon rolls"
-					]
-				},
-
-				{
-					"value": "cookie",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"cookies"
-					]
-				},
-
-				{
-					"value": "croissant",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"croissants"
-					]
-				},
-
-				{
-					"value": "cronut",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"cronuts"
-					]
-				},
-
-				{
-					"value": "danish",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "donut",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"doughnut"
-					]
-				},
-
-				{
-					"value": "egg mcmuffin",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"egg sandwich"
-					]
-				},
-
-				{
-					"value": "eggs",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"egg",
-						"scramble"
-					]
-				},
-
-				{
-					"value": "french toast",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "fried chicken",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "fries",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "granola",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "grilled cheese",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "hashbrowns",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"hashbrown"
-					]
-				},
-
-				{
-					"value": "ice cream",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "latte",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "maple syrup",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"liquid gold"
-					]
-				},
-
-				{
-					"value": "milk",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "milkshake",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"milkshakes"
-					]
-				},
-
-				{
-					"value": "oatmeal",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "pancake",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"pancakes"
-					]
-				},
-
-				{
-					"value": "pizza",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "pop",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"soda"
-					]
-				},
-
-				{
-					"value": "porridge",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"pancakes"
-					]
-				},
-
-				{
-					"value": "quesadilla",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "sandwich",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "sausage",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"sausages"
-					]
-				},
-
-				{
-					"value": "soup",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "sticky bun",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"sticky buns"
-					]
-				},
-
-				{
-					"value": "strudel",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "toast",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "waffle",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"waffles"
-					]
-				},
-
-				{
-					"value": "yogurt",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"yoghurt"
-					]
-				}
-			],
-
-			"created": "2016-08-31T00:37:35.870Z",
-			"open_list": null,
-			"description": null
-		},
-
-		{
-			"entity": "healthy_food",
-			"values": 
-			[
-				{
-					"value": "fish",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "fruit",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"apple",
-						"banana"
-					]
-				},
-
-				{
-					"value": "vegetables",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				}
-			],
-
-			"created": "2016-08-31T00:37:35.870Z",
-			"open_list": false,
-			"description": null
-		},
-
-		{
-			"entity": "unhealthy_food",
-			"values": 
-			[
-				{
-					"value": "bacon",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "cake",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"cheesecake",
-						"chocolate cake",
-						"cupcake"
-					]
-				},
-
-				{
-					"value": "candy",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "chips",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"crisps",
-						"doritos",
-						"potato chips"
-					]
-				},
-
-				{
-					"value": "chocolate",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"chocolate bar"
-					]
-				},
-
-				{
-					"value": "cookies",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "cronut",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "donut",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"doughnut"
-					]
-				},
-
-				{
-					"value": "frappucino",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "fried chicken",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "fries",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"french fries"
-					]
-				},
-
-				{
-					"value": "ice cream",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "latte",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "maple syrup",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"liquid gold"
-					]
-				},
-
-				{
-					"value": "milkshake",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "pizza",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						
-					]
-				},
-
-				{
-					"value": "pop",
-					"created": "2016-08-31T00:37:35.870Z",
-					"metadata": null,
-					"synonyms": 
-					[
-						"coke",
-						"soda",
-						"sprite"
-					]
-				}
-			],
-
-			"created": "2016-08-31T00:37:35.870Z",
-			"open_list": false,
-			"description": null
-		}
-	],
-
+	"name": "food_coach_workspace_v3.3",
+	"created": "2016-08-31T16:54:46.662Z",
+	"intents": [{
+		"intent": "anything_else",
+		"created": "2016-08-31T16:54:46.662Z",
+		"examples": [],
+		"description": null
+	}, {
+		"intent": "conversation_start",
+		"created": "2016-08-31T16:54:46.662Z",
+		"examples": [],
+		"description": null
+	}, {
+		"intent": "help",
+		"created": "2016-08-31T16:54:46.662Z",
+		"examples": [{
+			"text": "help",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I don't know what to do",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "please help",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "what can I do?",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "what can you do?",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "what should I type?",
+			"created": "2016-08-31T16:54:46.662Z"
+		}],
+		"description": null
+	}, {
+		"intent": "no",
+		"created": "2016-08-31T16:54:46.662Z",
+		"examples": [{
+			"text": "did not have it",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "had a heavy dinner so not hungry",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "had an apple but not a real breakfast",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "had a snack instead",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "had too much to eat",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "haven't had a chance",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I did not",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I didn't",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I didn't have anything",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I didn't have lunch yet",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I forgot!",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I forgot to have dinner",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I forgot to have lunch",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I haven't had a chance",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I lost track of time",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I've been too busy",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "no",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "no I didn't",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "no, I had a lunch meeting",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "no not yet",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "nope",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "not hungry",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "not yet",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "nuh uh",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "oops no",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "oops, no I haven't",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "sigh no",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "soon I hope",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "unfortunately no",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "unfortunately not",
+			"created": "2016-08-31T16:54:46.662Z"
+		}],
+		"description": null
+	}, {
+		"intent": "unhealthy_foods",
+		"created": "2016-08-31T16:54:46.662Z",
+		"examples": [{
+			"text": "list of foods that are not good for you",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "list of unhealthy foods?",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "What are some examples of unhealthy foods?",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "What would be an example of something that's bad for you?",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "What would be considered unhealthy?",
+			"created": "2016-08-31T16:54:46.662Z"
+		}],
+		"description": null
+	}, {
+		"intent": "yes",
+		"created": "2016-08-31T16:54:46.662Z",
+		"examples": [{
+			"text": "I ate",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I ate a lot, yes",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I ate a sandwich",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I did",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I did, yes",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I had",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I had a snack yes",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I had cereal",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I had oats and milk",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I had some",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I had some bacon",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I had some cereal",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I had some chicken and rice",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I had some toast",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "indeed",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "indeed!",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "I was good yes",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "thankfully yes!",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "uh huh",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "y",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "yeah",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "yeah, I ate lunch",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "yes",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "Yes I ate something",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "yes I had breakfast",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "yes I remembered to have lunch today",
+			"created": "2016-08-31T16:54:46.662Z"
+		}, {
+			"text": "yup",
+			"created": "2016-08-31T16:54:46.662Z"
+		}],
+		"description": null
+	}],
+	"entities": [{
+		"entity": "food",
+		"values": [{
+			"value": "bacon",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "bagel",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["bagels"]
+		}, {
+			"value": "bread",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "burger",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["burgers"]
+		}, {
+			"value": "burrito",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["burritos"]
+		}, {
+			"value": "cake",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "candy",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["candies"]
+		}, {
+			"value": "cereal",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "chips",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "chocolate",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "cinnamon roll",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["cinnamon bun", "cinnamon buns", "cinnamon rolls"]
+		}, {
+			"value": "cookie",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["cookies"]
+		}, {
+			"value": "croissant",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["croissants"]
+		}, {
+			"value": "cronut",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["cronuts"]
+		}, {
+			"value": "danish",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "donut",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["doughnut"]
+		}, {
+			"value": "egg mcmuffin",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["egg sandwich"]
+		}, {
+			"value": "eggs",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["egg", "scramble"]
+		}, {
+			"value": "french toast",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "fried chicken",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "fries",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "granola",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "grilled cheese",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "hashbrowns",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["hashbrown"]
+		}, {
+			"value": "ice cream",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "latte",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "maple syrup",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["liquid gold"]
+		}, {
+			"value": "milk",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "milkshake",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["milkshakes"]
+		}, {
+			"value": "oatmeal",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "pancake",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["pancakes"]
+		}, {
+			"value": "pizza",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "pop",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["soda"]
+		}, {
+			"value": "porridge",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["pancakes"]
+		}, {
+			"value": "quesadilla",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "sandwich",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "sausage",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["sausages"]
+		}, {
+			"value": "soup",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "sticky bun",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["sticky buns"]
+		}, {
+			"value": "strudel",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "toast",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "waffle",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["waffles"]
+		}, {
+			"value": "yogurt",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["yoghurt"]
+		}],
+		"created": "2016-08-31T16:54:46.662Z",
+		"open_list": null,
+		"description": null
+	}, {
+		"entity": "healthy_food",
+		"values": [{
+			"value": "fish",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "fruit",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["apple", "banana"]
+		}, {
+			"value": "vegetables",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}],
+		"created": "2016-08-31T16:54:46.662Z",
+		"open_list": false,
+		"description": null
+	}, {
+		"entity": "unhealthy_food",
+		"values": [{
+			"value": "bacon",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "cake",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["cheesecake", "chocolate cake", "cupcake"]
+		}, {
+			"value": "candy",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "chips",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["crisps", "doritos", "potato chips"]
+		}, {
+			"value": "chocolate",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["chocolate bar"]
+		}, {
+			"value": "cookies",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "cronut",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "donut",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["doughnut"]
+		}, {
+			"value": "frappucino",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "fried chicken",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "fries",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["french fries"]
+		}, {
+			"value": "ice cream",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "latte",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "maple syrup",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["liquid gold"]
+		}, {
+			"value": "milkshake",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "pizza",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "pop",
+			"created": "2016-08-31T16:54:46.662Z",
+			"metadata": null,
+			"synonyms": ["coke", "soda", "sprite"]
+		}],
+		"created": "2016-08-31T16:54:46.662Z",
+		"open_list": false,
+		"description": null
+	}],
 	"language": "en",
 	"metadata": null,
-	"modified": "2016-08-31T06:04:29.236Z",
+	"modified": "2016-08-31T19:24:37.012Z",
 	"created_by": null,
 	"description": "A conversation coach for meal monitoring - ensure one eats regularly (meals, snacks), and makes healthy choices.",
 	"modified_by": null,
-	"dialog_nodes": 
-	[
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "\"Ahhh, you too answer to the call of the moose! :D  While it's fine to eat these foods in moderation, try to resist having them with EVERY meal!  I completely understand the urge, but you'll end up regretting it when you find yourself splitting your pants. :|\""
-			},
-
-			"parent": null,
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#yes && intents[0].confidence > 0.7 && @food:bacon && @food:(maple syrup)",
-			"description": null,
-			"dialog_node": "node_11_1472247589635",
-			"previous_sibling": "node_2_1472240789937"
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "<br>\nThis concludes the demo - <b>thank you for trying it out!</b>  if you'd like to explore other possible paths in the dialog tree, please vary your emotion and choice of food."
-			},
-
-			"parent": null,
-			"context": 
-			{
-				"conversationEnd": true
-			},
-
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "EXIT",
-			"description": null,
-			"dialog_node": "node_2_1471557599743",
-			"previous_sibling": "node_12_1471995877302"
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "Did you have $time yet?"
-			},
-
-			"parent": null,
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "conversation_start",
-			"description": null,
-			"dialog_node": "node_5_1470248758090",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "@food seems like a good choice - it's not on my current list of unhealthy foods.  How do you feel about what you ate?"
-			},
-
-			"parent": "node_14_1471567322890",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "@food && $user.tone.emotion.current == \"neutral\"",
-			"description": null,
-			"dialog_node": "node_17_1472591903720",
-			"previous_sibling": "node_16_1472591776896"
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "Hmm...@unhealthy_food.  How do you feel about that food choice?"
-			},
-
-			"parent": "node_8_1471394470103",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"neutral\"",
-			"description": null,
-			"dialog_node": "node_28_1471639334068",
-			"previous_sibling": "node_2_1472499024603"
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "Hmm...@unhealthy_food is probably not the healthiest choice.  How do you feel about what you ate?"
-			},
-
-			"parent": "node_14_1471567322890",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "@unhealthy_food && $user.tone.emotion.current == \"neutral\"",
-			"description": null,
-			"dialog_node": "node_7_1472512341593",
-			"previous_sibling": "node_13_1472591407534"
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "I'm sorry, I don't recognize anything in your input as a food item.  If you need any info on what's healthy versus unhealthy, this might be a good resource to start out with: http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/choose-choix/index-eng.php."
-			},
-
-			"parent": "node_9_1471567000467",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "true",
-			"description": null,
-			"dialog_node": "node_30_1472064304697",
-			"previous_sibling": "node_11_1471567120511"
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "I'm sorry.  I don't understand.  Can you try saying that in another way?"
-			},
-
-			"parent": null,
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "anything_else",
-			"description": null,
-			"dialog_node": "node_29_1469838197765",
-			"previous_sibling": "node_2_1471557599743"
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "Lol, you sound happy that you got some food.  What did you have?"
-			},
-
-			"parent": "node_16_1471462209846",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"joy\"",
-			"description": null,
-			"dialog_node": "node_13_1471567299358",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "Oh dear.  How do you feel about skipping meals?"
-			},
-
-			"parent": "node_9_1471394498445",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"neutral\"",
-			"description": null,
-			"dialog_node": "node_6_1471988794948",
-			"previous_sibling": "node_4_1471988397026"
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "Oh dear, you don't sound too happy.  What did you have?"
-			},
-
-			"parent": "node_16_1471462209846",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
-			"description": null,
-			"dialog_node": "node_9_1471567000467",
-			"previous_sibling": "node_13_1471567299358"
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "Oh, I see why you're not too happy! Eating @unhealthy_food is definitely not the best choice. ;)"
-			},
-
-			"parent": "node_9_1471567000467",
-			"context": 
-			{
-				"meal": 
-				{
-					"food": "<?entities.get('food')?>",
-					"type": "$time"
-				}
-			},
-
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "@unhealthy_food",
-			"description": null,
-			"dialog_node": "node_10_1471567097115",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "That doesn't seem bad!  At least nothing in your $time shows up on my list of unhealthy foods. ;)  If you're not happy because you overate, that's a different matter.  If you want more information on portion sizes, one resource that might be helpful is http://www.cnpp.usda.gov/sites/default/files/nutrition_insights_uploads/insight11.pdf."
-			},
-
-			"parent": "node_9_1471567000467",
-			"context": 
-			{
-				"meal": 
-				{
-					"food": "<?entities.get('food')?>",
-					"type": "$time"
-				}
-			},
-
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "@food",
-			"description": null,
-			"dialog_node": "node_11_1471567120511",
-			"previous_sibling": "node_10_1471567097115"
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "That seems like a healthy meal - at least nothing shows up on my list of unhealthy foods.  How do you feel about what you ate?"
-			},
-
-			"parent": "node_2_1471562391421",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"neutral\"",
-			"description": null,
-			"dialog_node": "node_25_1471631997760",
-			"previous_sibling": "node_24_1471631994993"
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "Things that are high in added sugar or salt, or are fried are generally not particularly good for you.  Think potato chips, soda, fries, fast food in general, donuts, ice cream, etc.  While it's alright to have these sorts of foods from time to time, in smaller quantities, you don't need to completely deprive yourself."
-			},
-
-			"parent": null,
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#unhealthy_foods && intents[0].confidenc > 0.7",
-			"description": null,
-			"dialog_node": "node_12_1471995877302",
-			"previous_sibling": "node_9_1471394498445"
-		},
-
-		{
-			"go_to": null,
-			"output": 
-			{
-				"text": "What did you have?"
-			},
-
-			"parent": "node_16_1471462209846",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"neutral\"",
-			"description": null,
-			"dialog_node": "node_14_1471567322890",
-			"previous_sibling": "node_9_1471567000467"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": "node_30_1472064304697",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "@acknowledgement",
-			"description": null,
-			"dialog_node": "node_31_1472064549788",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": ""
-			},
-
-			"parent": "node_10_1471567097115",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "@acknowledgement",
-			"description": null,
-			"dialog_node": "node_32_1471640796058",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": ""
-			},
-
-			"parent": "node_11_1471567120511",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "@acknowledgement",
-			"description": null,
-			"dialog_node": "node_37_1471648305552",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Don't worry!  Eating something unhealthy from time to time is okay.  It's only a problem if you make a habit of it.  Don't let it put you off track for the rest of the day! :)"
-			},
-
-			"parent": "node_28_1471639334068",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
-			"description": null,
-			"dialog_node": "node_2_1471909667308",
-			"previous_sibling": "node_1_1471909423393"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Good, good.  Keep at it!"
-			},
-
-			"parent": "node_25_1471631997760",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"joy\"",
-			"description": null,
-			"dialog_node": "node_24_1472062523020",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Good work!  Understandable that you feel good about eating @food - it seems like a relatively good choice.  Keep it up!"
-			},
-
-			"parent": "node_2_1471562391421",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"joy\"",
-			"description": null,
-			"dialog_node": "node_23_1471567843172",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Hahaha!  Eating something unhealthy is okay once in a while, but if you make a habit of it, don't be surprised if you find you can't fit into your jeans any more! ;)"
-			},
-
-			"parent": "node_28_1471639334068",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"joy\"",
-			"description": null,
-			"dialog_node": "node_1_1471909423393",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Hahaha!  You seem happy about eating @unhealthy_food, but  it's not the best choice.  Once in a while is ok, but if you eat @unhealthy_food too often you'll need to think about getting some pants with an elastic waistband!"
-			},
-
-			"parent": "node_8_1471394470103",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"joy\"",
-			"description": null,
-			"dialog_node": "node_19_1471567658160",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Hmm.  I'm sorry you don't feel very good about that meal.  If you feel you overate, that's a different matter.  For more information on portions sizes, you can try <a href=\"http://www.cnpp.usda.gov/sites/default/files/nutrition_insights_uploads/insight11.pdf\">Nutrition insights info</a>."
-			},
-
-			"parent": "node_25_1471631997760",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"fear\" || $user.tone.emotion.current == \"disgust\"",
-			"description": null,
-			"dialog_node": "node_26_1472062571307",
-			"previous_sibling": "node_24_1472062523020"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Hmmm.  I'm not entirely sure why you might be unhappy with your food choices.  Nothing on your list appears on my list of unhealthy foods.  However, it's incomplete.  If you need any info on what's healthy versus unhealthy, this might be a good resource to start out with <a href= \"http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/choose-choix/index-eng.php\">Canada's Food Guide</a>."
-			},
-
-			"parent": "node_14_1471567322890",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "@food && $user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
-			"description": null,
-			"dialog_node": "node_16_1472591776896",
-			"previous_sibling": "node_21_1471567777772"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Hmmm.  I'm not entirely sure why you might be unhappy with your food choices.  Nothing on your list appears on my list of unhealthy foods.  However, it's incomplete.  If you need any info on what's healthy versus unhealthy, this might be a good resource to start out with <a href= \"http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/choose-choix/index-eng.php\">Canada's Food Guide</a>."
-			},
-
-			"parent": "node_17_1472591903720",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
-			"description": null,
-			"dialog_node": "node_21_1472595736144",
-			"previous_sibling": "node_20_1472595623381"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "I'm sorry, I don't recognize anything in your input as food!  If you need any info on what's healthy versus unhealthy, this might be a good resource to start with <a href= \"http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/choose-choix/index-eng.php\">Canada's Food Guide</a>."
-			},
-
-			"parent": "node_13_1471567299358",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "true",
-			"description": null,
-			"dialog_node": "node_33_1472064593883",
-			"previous_sibling": "node_16_1471567376579"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "It seems you aren't too bothered by the choice.  I assume this is something you don't do on a regular basis, or perhaps you don't care much.  Anyhow, if you're concerned about health, @unhealthy_food is something that should be eaten only in moderation. :)"
-			},
-
-			"parent": "node_7_1472512341593",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"neutral\"",
-			"description": null,
-			"dialog_node": "node_10_1472590827713",
-			"previous_sibling": "node_9_1472590769657"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "It's good that you had a meal, but you should think about avoiding @unhealthy_food.  Maybe try some kale instead... ;)"
-			},
-
-			"parent": "node_13_1471567299358",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "@unhealthy_food",
-			"description": null,
-			"dialog_node": "node_15_1471567364804",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Mmm.  I feel your pain.  Skipping meals is not fun.  Hunger pangs are overrated.  Try to get something healthy to eat as soon as you can!"
-			},
-
-			"parent": "node_6_1471988794948",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
-			"description": null,
-			"dialog_node": "node_10_1471995750417",
-			"previous_sibling": "node_9_1471995740654"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Mmm.  I feel your pain.  Skipping meals is not fun.  Hunger pangs are overrated.  Try to get something healthy to eat as soon as you can!"
-			},
-
-			"parent": "node_9_1471394498445",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
-			"description": null,
-			"dialog_node": "node_4_1471988397026",
-			"previous_sibling": "node_18_1471567581875"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Oops!  I can understand why you aren't happy.  All is not lost - just do your best to make healthier choices for the rest of the day. :) [#yes, #unhealthy_food, sad tone]"
-			},
-
-			"parent": "node_8_1471394470103",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
-			"description": null,
-			"dialog_node": "node_2_1472499024603",
-			"previous_sibling": "node_19_1471567658160"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "That seems like a healthy meal - at least nothing shows up on my list of unhealthy foods. ;)  If you feel you overate, that's a different matter.  If you want more information on portions sizes, one resource that might be helpful is <a href=\"http://www.cnpp.usda.gov/sites/default/files/nutrition_insights_uploads/insight11.pdf\">Nutrition insights info</a>"
-			},
-
-			"parent": "node_2_1471562391421",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"fear\" || $user.tone.emotion.current == \"disgust\"",
-			"description": null,
-			"dialog_node": "node_24_1471631994993",
-			"previous_sibling": "node_23_1471567843172"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "That seems like a relatively good meal!  At least you didn't have anything on my list of unhealthy foods. ;)  Good work."
-			},
-
-			"parent": "node_13_1471567299358",
-			"context": 
-			{
-				"meal": 
-				{
-					"food": "<?entities.get('food')?>",
-					"type": "$time"
-				}
-			},
-
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "@food",
-			"description": null,
-			"dialog_node": "node_16_1471567376579",
-			"previous_sibling": "node_15_1471567364804"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Unrepenting!  I get that @unhealthy_food can taste great, but it's not something you want should eat on a regular basis. ;)"
-			},
-
-			"parent": "node_7_1472512341593",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"joy\"",
-			"description": null,
-			"dialog_node": "node_8_1472590746914",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Unrepenting!  Not the healthiest choice.  Be careful it's not something you eat on a regular basis. ;)"
-			},
-
-			"parent": "node_14_1471567322890",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "@unhealthy_food && $user.tone.emotion.current == \"joy\"",
-			"description": null,
-			"dialog_node": "node_17_1471567491421",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Well, you don't appear to be too concerned about it. ;)  It's not the healthiest choice.  Try not to make a habit of it though, unless you don't mind tight pants!"
-			},
-
-			"parent": "node_28_1471639334068",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"neutral\"",
-			"description": null,
-			"dialog_node": "node_3_1471911508325",
-			"previous_sibling": "node_2_1471909667308"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Yes, it's not the best choice, but it's okay to have something unhealthy from time to time.  Everything in moderation!"
-			},
-
-			"parent": "node_14_1471567322890",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "@unhealthy_food && $user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
-			"description": null,
-			"dialog_node": "node_13_1472591407534",
-			"previous_sibling": "node_17_1471567491421"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "Yes, it's not the best choice, but it's okay to have something unhealthy from time to time.  Everything in moderation!"
-			},
-
-			"parent": "node_7_1472512341593",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
-			"description": null,
-			"dialog_node": "node_9_1472590769657",
-			"previous_sibling": "node_8_1472590746914"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "You seem happy that you missed out on $time!  Why??  Food is wonderful. :)  Try not to make a habit of it.  Skipping meals can backfire horribly. ;)"
-			},
-
-			"parent": "node_6_1471988794948",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"joy\"",
-			"description": null,
-			"dialog_node": "node_9_1471995740654",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "You seem happy that you missed out on $time!  Why??  Food is wonderful. :)  Try not to make a habit of it.  Skipping meals can backfire horribly. ;)"
-			},
-
-			"parent": "node_9_1471394498445",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"joy\"",
-			"description": null,
-			"dialog_node": "node_18_1471567581875",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "You seem happy with what you ate, and it seems like a relatively healthy meal.  At least you didn't have anything on my list of unhealthy foods. :)  Keep up the good work!"
-			},
-
-			"parent": "node_14_1471567322890",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "@food && $user.tone.emotion.current == \"joy\"",
-			"description": null,
-			"dialog_node": "node_21_1471567777772",
-			"previous_sibling": "node_7_1472512341593"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "You seem neither happy nor unhappy. :)"
-			},
-
-			"parent": "node_25_1471631997760",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"neutral\"",
-			"description": null,
-			"dialog_node": "node_28_1472062677862",
-			"previous_sibling": "node_26_1472062571307"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "You seem relatively happy. :)  Keep up the good work!"
-			},
-
-			"parent": "node_17_1472591903720",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"joy\"",
-			"description": null,
-			"dialog_node": "node_20_1472595623381",
-			"previous_sibling": null
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": "You seem relatively neutral about your choices.  You're doing a good job, keep it up!"
-			},
-
-			"parent": "node_17_1472591903720",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"neutral\"",
-			"description": null,
-			"dialog_node": "node_22_1472595811350",
-			"previous_sibling": "node_21_1472595736144"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1471557599743"
-			},
-
-			"output": 
-			{
-				"text": 
-				{
-					"values": 
-					[
-						"It's best if you don't skip meals.  Grab something healthy to eat as soon as you can!",
-						"Tsk tsk!  Eating regularly is important.  If your blood sugar drops, your ability to make good choices flies out the window.",
-						"Eat something healthy soon!  You don't want to find yourself reaching for a Luther burger! :|",
-						"Ohhh dear.  If you skip meals, you might find yourself in the In N' Out drive-thru ordering a large animal style fries, a huge milkshake and a 4 x 4.  It might seem like a great idea at the time.  It really isn't. ;)"
-					],
-
-					"selection_policy": "random"
-				}
-			},
-
-			"parent": "node_6_1471988794948",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"neutral\"",
-			"description": null,
-			"dialog_node": "node_11_1471995753947",
-			"previous_sibling": "node_10_1471995750417"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1472240789937"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": "node_13_1471567299358",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#help",
-			"description": null,
-			"dialog_node": "node_10_1472247486998",
-			"previous_sibling": "node_33_1472064593883"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1472240789937"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": "node_14_1471567322890",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#help",
-			"description": null,
-			"dialog_node": "node_8_1472247383513",
-			"previous_sibling": "node_17_1472591903720"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1472240789937"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": "node_16_1471462209846",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#help",
-			"description": null,
-			"dialog_node": "node_7_1472246971400",
-			"previous_sibling": "node_14_1471567322890"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1472240789937"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": "node_17_1472591903720",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#help",
-			"description": null,
-			"dialog_node": "node_23_1472595915897",
-			"previous_sibling": "node_22_1472595811350"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1472240789937"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": "node_2_1471562391421",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#help",
-			"description": null,
-			"dialog_node": "node_5_1472246896142",
-			"previous_sibling": "node_25_1471631997760"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1472240789937"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": "node_25_1471631997760",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#help",
-			"description": null,
-			"dialog_node": "node_6_1472246937486",
-			"previous_sibling": "node_28_1472062677862"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1472240789937"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": "node_28_1471639334068",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#help",
-			"description": null,
-			"dialog_node": "node_4_1472246856876",
-			"previous_sibling": "node_3_1471911508325"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1472240789937"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": "node_6_1471988794948",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#help",
-			"description": null,
-			"dialog_node": "node_4_1472499492814",
-			"previous_sibling": "node_11_1471995753947"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1472240789937"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": "node_7_1472512341593",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#help",
-			"description": null,
-			"dialog_node": "node_12_1472590948716",
-			"previous_sibling": "node_10_1472590827713"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1472240789937"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": "node_8_1471394470103",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#help",
-			"description": null,
-			"dialog_node": "node_3_1472246808493",
-			"previous_sibling": "node_28_1471639334068"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1472240789937"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": "node_9_1471394498445",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#help",
-			"description": null,
-			"dialog_node": "node_9_1472247409386",
-			"previous_sibling": "node_6_1471988794948"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_2_1472240789937"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": "node_9_1471567000467",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#help",
-			"description": null,
-			"dialog_node": "node_19_1472592962544",
-			"previous_sibling": "node_30_1472064304697"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_5_1470248758090"
-			},
-
-			"output": 
-			{
-				"text": "I'm sorry, I don't recognize anything in your input as a food item.  Please try again."
-			},
-
-			"parent": "node_14_1471567322890",
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "true",
-			"description": null,
-			"dialog_node": "node_35_1472064623194",
-			"previous_sibling": "node_8_1472247383513"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "body",
-				"dialog_node": "node_5_1470248758090"
-			},
-
-			"output": 
-			{
-				"text": "You are being redirected to the start of the dialog.  Sample responses: <ul>\n<li>No, I've been too busy to have lunch! :( </li>\n<li>yes I had some pancakes and lots of bacon! :D  Life is good.</li>\n<li>Ugh, I completely forgot.  Oops.</li>\n</ul>"
-			},
-
-			"parent": null,
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#help",
-			"description": null,
-			"dialog_node": "node_2_1472240789937",
-			"previous_sibling": "node_5_1470248758090"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "condition",
-				"dialog_node": "node_18_1471567581875"
-			},
-
-			"output": 
-			{
-				"text": ""
-			},
-
-			"parent": null,
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#no && intents[0].confidence > 0.7",
-			"description": null,
-			"dialog_node": "node_9_1471394498445",
-			"previous_sibling": "node_16_1471462209846"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "condition",
-				"dialog_node": "node_19_1471567658160"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": null,
-			"context": 
-			{
-				"meal": 
-				{
-					"food": "<?entities.get('food')?>",
-					"type": "$time"
-				}
-			},
-
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#yes && intents[0].confidence > 0.7 && @unhealthy_food",
-			"description": null,
-			"dialog_node": "node_8_1471394470103",
-			"previous_sibling": "node_11_1472247589635"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "condition",
-				"dialog_node": "node_23_1471567843172"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": null,
-			"context": 
-			{
-				"meal": 
-				{
-					"food": "<?entities.get('food')?>",
-					"type": "$time"
-				}
-			},
-
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#yes && intents[0].confidence > 0.7 && @food",
-			"description": null,
-			"dialog_node": "node_2_1471562391421",
-			"previous_sibling": "node_8_1471394470103"
-		},
-
-		{
-			"go_to": 
-			{
-				"return": null,
-				"selector": "condition",
-				"dialog_node": "node_9_1471567000467"
-			},
-
-			"output": 
-			{
-				
-			},
-
-			"parent": null,
-			"context": null,
-			"created": "2016-08-31T00:37:35.870Z",
-			"metadata": null,
-			"conditions": "#yes && intents[0].confidence > 0.7",
-			"description": null,
-			"dialog_node": "node_16_1471462209846",
-			"previous_sibling": "node_2_1471562391421"
-		}
-	],
-
-	"workspace_id": "<WORKSPACE_ID"
+	"dialog_nodes": [{
+		"go_to": null,
+		"output": null,
+		"parent": "node_5_1470248758090",
+		"context": null,
+		"created": "2016-08-31T17:00:43.647Z",
+		"metadata": null,
+		"conditions": null,
+		"description": null,
+		"dialog_node": "node_1_1472662842845",
+		"previous_sibling": null
+	}, {
+		"go_to": null,
+		"output": {
+			"text": "<br>\nThis concludes the demo - <b>thank you for trying it out!</b>  if you'd like to explore other possible paths in the dialog tree, please vary your emotion and choice of food."
+		},
+		"parent": null,
+		"context": {
+			"conversationEnd": true
+		},
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "EXIT",
+		"description": null,
+		"dialog_node": "node_2_1471557599743",
+		"previous_sibling": "node_9_1471394498445"
+	}, {
+		"go_to": null,
+		"output": {
+			"text": "Did you have $time yet?"
+		},
+		"parent": null,
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "conversation_start",
+		"description": null,
+		"dialog_node": "node_5_1470248758090",
+		"previous_sibling": null
+	}, {
+		"go_to": null,
+		"output": {
+			"text": "@food seems like a good choice - it's not on my current list of unhealthy foods.  How do you feel about what you ate?"
+		},
+		"parent": "node_16_1471462209846",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "@food",
+		"description": null,
+		"dialog_node": "node_17_1472591903720",
+		"previous_sibling": "node_7_1472512341593"
+	}, {
+		"go_to": null,
+		"output": {
+			"text": "Hmm...@unhealthy_food.  How do you feel about that food choice?"
+		},
+		"parent": null,
+		"context": null,
+		"created": "2016-08-31T17:42:15.863Z",
+		"metadata": null,
+		"conditions": "#yes && @unhealthy_food",
+		"description": null,
+		"dialog_node": "node_3_1472665334598",
+		"previous_sibling": "node_2_1472240789937"
+	}, {
+		"go_to": null,
+		"output": {
+			"text": "Hmm...@unhealthy_food is probably not the healthiest choice.  How do you feel about what you ate?"
+		},
+		"parent": "node_16_1471462209846",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "@unhealthy_food",
+		"description": null,
+		"dialog_node": "node_7_1472512341593",
+		"previous_sibling": "node_7_1472246971400"
+	}, {
+		"go_to": null,
+		"output": {
+			"text": "I'm sorry.  I don't understand.  Can you try saying that in another way?"
+		},
+		"parent": null,
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "anything_else",
+		"description": null,
+		"dialog_node": "node_29_1469838197765",
+		"previous_sibling": "node_2_1471557599743"
+	}, {
+		"go_to": null,
+		"output": {
+			"text": "Oh dear.  How do you feel about skipping meals?"
+		},
+		"parent": null,
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "#no",
+		"description": null,
+		"dialog_node": "node_9_1471394498445",
+		"previous_sibling": "node_16_1471462209846"
+	}, {
+		"go_to": null,
+		"output": {
+			"text": "That seems like a healthy meal - at least nothing shows up on my list of unhealthy foods.  How do you feel about what you ate?"
+		},
+		"parent": null,
+		"context": {
+			"meal": {
+				"food": "<?entities.get('food')?>",
+				"type": "$time"
+			}
+		},
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "#yes && @food",
+		"description": null,
+		"dialog_node": "node_2_1471562391421",
+		"previous_sibling": "node_3_1472665334598"
+	}, {
+		"go_to": null,
+		"output": {
+			"text": "What did you have?"
+		},
+		"parent": null,
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "#yes",
+		"description": null,
+		"dialog_node": "node_16_1471462209846",
+		"previous_sibling": "node_2_1471562391421"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_16_1471462209846"
+		},
+		"output": {
+			"text": "I'm sorry, I don't recognize anything in your input as a food item. I am still learning. Some food items I understand are, sandwich, bacon, cola. Let's try again."
+		},
+		"parent": "node_16_1471462209846",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "true",
+		"description": null,
+		"dialog_node": "node_35_1472064623194",
+		"previous_sibling": "node_17_1472591903720"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_16_1471462209846"
+		},
+		"output": {
+			"text": "<ul>\n<li>I had bacon.</li>\n<li>I had a sandwich</li>\n<li>Sandwich and soda</li>\n</ul>"
+		},
+		"parent": "node_16_1471462209846",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "#help",
+		"description": null,
+		"dialog_node": "node_7_1472246971400",
+		"previous_sibling": null
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_17_1472591903720"
+		},
+		"output": {
+			"text": "<ul>\n<li>Satisfied !</li>\n<li>Somewhat guilty :(</li>\n<li>Are you kidding me, this is not healthy !!!</li>\n</ul>"
+		},
+		"parent": "node_17_1472591903720",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "#help",
+		"description": null,
+		"dialog_node": "node_23_1472595915897",
+		"previous_sibling": null
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "Don't worry!  Eating something unhealthy from time to time is okay.  It's only a problem if you make a habit of it.  Don't let it put you off track for the rest of the day! :)"
+		},
+		"parent": "node_3_1472665334598",
+		"context": null,
+		"created": "2016-08-31T17:43:33.905Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"fear\" || $user.tone.emotion.current == \"disgust\"",
+		"description": null,
+		"dialog_node": "node_5_1472665413763",
+		"previous_sibling": "node_4_1472665366645"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "Good, good.  Keep at it!"
+		},
+		"parent": "node_2_1471562391421",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"joy\"",
+		"description": null,
+		"dialog_node": "node_24_1472062523020",
+		"previous_sibling": "node_5_1472246896142"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "Hmm.  I'm sorry you don't feel very good about that meal.  Hope you are more satisfied in your other meal choices :)"
+		},
+		"parent": "node_2_1471562391421",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"fear\" || $user.tone.emotion.current == \"disgust\"",
+		"description": null,
+		"dialog_node": "node_26_1472062571307",
+		"previous_sibling": "node_24_1472062523020"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "Hmmm.  I'm not entirely sure why you might be unhappy with your food choices.  Nothing on your list appears on my list of unhealthy foods.  However, it's incomplete.  If you need any info on what's healthy versus unhealthy, this might be a good resource to start out with <a href= \"http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/choose-choix/index-eng.php\">Canada's Food Guide</a>."
+		},
+		"parent": "node_17_1472591903720",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
+		"description": null,
+		"dialog_node": "node_21_1472595736144",
+		"previous_sibling": "node_20_1472595623381"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "It seems you aren't too bothered by the choice.  I assume this is something you don't do on a regular basis, or perhaps you don't care much.  Anyhow, if you're concerned about health, @unhealthy_food is something that should be eaten only in moderation. :)"
+		},
+		"parent": "node_7_1472512341593",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"neutral\"",
+		"description": null,
+		"dialog_node": "node_10_1472590827713",
+		"previous_sibling": "node_9_1472590769657"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "Mmm.  I feel your pain.  Skipping meals is not fun.  Hunger pangs are overrated.  Try to get something healthy to eat as soon as you can!"
+		},
+		"parent": "node_9_1471394498445",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
+		"description": null,
+		"dialog_node": "node_10_1471995750417",
+		"previous_sibling": "node_9_1471995740654"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "Unrepenting!  I get that @unhealthy_food can taste great, but it's not something you want should eat on a regular basis. ;)"
+		},
+		"parent": "node_7_1472512341593",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"joy\"",
+		"description": null,
+		"dialog_node": "node_8_1472590746914",
+		"previous_sibling": "node_12_1472590948716"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "Well, you don't appear to be too concerned about it. ;)  It's not the healthiest choice.  Try not to make a habit of it though, unless you don't mind tight pants!"
+		},
+		"parent": "node_3_1472665334598",
+		"context": null,
+		"created": "2016-08-31T17:45:33.260Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"neutral\"",
+		"description": null,
+		"dialog_node": "node_6_1472665533113",
+		"previous_sibling": "node_5_1472665413763"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "Yes, it's not the best choice, but it's okay to have something unhealthy from time to time.  Everything in moderation!"
+		},
+		"parent": "node_7_1472512341593",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
+		"description": null,
+		"dialog_node": "node_9_1472590769657",
+		"previous_sibling": "node_8_1472590746914"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "You seem happy that you missed out on $time!  Why??  Food is wonderful. :)  Try not to make a habit of it.  Skipping meals can backfire horribly. ;)"
+		},
+		"parent": "node_9_1471394498445",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"joy\"",
+		"description": null,
+		"dialog_node": "node_9_1471995740654",
+		"previous_sibling": "node_9_1472247409386"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "You seem neither happy nor unhappy. :)"
+		},
+		"parent": "node_2_1471562391421",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"neutral\"",
+		"description": null,
+		"dialog_node": "node_28_1472062677862",
+		"previous_sibling": "node_26_1472062571307"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "You seem relatively happy. :)  Keep up the good work!"
+		},
+		"parent": "node_17_1472591903720",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"joy\"",
+		"description": null,
+		"dialog_node": "node_20_1472595623381",
+		"previous_sibling": "node_23_1472595915897"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "You seem relatively neutral about your choices.  You're doing a good job, keep it up!"
+		},
+		"parent": "node_17_1472591903720",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"neutral\"",
+		"description": null,
+		"dialog_node": "node_22_1472595811350",
+		"previous_sibling": "node_21_1472595736144"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": {
+				"values": ["It's best if you don't skip meals.  Grab something healthy to eat as soon as you can!", "Tsk tsk!  Eating regularly is important.  If your blood sugar drops, your ability to make good choices flies out the window.", "Eat something healthy soon!  You don't want to find yourself reaching for a Luther burger! :|", "Ohhh dear.  If you skip meals, you might find yourself in the In N' Out drive-thru ordering a large animal style fries, a huge milkshake and a 4 x 4.  It might seem like a great idea at the time.  It really isn't. ;)"],
+				"selection_policy": "random"
+			}
+		},
+		"parent": "node_9_1471394498445",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"neutral\"",
+		"description": null,
+		"dialog_node": "node_11_1471995753947",
+		"previous_sibling": "node_10_1471995750417"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471562391421"
+		},
+		"output": {
+			"text": "<ul>\n<li>Satisfied !</li>\n<li>Somewhat guilty :(</li>\n<li>Are you kidding me, this is not healthy !!!</li>\n</ul>"
+		},
+		"parent": "node_2_1471562391421",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "#help",
+		"description": null,
+		"dialog_node": "node_5_1472246896142",
+		"previous_sibling": null
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_3_1472665334598"
+		},
+		"output": {
+			"text": "Hahaha!  Eating something unhealthy is okay once in a while, but if you make a habit of it, don't be surprised if you find you can't fit into your jeans any more! ;)"
+		},
+		"parent": "node_3_1472665334598",
+		"context": null,
+		"created": "2016-08-31T17:42:46.793Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"joy\"",
+		"description": null,
+		"dialog_node": "node_4_1472665366645",
+		"previous_sibling": "node_7_1472665570766"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_3_1472665334598"
+		},
+		"output": {
+			"text": "<ul>\n<li> Guilty :) </li>\n<li> Not good at all </li>\n<li> Terrible ! </li>\n<li> Guilty :( I am afraid I will bloat up. Never stick to my diet plans.</li>\n<li>Frustrated that I am not able to resist temptations !</li>\n</ul>"
+		},
+		"parent": "node_3_1472665334598",
+		"context": null,
+		"created": "2016-08-31T17:46:10.886Z",
+		"metadata": null,
+		"conditions": "#help",
+		"description": null,
+		"dialog_node": "node_7_1472665570766",
+		"previous_sibling": null
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_5_1470248758090"
+		},
+		"output": {
+			"text": "<ul>\n<li>Not yet </li>\n<li>Ugh, I completely forgot.</li>\n<li>Yeah</li>\n<li>Yes, I had a sandwich.</li>\n<li>Yes, I had bacon !</li>\n</ul>"
+		},
+		"parent": null,
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "#help",
+		"description": null,
+		"dialog_node": "node_2_1472240789937",
+		"previous_sibling": "node_5_1470248758090"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_7_1472512341593"
+		},
+		"output": {
+			"text": "<ul>\n<li> Guilty :) </li>\n<li> Not good at all </li>\n<li> Terrible ! </li>\n<li> Guilty :( I am afraid I will bloat up. Never stick to my diet plans.</li>\n<li>Frustrated that I am not able to resist temptations !</li>\n</ul>"
+		},
+		"parent": "node_7_1472512341593",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "#help",
+		"description": null,
+		"dialog_node": "node_12_1472590948716",
+		"previous_sibling": null
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_9_1471394498445"
+		},
+		"output": {
+			"text": "<ul>\n<li>Not good</li>\n<li>Not good :(</li>\n<li>Not good. Stuck in these damn meetings !!!</li>\n<li>Weak. Am afraid might faint</li>\n<li>Awesome ! Feel so light and healthy.</li>\n</ul>"
+		},
+		"parent": "node_9_1471394498445",
+		"context": null,
+		"created": "2016-08-31T16:54:46.662Z",
+		"metadata": null,
+		"conditions": "#help",
+		"description": null,
+		"dialog_node": "node_9_1472247409386",
+		"previous_sibling": null
+	}],
+	"workspace_id": "18d7ebe7-ef96-423f-959e-98b481b8a15a"
 }

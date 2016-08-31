@@ -141,10 +141,10 @@ var ConversationPanel = (function() {
       // Move chat to the most recent messages when new messages are added
       scrollToChatBottom();
       var input = document.getElementById('textInput');
-      if(newPayload.context && newPayload.context.conversationEnd == "true")
+      if(newPayload.context && newPayload.context.conversationEnd == true)
       {
 	input.disabled = "disabled";
-        input.value = "";
+        input.value = " ";
       }
     }
 
