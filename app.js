@@ -27,8 +27,7 @@ var maintainToneHistory = false;
  * @author April Webster
  * The following is required for tone detection
  */
-var tone_detection = require('./addons/tone_detection.js'); // required for tone detection
-var Promise = require('bluebird'); // required for es6 promises
+var toneDetection = require('./addons/tone_detection.js'); // required for tone detection
 var moment = require('moment'); // required for timestamps
 
 
@@ -71,7 +70,7 @@ var conversation = new watson.conversation({
  * Instantiate the Watson Tone Analyzer Service
  */
 
-var tone_analyzer = new watson.tone_analyzer({
+var toneAnalyzer = new watson.tone_analyzer({
   username: process.env.TONE_ANALYZER_USERNAME || '<tone_analyzer_username>',
   password: process.env.TONE_ANALYZER_PASSWORD || '<tone_analyzer_password>',
   version_date: '2016-05-19',
@@ -105,9 +104,8 @@ app.post( '/api/message', function(req, res) {
     }
     if ( req.body.context ) {
       payload.context = req.body.context;
-    }
-    else {
-      payload.context = tone_detection.initUser();
+    } else {
+      payload.context = toneDetection.initUser();
     }
 
     var d = new Date();
@@ -171,17 +169,15 @@ function updateMessage(input, response) {
  * Note: as indicated below, the console.log statements can be replaced with application-specific code to process
  *               the err or data object returned by the Conversation Service.
  */
-function invokeToneConversation(payload, res)
-{
-  tone_detection.invokeToneAsync(payload, tone_analyzer)
+function invokeToneConversation(payload, res) {
+  toneDetection.invokeToneAsync(payload, toneAnalyzer)
   .then( (tone) => {
-    tone_detection.updateUserTone(payload, tone, maintainToneHistory);
+    toneDetection.updateUserTone(payload, tone, maintainToneHistory);
     conversation.message(payload, function(err, data) {
       if (err) {
         console.error(JSON.stringify(err, null, 2));
         return res.status(err.code || 500).json(err);
-      }
-      else {
+      } else {
         return res.json( updateMessage( payload, data ) );
       }
     });
@@ -209,45 +205,12 @@ function getTimeValue() {
 
   if ( BREAKFAST_START.getTime() <= time && time < LUNCH_START.getTime() ) {
     timeString = 'breakfast';
-  }
-  else if ( LUNCH_START.getTime() <= time && time < DINNER_START.getTime() ) {
+  } else if ( LUNCH_START.getTime() <= time && time < DINNER_START.getTime() ) {
     timeString = 'lunch';
-  }
-  else if (DINNER_START.getTime() <= time || time < BREAKFAST_START.getTime()) {
+  } else if (DINNER_START.getTime() <= time || time < BREAKFAST_START.getTime()) {
     timeString = 'dinner';
   }
-
-
-  var test1 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 5, 0, 0, 0);
-  var test2 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11, 0, 0, 0);
-  var test3 =  new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17, 0, 0, 0);
-
   return timeString;
-}
-
-function getMeal(d) {
-  // var d = new Date();
-  var time = d.getTime();
-  var breakfastStart = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 5, 0, 0, 0);
-  var lunchStart = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11, 0, 0, 0);
-  var dinnerStart = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17, 0, 0, 0);
-
-  var meal = '';
-  if ( breakfastStart.getTime() <= time && time < lunchStart.getTime() ) {
-    console.log('time is ' + time);
-    console.log('breakfast');
-    meal = 'breakfast';
-  }
-  else if ( lunchStart.getTime() <= time && time < dinnerStart.getTime() ) {
-    console.log('lunch');
-    meal = 'lunch';
-  }
-  else if (dinnerStart.getTime() <= time || time < breakfastStart.getTime()) {
-    console.log('dinner');
-    meal = 'dinner';
-  }
-
-  return meal;
 }
 
 if ( cloudantUrl ) {
