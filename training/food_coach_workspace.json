@@ -1,11 +1,11 @@
 {
-	"name": "food_coach_workspace",
-	"created": "2016-08-31T00:04:52.831Z",
+	"name": "food_coach_workspace_v3.2",
+	"created": "2016-08-31T00:37:35.870Z",
 	"intents": 
 	[
 		{
 			"intent": "anything_else",
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"examples": 
 			[
 				
@@ -16,7 +16,7 @@
 
 		{
 			"intent": "conversation_start",
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"examples": 
 			[
 				
@@ -27,37 +27,37 @@
 
 		{
 			"intent": "help",
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"examples": 
 			[
 				{
 					"text": "help",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I don't know what to do",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "please help",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "what can I do?",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "what can you do?",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "what should I type?",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				}
 			],
 
@@ -66,157 +66,157 @@
 
 		{
 			"intent": "no",
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"examples": 
 			[
 				{
 					"text": "did not have it",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "had a heavy dinner so not hungry",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "had an apple but not a real breakfast",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "had a snack instead",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "had too much to eat",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "haven't had a chance",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I did not",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I didn't",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I didn't have anything",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I didn't have lunch yet",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I forgot!",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I forgot to have dinner",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I forgot to have lunch",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I haven't had a chance",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I lost track of time",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I've been too busy",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "no",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "no I didn't",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "no, I had a lunch meeting",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "no not yet",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "nope",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "not hungry",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "not yet",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "nuh uh",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "oops no",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "oops, no I haven't",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "sigh no",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "soon I hope",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "unfortunately no",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "unfortunately not",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				}
 			],
 
@@ -225,32 +225,32 @@
 
 		{
 			"intent": "unhealthy_foods",
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"examples": 
 			[
 				{
 					"text": "list of foods that are not good for you",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "list of unhealthy foods?",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "What are some examples of unhealthy foods?",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "What would be an example of something that's bad for you?",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "What would be considered unhealthy?",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				}
 			],
 
@@ -259,142 +259,142 @@
 
 		{
 			"intent": "yes",
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"examples": 
 			[
 				{
 					"text": "I ate",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I ate a lot, yes",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I ate a sandwich",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I did",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I did, yes",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I had",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I had a snack yes",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I had cereal",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I had oats and milk",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I had some",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I had some bacon",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I had some cereal",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I had some chicken and rice",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I had some toast",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "indeed",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "indeed!",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "I was good yes",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "thankfully yes!",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "uh huh",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "y",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "yeah",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "yeah, I ate lunch",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "yes",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "Yes I ate something",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "yes I had breakfast",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "yes I remembered to have lunch today",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				},
 
 				{
 					"text": "yup",
-					"created": "2016-08-31T00:04:52.831Z"
+					"created": "2016-08-31T00:37:35.870Z"
 				}
 			],
 
@@ -410,7 +410,7 @@
 			[
 				{
 					"value": "bacon",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -420,7 +420,7 @@
 
 				{
 					"value": "bagel",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -430,7 +430,7 @@
 
 				{
 					"value": "bread",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -440,7 +440,7 @@
 
 				{
 					"value": "burger",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -450,7 +450,7 @@
 
 				{
 					"value": "burrito",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -460,7 +460,7 @@
 
 				{
 					"value": "cake",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -470,7 +470,7 @@
 
 				{
 					"value": "candy",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -480,7 +480,7 @@
 
 				{
 					"value": "cereal",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -490,7 +490,7 @@
 
 				{
 					"value": "chips",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -500,7 +500,7 @@
 
 				{
 					"value": "chocolate",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -510,7 +510,7 @@
 
 				{
 					"value": "cinnamon roll",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -522,7 +522,7 @@
 
 				{
 					"value": "cookie",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -532,7 +532,7 @@
 
 				{
 					"value": "croissant",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -542,7 +542,7 @@
 
 				{
 					"value": "cronut",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -552,7 +552,7 @@
 
 				{
 					"value": "danish",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -562,7 +562,7 @@
 
 				{
 					"value": "donut",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -572,7 +572,7 @@
 
 				{
 					"value": "egg mcmuffin",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -582,7 +582,7 @@
 
 				{
 					"value": "eggs",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -593,7 +593,7 @@
 
 				{
 					"value": "french toast",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -603,7 +603,7 @@
 
 				{
 					"value": "fried chicken",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -613,7 +613,7 @@
 
 				{
 					"value": "fries",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -623,7 +623,7 @@
 
 				{
 					"value": "granola",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -633,7 +633,7 @@
 
 				{
 					"value": "grilled cheese",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -643,7 +643,7 @@
 
 				{
 					"value": "hashbrowns",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -653,7 +653,7 @@
 
 				{
 					"value": "ice cream",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -663,7 +663,7 @@
 
 				{
 					"value": "latte",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -673,7 +673,7 @@
 
 				{
 					"value": "maple syrup",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -683,7 +683,7 @@
 
 				{
 					"value": "milk",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -693,7 +693,7 @@
 
 				{
 					"value": "milkshake",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -703,7 +703,7 @@
 
 				{
 					"value": "oatmeal",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -713,7 +713,7 @@
 
 				{
 					"value": "pancake",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -723,7 +723,7 @@
 
 				{
 					"value": "pizza",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -733,7 +733,7 @@
 
 				{
 					"value": "pop",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -743,7 +743,7 @@
 
 				{
 					"value": "porridge",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -753,7 +753,7 @@
 
 				{
 					"value": "quesadilla",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -763,7 +763,7 @@
 
 				{
 					"value": "sandwich",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -773,7 +773,7 @@
 
 				{
 					"value": "sausage",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -783,7 +783,7 @@
 
 				{
 					"value": "soup",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -793,7 +793,7 @@
 
 				{
 					"value": "sticky bun",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -803,7 +803,7 @@
 
 				{
 					"value": "strudel",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -813,7 +813,7 @@
 
 				{
 					"value": "toast",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -823,7 +823,7 @@
 
 				{
 					"value": "waffle",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -833,7 +833,7 @@
 
 				{
 					"value": "yogurt",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -842,7 +842,7 @@
 				}
 			],
 
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"open_list": null,
 			"description": null
 		},
@@ -853,7 +853,7 @@
 			[
 				{
 					"value": "fish",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -863,7 +863,7 @@
 
 				{
 					"value": "fruit",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -874,7 +874,7 @@
 
 				{
 					"value": "vegetables",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -883,7 +883,7 @@
 				}
 			],
 
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"open_list": false,
 			"description": null
 		},
@@ -894,7 +894,7 @@
 			[
 				{
 					"value": "bacon",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -904,7 +904,7 @@
 
 				{
 					"value": "cake",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -916,7 +916,7 @@
 
 				{
 					"value": "candy",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -926,7 +926,7 @@
 
 				{
 					"value": "chips",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -938,7 +938,7 @@
 
 				{
 					"value": "chocolate",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -948,7 +948,7 @@
 
 				{
 					"value": "cookies",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -958,7 +958,7 @@
 
 				{
 					"value": "cronut",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -968,7 +968,7 @@
 
 				{
 					"value": "donut",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -978,7 +978,7 @@
 
 				{
 					"value": "frappucino",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -988,7 +988,7 @@
 
 				{
 					"value": "fried chicken",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -998,7 +998,7 @@
 
 				{
 					"value": "fries",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -1008,7 +1008,7 @@
 
 				{
 					"value": "ice cream",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -1018,7 +1018,7 @@
 
 				{
 					"value": "latte",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -1028,7 +1028,7 @@
 
 				{
 					"value": "maple syrup",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -1038,7 +1038,7 @@
 
 				{
 					"value": "milkshake",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -1048,7 +1048,7 @@
 
 				{
 					"value": "pizza",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -1058,7 +1058,7 @@
 
 				{
 					"value": "pop",
-					"created": "2016-08-31T00:04:52.831Z",
+					"created": "2016-08-31T00:37:35.870Z",
 					"metadata": null,
 					"synonyms": 
 					[
@@ -1069,7 +1069,7 @@
 				}
 			],
 
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"open_list": false,
 			"description": null
 		}
@@ -1077,7 +1077,7 @@
 
 	"language": "en",
 	"metadata": null,
-	"modified": "2016-08-31T00:19:22.760Z",
+	"modified": "2016-08-31T06:04:29.236Z",
 	"created_by": null,
 	"description": "A conversation coach for meal monitoring - ensure one eats regularly (meals, snacks), and makes healthy choices.",
 	"modified_by": null,
@@ -1092,7 +1092,7 @@
 
 			"parent": null,
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#yes && intents[0].confidence > 0.7 && @food:bacon && @food:(maple syrup)",
 			"description": null,
@@ -1108,8 +1108,12 @@
 			},
 
 			"parent": null,
-			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"context": 
+			{
+				"conversationEnd": true
+			},
+
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "EXIT",
 			"description": null,
@@ -1126,7 +1130,7 @@
 
 			"parent": null,
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "conversation_start",
 			"description": null,
@@ -1143,7 +1147,7 @@
 
 			"parent": "node_14_1471567322890",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "@food && $user.tone.emotion.current == \"neutral\"",
 			"description": null,
@@ -1160,7 +1164,7 @@
 
 			"parent": "node_8_1471394470103",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"neutral\"",
 			"description": null,
@@ -1177,7 +1181,7 @@
 
 			"parent": "node_14_1471567322890",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "@unhealthy_food && $user.tone.emotion.current == \"neutral\"",
 			"description": null,
@@ -1194,7 +1198,7 @@
 
 			"parent": "node_9_1471567000467",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "true",
 			"description": null,
@@ -1211,7 +1215,7 @@
 
 			"parent": null,
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "anything_else",
 			"description": null,
@@ -1228,7 +1232,7 @@
 
 			"parent": "node_16_1471462209846",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"joy\"",
 			"description": null,
@@ -1245,7 +1249,7 @@
 
 			"parent": "node_9_1471394498445",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"neutral\"",
 			"description": null,
@@ -1262,7 +1266,7 @@
 
 			"parent": "node_16_1471462209846",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
 			"description": null,
@@ -1287,7 +1291,7 @@
 				}
 			},
 
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "@unhealthy_food",
 			"description": null,
@@ -1312,7 +1316,7 @@
 				}
 			},
 
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "@food",
 			"description": null,
@@ -1329,7 +1333,7 @@
 
 			"parent": "node_2_1471562391421",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"neutral\"",
 			"description": null,
@@ -1346,7 +1350,7 @@
 
 			"parent": null,
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#unhealthy_foods && intents[0].confidenc > 0.7",
 			"description": null,
@@ -1363,7 +1367,7 @@
 
 			"parent": "node_16_1471462209846",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"neutral\"",
 			"description": null,
@@ -1386,7 +1390,7 @@
 
 			"parent": "node_30_1472064304697",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "@acknowledgement",
 			"description": null,
@@ -1409,7 +1413,7 @@
 
 			"parent": "node_10_1471567097115",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "@acknowledgement",
 			"description": null,
@@ -1432,7 +1436,7 @@
 
 			"parent": "node_11_1471567120511",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "@acknowledgement",
 			"description": null,
@@ -1455,7 +1459,7 @@
 
 			"parent": "node_28_1471639334068",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
 			"description": null,
@@ -1478,7 +1482,7 @@
 
 			"parent": "node_25_1471631997760",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"joy\"",
 			"description": null,
@@ -1501,7 +1505,7 @@
 
 			"parent": "node_2_1471562391421",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"joy\"",
 			"description": null,
@@ -1524,7 +1528,7 @@
 
 			"parent": "node_28_1471639334068",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"joy\"",
 			"description": null,
@@ -1547,7 +1551,7 @@
 
 			"parent": "node_8_1471394470103",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"joy\"",
 			"description": null,
@@ -1570,7 +1574,7 @@
 
 			"parent": "node_25_1471631997760",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"fear\" || $user.tone.emotion.current == \"disgust\"",
 			"description": null,
@@ -1593,7 +1597,7 @@
 
 			"parent": "node_14_1471567322890",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "@food && $user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
 			"description": null,
@@ -1616,7 +1620,7 @@
 
 			"parent": "node_17_1472591903720",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
 			"description": null,
@@ -1639,7 +1643,7 @@
 
 			"parent": "node_13_1471567299358",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "true",
 			"description": null,
@@ -1662,7 +1666,7 @@
 
 			"parent": "node_7_1472512341593",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"neutral\"",
 			"description": null,
@@ -1685,7 +1689,7 @@
 
 			"parent": "node_13_1471567299358",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "@unhealthy_food",
 			"description": null,
@@ -1708,7 +1712,7 @@
 
 			"parent": "node_6_1471988794948",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
 			"description": null,
@@ -1731,7 +1735,7 @@
 
 			"parent": "node_9_1471394498445",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
 			"description": null,
@@ -1754,7 +1758,7 @@
 
 			"parent": "node_8_1471394470103",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
 			"description": null,
@@ -1777,7 +1781,7 @@
 
 			"parent": "node_2_1471562391421",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"fear\" || $user.tone.emotion.current == \"disgust\"",
 			"description": null,
@@ -1808,7 +1812,7 @@
 				}
 			},
 
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "@food",
 			"description": null,
@@ -1826,16 +1830,16 @@
 
 			"output": 
 			{
-				"text": "Unrepenting!  I get that @unhealthy_food can taste great and make you happy.  Just be careful it's not something you eat on a regular basis. ;)"
+				"text": "Unrepenting!  I get that @unhealthy_food can taste great, but it's not something you want should eat on a regular basis. ;)"
 			},
 
-			"parent": "node_14_1471567322890",
+			"parent": "node_7_1472512341593",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
-			"conditions": "@unhealthy_food && $user.tone.emotion.current == \"joy\"",
+			"conditions": "$user.tone.emotion.current == \"joy\"",
 			"description": null,
-			"dialog_node": "node_17_1471567491421",
+			"dialog_node": "node_8_1472590746914",
 			"previous_sibling": null
 		},
 
@@ -1849,16 +1853,16 @@
 
 			"output": 
 			{
-				"text": "Unrepenting!  I get that @unhealthy_food can taste great, but it's not something you want should eat on a regular basis. ;)"
+				"text": "Unrepenting!  Not the healthiest choice.  Be careful it's not something you eat on a regular basis. ;)"
 			},
 
-			"parent": "node_7_1472512341593",
+			"parent": "node_14_1471567322890",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
-			"conditions": "$user.tone.emotion.current == \"joy\"",
+			"conditions": "@unhealthy_food && $user.tone.emotion.current == \"joy\"",
 			"description": null,
-			"dialog_node": "node_8_1472590746914",
+			"dialog_node": "node_17_1471567491421",
 			"previous_sibling": null
 		},
 
@@ -1877,7 +1881,7 @@
 
 			"parent": "node_28_1471639334068",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"neutral\"",
 			"description": null,
@@ -1900,7 +1904,7 @@
 
 			"parent": "node_14_1471567322890",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "@unhealthy_food && $user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
 			"description": null,
@@ -1923,7 +1927,7 @@
 
 			"parent": "node_7_1472512341593",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
 			"description": null,
@@ -1946,7 +1950,7 @@
 
 			"parent": "node_6_1471988794948",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"joy\"",
 			"description": null,
@@ -1969,7 +1973,7 @@
 
 			"parent": "node_9_1471394498445",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"joy\"",
 			"description": null,
@@ -1992,7 +1996,7 @@
 
 			"parent": "node_14_1471567322890",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "@food && $user.tone.emotion.current == \"joy\"",
 			"description": null,
@@ -2015,7 +2019,7 @@
 
 			"parent": "node_25_1471631997760",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"neutral\"",
 			"description": null,
@@ -2038,7 +2042,7 @@
 
 			"parent": "node_17_1472591903720",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"joy\"",
 			"description": null,
@@ -2061,7 +2065,7 @@
 
 			"parent": "node_17_1472591903720",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"neutral\"",
 			"description": null,
@@ -2095,7 +2099,7 @@
 
 			"parent": "node_6_1471988794948",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "$user.tone.emotion.current == \"neutral\"",
 			"description": null,
@@ -2118,7 +2122,7 @@
 
 			"parent": "node_13_1471567299358",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#help",
 			"description": null,
@@ -2141,7 +2145,7 @@
 
 			"parent": "node_14_1471567322890",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#help",
 			"description": null,
@@ -2164,7 +2168,7 @@
 
 			"parent": "node_16_1471462209846",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#help",
 			"description": null,
@@ -2187,7 +2191,7 @@
 
 			"parent": "node_17_1472591903720",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#help",
 			"description": null,
@@ -2210,7 +2214,7 @@
 
 			"parent": "node_2_1471562391421",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#help",
 			"description": null,
@@ -2233,7 +2237,7 @@
 
 			"parent": "node_25_1471631997760",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#help",
 			"description": null,
@@ -2256,7 +2260,7 @@
 
 			"parent": "node_28_1471639334068",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#help",
 			"description": null,
@@ -2279,7 +2283,7 @@
 
 			"parent": "node_6_1471988794948",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#help",
 			"description": null,
@@ -2302,7 +2306,7 @@
 
 			"parent": "node_7_1472512341593",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#help",
 			"description": null,
@@ -2325,7 +2329,7 @@
 
 			"parent": "node_8_1471394470103",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#help",
 			"description": null,
@@ -2348,7 +2352,7 @@
 
 			"parent": "node_9_1471394498445",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#help",
 			"description": null,
@@ -2371,7 +2375,7 @@
 
 			"parent": "node_9_1471567000467",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#help",
 			"description": null,
@@ -2394,7 +2398,7 @@
 
 			"parent": "node_14_1471567322890",
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "true",
 			"description": null,
@@ -2417,7 +2421,7 @@
 
 			"parent": null,
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#help",
 			"description": null,
@@ -2440,7 +2444,7 @@
 
 			"parent": null,
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#no && intents[0].confidence > 0.7",
 			"description": null,
@@ -2471,7 +2475,7 @@
 				}
 			},
 
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#yes && intents[0].confidence > 0.7 && @unhealthy_food",
 			"description": null,
@@ -2502,7 +2506,7 @@
 				}
 			},
 
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#yes && intents[0].confidence > 0.7 && @food",
 			"description": null,
@@ -2525,7 +2529,7 @@
 
 			"parent": null,
 			"context": null,
-			"created": "2016-08-31T00:04:52.831Z",
+			"created": "2016-08-31T00:37:35.870Z",
 			"metadata": null,
 			"conditions": "#yes && intents[0].confidence > 0.7",
 			"description": null,
@@ -2534,5 +2538,5 @@
 		}
 	],
 
-	"workspace_id": "<WORKSPACE_ID>"
+	"workspace_id": "<WORKSPACE_ID"
 }
