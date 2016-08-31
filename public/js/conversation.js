@@ -108,6 +108,7 @@ var ConversationPanel = (function() {
     // Any time the input changes, or the window resizes, adjust the size of the input box
     input.addEventListener('input', adjustInput);
     window.addEventListener('resize', adjustInput);
+    
 
     // Trigger the input event once to set up the input box and dummy element
     Common.fireEvent(input, 'input');
@@ -139,7 +140,15 @@ var ConversationPanel = (function() {
       });
       // Move chat to the most recent messages when new messages are added
       scrollToChatBottom();
+      var input = document.getElementById('textInput');
+      if(newPayload.context && newPayload.context.conversationEnd == "true")
+      {
+	input.disabled = "disabled";
+        input.value = "";
+      }
     }
+
+    
   }
 
   // Checks if the given typeValue matches with the user "name", the Watson "name", or neither
@@ -232,8 +241,6 @@ var ConversationPanel = (function() {
       }
 
       // Send the user message
-      // AW - inputBox contains the user's input text
-      // AW - context is maintained and sent to the Api.sendRequest function
       Api.sendRequest(inputBox.value, context);
 
       // Clear input box for further messages
