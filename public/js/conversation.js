@@ -23,24 +23,21 @@ var ConversationPanel = (function() {
     inputKeyDown: inputKeyDown
   };
 
- function getTimeValue() {
-  var date = new Date();
-  var hrs = date.getHours();
-  
-  if(hrs >= 5 && hrs <= 11) return 'breakfast';
-  else if(hrs > 11 && hrs <= 17) return 'lunch';
-  else if(hrs > 17 && hrs <= 22) return 'dinner';
-  else if(hrs > 22 ) return 'night snack';
+  function getTimeValue() {
+    var date = new Date();
+    var hrs = date.getHours();
 
-  console.log(timeString);
-  return timeString;
-}
+    if (hrs >= 5 && hrs <= 11) return 'breakfast';
+    else if (hrs > 11 && hrs <= 17) return 'lunch';
+    else if (hrs > 17 && hrs <= 22) return 'dinner';
+    else if (hrs > 22 ) return 'night snack';
+  }
 
   // Initialize the module
   function init() {
     chatUpdateSetup();
     // Api.sendRequest( '', null );
-    var context = {}; 
+    var context = {};
     context.time = getTimeValue();
     Api.sendRequest( ' ', context );
     setupInputBox();
@@ -59,7 +56,6 @@ var ConversationPanel = (function() {
       currentResponsePayloadSetter.call(Api, newPayloadStr);
       displayMessage(JSON.parse(newPayloadStr), settings.authorTypes.watson);
     };
-    
   }
 
 // Set up the input box to underline text as it is typed

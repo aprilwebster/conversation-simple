@@ -28,8 +28,6 @@ var maintainToneHistory = false;
  * The following is required for tone detection
  */
 var toneDetection = require('./addons/tone_detection.js'); // required for tone detection
-var moment = require('moment'); // required for timestamps
-
 
 // The following requires are needed for logging purposes
 var uuid = require( 'uuid' );
@@ -255,11 +253,14 @@ if ( cloudantUrl ) {
 
         if ( row.doc ) {
           var doc = row.doc;
-          if(doc.response.context)
+          if ( doc.response.context ) {
             id = doc.response.context.conversation_id;
-          if(doc.response.context && doc.response.context.user)
+          }
+
+          if ( doc.response.context && doc.response.context.user ) {
             emotion = doc.response.context.user.tone.emotion.current;
- 
+          }
+
           if ( doc.request && doc.request.input ) {
             question = doc.request.input.text;
           }
