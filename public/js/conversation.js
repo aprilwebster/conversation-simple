@@ -23,28 +23,34 @@ var ConversationPanel = (function() {
     inputKeyDown: inputKeyDown
   };
 
- function getTimeValue() {
+  /**
+   * getMealType determines what meal a user of the app might have eaten most recently. It uses the client's browser time.
+   * @returns a string indicating the meal the user most likely ate recently - breakfast, lunch, dinner or a night snack
+   */
+ function getMealType() {
   var date = new Date();
   var hrs = date.getHours();
-  
+
   if(hrs >= 5 && hrs <= 11) return 'breakfast';
   else if(hrs > 11 && hrs <= 17) return 'lunch';
   else if(hrs > 17 && hrs <= 22) return 'dinner';
-  else if(hrs > 22 ) return 'night snack';
+  else if( (hrs > 22 && hrs < 24) || hrs < 5 ) return 'night snack';
+  else return 'meal';
 
-  console.log(timeString);
-  return timeString;
 }
 
   // Initialize the module
   function init() {
     chatUpdateSetup();
-    // Api.sendRequest( '', null );
-    var context = {}; 
-    context.time = getTimeValue();
+    //Add the time context variable to indicate what meal the user may be eating
+    var context = {
+        "time": getMealType()
+    }
     Api.sendRequest( ' ', context );
     setupInputBox();
   }
+
+
   // Set up callbacks on payload setters in Api module
   // This causes the displayMessage function to be called when messages are sent / received
   function chatUpdateSetup() {
