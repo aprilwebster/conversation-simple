@@ -58,7 +58,7 @@ app.use( bodyParser.json() );
  * Instantiate the Watson Conversation Service
  */
 
-var conversation = new watson.conversation({
+var conversation =  watson.conversation({
   username: process.env.CONVERSATION_USERNAME || '<conversation_username>',
   password: process.env.CONVERSATION_PASSWORD || '<conversation_password>',
   version_date: '2016-07-11',
@@ -70,7 +70,7 @@ var conversation = new watson.conversation({
  * Instantiate the Watson Tone Analyzer Service
  */
 
-var toneAnalyzer = new watson.tone_analyzer({
+var toneAnalyzer =  watson.tone_analyzer({
   username: process.env.TONE_ANALYZER_USERNAME || '<tone_analyzer_username>',
   password: process.env.TONE_ANALYZER_PASSWORD || '<tone_analyzer_password>',
   version_date: '2016-05-19',
@@ -160,26 +160,28 @@ function updateMessage(input, response) {
 
 /**
  * @author April Webster
+ * @returns {Object} return response from conversation service
  * invokeToneConversation calls the invokeToneAsync function to get the tone information for the user's
  * input text (input.text in the payload json object), adds/updates the user's tone in the payload's context,
  * and sends the payload to the conversation service to get a response which is printed to screen.
- * @param payload a json object containing the basic information needed to converse with the Conversation Service's
+ * @param {Json} payload a json object containing the basic information needed to converse with the Conversation Service's
  *        message endpoint.
+ * @param {Object} res response object
  *
- * Note: as indicated below, the console.log statements can be replaced with application-specific code to process
- *               the err or data object returned by the Conversation Service.
  */
 function invokeToneConversation(payload, res) {
   toneDetection.invokeToneAsync(payload, toneAnalyzer)
   .then( (tone) => {
     toneDetection.updateUserTone(payload, tone, maintainToneHistory);
     conversation.message(payload, function(err, data) {
+      var returnObject = null;
       if (err) {
         console.error(JSON.stringify(err, null, 2));
-        return res.status(err.code || 500).json(err);
+        returnObject = res.status(err.code || 500).json(err);
       } else {
-        return res.json( updateMessage( payload, data ) );
+        returnObject = res.json( updateMessage( payload, data ) );
       }
+      return returnObject;
     });
   })
   .catch(function(err) {
@@ -189,7 +191,7 @@ function invokeToneConversation(payload, res) {
 
 /**
  * @author April Webster
- * @returns
+ * @returns {String} returns the meal mapped to time
  * Quick function to get a timestamp - work in progress
  */
 function getTimeValue() {
