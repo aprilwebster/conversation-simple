@@ -125,8 +125,8 @@ function updateUserTone(conversationPayload, toneAnalyzerPayload, maintainHistor
  * all tones up to the current tone for a conversation instance with a user.
  */
 function initUser() {
-  return( 
-     {
+  return (
+    {
       'tone': {
         'emotion': {
           'current': null
@@ -138,7 +138,7 @@ function initUser() {
           'current': null
         }
       }
-   }) ;
+    });
 }
 
 /**

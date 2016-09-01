@@ -28,8 +28,6 @@ var maintainToneHistory = false;
  * The following is required for tone detection
  */
 var toneDetection = require('./addons/tone_detection.js'); // required for tone detection
-var moment = require('moment'); // required for timestamps
-
 
 // The following requires are needed for logging purposes
 var uuid = require( 'uuid' );
@@ -228,7 +226,7 @@ if ( cloudantUrl ) {
       console.error(err);
       // download as CSV
       var csv = [];
-      csv.push( ['Question', 'Intent', 'Confidence', 'Entity', 'Output', 'Time'] );
+      csv.push( ['Id', 'Question', 'Intent', 'Confidence', 'Entity', 'Emotion', 'Output', 'Time'] );
       body.rows.sort( function(a, b) {
         if ( a && b && a.doc && b.doc ) {
           var date1 = new Date( a.doc.time );
@@ -250,8 +248,19 @@ if ( cloudantUrl ) {
         var time = '';
         var entity = '';
         var outputText = '';
+        var emotion = '';
+        var id = '';
+
         if ( row.doc ) {
           var doc = row.doc;
+          if ( doc.response.context ) {
+            id = doc.response.context.conversation_id;
+          }
+
+          if ( doc.response.context && doc.response.context.user ) {
+            emotion = doc.response.context.user.tone.emotion.current;
+          }
+
           if ( doc.request && doc.request.input ) {
             question = doc.request.input.text;
           }
@@ -272,9 +281,9 @@ if ( cloudantUrl ) {
           }
           time = new Date( doc.time ).toLocaleString();
         }
-        csv.push( [question, intent, confidence, entity, outputText, time] );
+        csv.push( [id, question, intent, confidence, entity, emotion, outputText, time] );
       } );
-      res.csv( csv );
+      res.json( csv );
     } );
   } );
 }
