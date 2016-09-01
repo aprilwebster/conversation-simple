@@ -108,9 +108,6 @@ app.post( '/api/message', function(req, res) {
       payload.context = toneDetection.initUser();
     }
 
-    var d = new Date();
-    payload.context.time =  getTimeValue();
-    payload.context.timestamp = moment(d.getTime()).format('HH:mm:ss');
     invokeToneConversation(payload, res);
   }
 });
@@ -189,31 +186,6 @@ function invokeToneConversation(payload, res) {
   });
 }
 
-/**
- * @author April Webster
- * @returns {String} returns the meal mapped to time
- * Quick function to get a timestamp - work in progress
- */
-function getTimeValue() {
-  var d = new Date();
-  var time = d.getTime();
-  var timeString = moment(d.getTime()).format('HH:mm:ss');
-  // var breakfast = dates.inRange (d,start,end)
-
-  const BREAKFAST_START = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 5, 0, 0, 0);
-  const LUNCH_START = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 11, 0, 0, 0);
-  const DINNER_START = new Date(d.getFullYear(), d.getMonth(), d.getDate(), 17, 0, 0, 0);
-
-
-  if ( BREAKFAST_START.getTime() <= time && time < LUNCH_START.getTime() ) {
-    timeString = 'breakfast';
-  } else if ( LUNCH_START.getTime() <= time && time < DINNER_START.getTime() ) {
-    timeString = 'lunch';
-  } else if (DINNER_START.getTime() <= time || time < BREAKFAST_START.getTime()) {
-    timeString = 'dinner';
-  }
-  return timeString;
-}
 
 if ( cloudantUrl ) {
   // If logging has been enabled (as signalled by the presence of the cloudantUrl) then the

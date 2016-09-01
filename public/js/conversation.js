@@ -23,11 +23,26 @@ var ConversationPanel = (function() {
     inputKeyDown: inputKeyDown
   };
 
+ function getTimeValue() {
+  var date = new Date();
+  var hrs = date.getHours();
+  
+  if(hrs >= 5 && hrs <= 11) return 'breakfast';
+  else if(hrs > 11 && hrs <= 17) return 'lunch';
+  else if(hrs > 17 && hrs <= 22) return 'dinner';
+  else if(hrs > 22 ) return 'night snack';
+
+  console.log(timeString);
+  return timeString;
+}
+
   // Initialize the module
   function init() {
     chatUpdateSetup();
     // Api.sendRequest( '', null );
-    Api.sendRequest( ' ', null );
+    var context = {}; 
+    context.time = getTimeValue();
+    Api.sendRequest( ' ', context );
     setupInputBox();
   }
   // Set up callbacks on payload setters in Api module
@@ -44,6 +59,7 @@ var ConversationPanel = (function() {
       currentResponsePayloadSetter.call(Api, newPayloadStr);
       displayMessage(JSON.parse(newPayloadStr), settings.authorTypes.watson);
     };
+    
   }
 
 // Set up the input box to underline text as it is typed
@@ -165,7 +181,7 @@ var ConversationPanel = (function() {
     var textArray = isUser ? newPayload.input.text : newPayload.output.text;
     var emotionClass = 'top';
 
-    if (newPayload.context) {
+    if (newPayload.context && newPayload.context.user) {
       var emotion = newPayload.context.user.tone.emotion.current;
       if (emotion === 'joy') emotionClass = 'positive';
       else if (emotion === 'neutral') emotionClass = 'top';

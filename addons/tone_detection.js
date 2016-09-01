@@ -84,12 +84,12 @@ function updateUserTone(conversationPayload, toneAnalyzerPayload, maintainHistor
   var languageTone = null;
   var socialTone = null;
 
-  if (typeof conversationPayload.context === 'undefined') {
+  if (!conversationPayload.context) {
     conversationPayload.context = {};
   }
 
-  if (typeof conversationPayload.context.user === 'undefined') {
-    conversationPayload.context = initUser();
+  if (!conversationPayload.context.user) {
+    conversationPayload.context.user = initUser();
   }
 
   // For convenience sake, define a variable for the user object
@@ -125,8 +125,8 @@ function updateUserTone(conversationPayload, toneAnalyzerPayload, maintainHistor
  * all tones up to the current tone for a conversation instance with a user.
  */
 function initUser() {
-  return {
-    'user': {
+  return( 
+     {
       'tone': {
         'emotion': {
           'current': null
@@ -138,8 +138,7 @@ function initUser() {
           'current': null
         }
       }
-    }
-  };
+   }) ;
 }
 
 /**
