@@ -28,7 +28,7 @@ These intents and entities help the system to understand variations of user resp
 
 The bot starts by asking you it you ate, followed by what you ate and finally, how you feel about it. Depending on your emotion tone, you see different reactions and messages from the bot. Below you can see some sample interactions:
 
-![Alt text](examples.png?raw=true)
+![Alt text](readmeImages/examples.png?raw=true)
 
 In order to integrate tone with conversation, the approach followed was:
 <ul>
@@ -39,11 +39,11 @@ In order to integrate tone with conversation, the approach followed was:
 
 You can see the raw responses in right hand column. 
 
-![Alt text](tone_context.jpeg?raw=true)
+![Alt text](readmeImages/tone_context.jpeg?raw=true)
 
 In the conversation template, alternative bot responses were encoded based on emotional tone of user. For example - 
 
-![Alt text](rule.png?raw=true)
+![Alt text](readmeImages/rule.png?raw=true)
 
 <a name="bluemix">
 # Getting Started using Bluemix
