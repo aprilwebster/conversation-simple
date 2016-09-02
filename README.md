@@ -39,7 +39,7 @@ In order to integrate tone with conversation, the approach followed was:
 
 You can see the raw responses in right hand column. 
 
-![Alt text](readmeImages/tone_context.jpeg?raw=true)
+![Alt text](readmeImages/tone_context.png?raw=true)
 
 In the conversation template, alternative bot responses were encoded based on emotional tone of user. For example - 
 
