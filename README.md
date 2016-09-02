@@ -30,12 +30,16 @@ The bot starts by asking you it you ate, followed by what you ate and finally, h
 
 ![Alt text](examples.png?raw=true)
 
-You can see the raw responses in right hand column. In order to integrate tone with conversation, the approach followed was:
+In order to integrate tone with conversation, the approach followed was:
 <ul>
-<li>Intercept user message. Before sending it to conversation service, invoke tone. See function - invokeToneConversation in [a relative link](app.js)
-<li>Parse tone response and add appropriate variables to context. See - [a relative link](addons/tone_detection.js)
-<li>Send the user input, along with updated context to conversation service. See function - invokeToneConversation in [a relative link](app.js)
+<li>Intercept user message. Before sending it to conversation service, invoke tone. See function - invokeToneConversation in ![a relative link](app.js)
+<li>Parse tone response and add appropriate variables to context. See - ![a relative link](addons/tone_detection.js)
+<li>Send the user input, along with updated context to conversation service. See function - invokeToneConversation in ![a relative link](app.js)
 </ul>
+
+You can see the raw responses in right hand column. 
+
+![Alt text](tone_context.jpeg?raw=true)
 
 In the conversation template, alternative bot responses were encoded based on emotional tone of user. For example - 
 
