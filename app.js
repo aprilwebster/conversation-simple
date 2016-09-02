@@ -21,13 +21,12 @@ require( 'dotenv' ).config( {silent: true} );
 var express = require( 'express' );  // app server
 var bodyParser = require( 'body-parser' );  // parser for post requests
 var watson = require('watson-developer-cloud');
+
+
+/****** TONE INTEGRATION ******/
+var toneDetection = require('./addons/tone_detection.js'); // required for tone detection
 var maintainToneHistory = false;
 
-/**
- * @author April Webster
- * The following is required for tone detection
- */
-var toneDetection = require('./addons/tone_detection.js'); // required for tone detection
 
 // The following requires are needed for logging purposes
 var uuid = require( 'uuid' );
@@ -53,32 +52,24 @@ app.use( bodyParser.json() );
 
 
 /**
- * Instantiate the Watson Conversation Service
+ * Instantiate the Watson Conversation Service as per WDC 2.2.0
  */
-
-var conversation =  watson.conversation({
-  username: process.env.CONVERSATION_USERNAME || '<conversation_username>',
-  password: process.env.CONVERSATION_PASSWORD || '<conversation_password>',
-  version_date: '2016-07-11',
-  version: 'v1'
+var conversation = new watson.ConversationV1({
+  version_date: '2016-07-11'
 });
 
 
-/**
- * Instantiate the Watson Tone Analyzer Service
- */
-
-var toneAnalyzer =  watson.tone_analyzer({
-  username: process.env.TONE_ANALYZER_USERNAME || '<tone_analyzer_username>',
-  password: process.env.TONE_ANALYZER_PASSWORD || '<tone_analyzer_password>',
-  version_date: '2016-05-19',
-  version: 'v3'
+/****** TONE INTEGRATION ******/
+//Instantiate the Watson Tone Analyzer Service as per WDC 2.2.0
+var toneAnalyzer =  new watson.ToneAnalyzerV3({
+  version_date: '2016-05-19'
 });
 
 
 // Endpoint to be called from the client side
 app.post( '/api/message', function(req, res) {
   var workspace = process.env.WORKSPACE_ID || '<workspace-id>';
+  console.log("app.js workspace id is " + workspace);
   if ( !workspace || workspace === '<workspace-id>' ) {
     return res.json( {
       'output': {
@@ -103,9 +94,13 @@ app.post( '/api/message', function(req, res) {
     if ( req.body.context ) {
       payload.context = req.body.context;
     } else {
+      /****** TONE INTEGRATION ******/
+      //Add the user object (containing tone) to the context object for Conversation
       payload.context = toneDetection.initUser();
     }
 
+    /****** TONE INTEGRATION ******/
+    //Invoke the tone-aware call to the Conversation Service
     invokeToneConversation(payload, res);
   }
 });
@@ -119,6 +114,7 @@ app.post( '/api/message', function(req, res) {
 function updateMessage(input, response) {
   var responseText = null;
   var id = null;
+
   if ( !response.output ) {
     response.output = {};
   } else {
@@ -129,6 +125,7 @@ function updateMessage(input, response) {
     }
     return response;
   }
+
   if ( response.intents && response.intents[0] ) {
     var intent = response.intents[0];
     // Depending on the confidence of the response the app can return different messages.
@@ -185,6 +182,11 @@ function invokeToneConversation(payload, res) {
 }
 
 
+/**
+ * Enable logging
+ * Must add an instance of the Cloudant NoSQL DB to the application in BlueMix and add
+ * the Cloudant credentials to the application's user-defined Environment Variables.
+ */
 if ( cloudantUrl ) {
   // If logging has been enabled (as signalled by the presence of the cloudantUrl) then the
   // app developer must also specify a LOG_USER and LOG_PASS env vars.
