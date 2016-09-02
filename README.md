@@ -26,10 +26,20 @@ JSON that the JavaScript code receives from the server is on the right. Your que
 It is also trained on a list of entities that list food items and unhealthy food itema.
 These intents and entities help the system to understand variations of user responses.
 
-The bot starts by asking you it you ate, followed by what you ate and finally, how you feel about it. Depending on your emotion tone, you see different reactions and messages from the bot. Below you can asee some sample interactions:
+The bot starts by asking you it you ate, followed by what you ate and finally, how you feel about it. Depending on your emotion tone, you see different reactions and messages from the bot. Below you can see some sample interactions:
 
 ![Alt text](examples.png?raw=true)
 
+You can see the raw responses in right hand column. In order to integrate tone with conversation, the approach followed was:
+<ul>
+<li>Intercept user message. Before sending it to conversation service, invoke tone. See function - invokeToneConversation in [a relative link](app.js)
+<li>Parse tone response and add appropriate variables to context. See - [a relative link](addons/tone_detection.js)
+<li>Send the user input, along with updated context to conversation service. See function - invokeToneConversation in [a relative link](app.js)
+</ul>
+
+In the conversation template, alternative bot responses were encoded based on emotional tone of user. For example - 
+
+![Alt text](rule.png?raw=true)
 
 <a name="bluemix">
 # Getting Started using Bluemix
