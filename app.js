@@ -23,7 +23,7 @@ var bodyParser = require( 'body-parser' );  // parser for post requests
 var watson = require('watson-developer-cloud');
 
 
-/****** TONE INTEGRATION ******/
+/** **** TONE INTEGRATION ******/
 var toneDetection = require('./addons/tone_detection.js'); // required for tone detection
 var maintainToneHistory = false;
 
@@ -59,8 +59,8 @@ var conversation = new watson.ConversationV1({
 });
 
 
-/****** TONE INTEGRATION ******/
-//Instantiate the Watson Tone Analyzer Service as per WDC 2.2.0
+/** **** TONE INTEGRATION ******/
+// Instantiate the Watson Tone Analyzer Service as per WDC 2.2.0
 var toneAnalyzer =  new watson.ToneAnalyzerV3({
   version_date: '2016-05-19'
 });
@@ -69,7 +69,6 @@ var toneAnalyzer =  new watson.ToneAnalyzerV3({
 // Endpoint to be called from the client side
 app.post( '/api/message', function(req, res) {
   var workspace = process.env.WORKSPACE_ID || '<workspace-id>';
-  console.log("app.js workspace id is " + workspace);
   if ( !workspace || workspace === '<workspace-id>' ) {
     return res.json( {
       'output': {
@@ -94,13 +93,13 @@ app.post( '/api/message', function(req, res) {
     if ( req.body.context ) {
       payload.context = req.body.context;
     } else {
-      /****** TONE INTEGRATION ******/
-      //Add the user object (containing tone) to the context object for Conversation
+      /** **** TONE INTEGRATION ******/
+      // Add the user object (containing tone) to the context object for Conversation
       payload.context = toneDetection.initUser();
     }
 
-    /****** TONE INTEGRATION ******/
-    //Invoke the tone-aware call to the Conversation Service
+    /** **** TONE INTEGRATION ******/
+    // Invoke the tone-aware call to the Conversation Service
     invokeToneConversation(payload, res);
   }
 });
