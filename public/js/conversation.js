@@ -25,7 +25,7 @@ var ConversationPanel = (function() {
 
   /**
    * getMealType determines what meal a user of the app might have eaten most recently. It uses the client's browser time.
-   * @returns {string} a string indicating the meal the user most likely ate recently - breakfast, lunch, dinner or a night snack
+   * @returns {string} a string indicating the meal the user most likely ate recently - breakfast, lunch, dinner
    */
   function getMealType() {
     var date = new Date();
@@ -33,8 +33,7 @@ var ConversationPanel = (function() {
 
     if (hrs >= 5 && hrs < 11) return 'breakfast';
     else if (hrs >= 11 && hrs < 17) return 'lunch';
-    else if (hrs >= 17 && hrs < 22) return 'dinner';
-    else if ( (hrs >= 22 && hrs <= 24) || hrs < 5 ) return 'night snack';
+    else if ((hrs >= 17 && hrs <= 23) || hrs < 5) return 'dinner';
     return 'meal';
   }
 
