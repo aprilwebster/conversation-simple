@@ -2,11 +2,13 @@
 [![Build Status](https://travis-ci.org/watson-developer-cloud/conversation-simple.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/conversation-simple)
 [![codecov.io](https://codecov.io/github/watson-developer-cloud/conversation-simple/coverage.svg?branch=master)](https://codecov.io/github/watson-developer-cloud/conversation-simple?branch=master)
 
-This application demonstrates how the Conversation service uses intent capabilities in a simple chat interface.
+This application demonstrates how the Conversation service uses tone along with intents and entities in a simple chat interface.
 
-[See the app demo](http://conversation-simple.mybluemix.net/).
+[See the app demo](http://watson-food-coach-with-tone.mybluemix.net/).
 
 For more information about Conversation, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml).
+
+For more information about Tone, see the [detailed documentation](http://www.ibm.com/watson/developercloud/tone-analyzer.html).
 
 
 <b>Either way you deploy this app, you must have a Bluemix account and run some steps within Bluemix.</b>
@@ -14,22 +16,20 @@ For more information about Conversation, see the [detailed documentation](http:/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/bluemix.png" width="200"/>](#bluemix)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/local.png" width="200"/>](#local)
 
 ## How the app works
-The app interface is designed and trained for chatting with a cognitive car. The chat interface is on the left, and the
+The app interface is designed for chatting with a coaching kind of guided bot, which asks if you about your meal, based on time of day and then points you to a guide on healthy eating. The chat interface is on the left, and the
 JSON that the JavaScript code receives from the server is on the right. Your questions and commands are run against a small set of sample data trained with intents like these:
 
-    turn_on
-    weather
-    capabilities
+    yes: acknowledgment that you ate food
+    no: nak that you did not food
+    help
 
-These intents help the system to understand variations of questions and commands that you might submit.
+It is also trained on a list of entities that list food items and unhealthy food itema.
+These intents and entities help the system to understand variations of user responses.
 
-Example commands that can be executed by the Conversation service are:
+The bot starts by asking you it you ate, followed by what you ate and finally, how you feel about it. Depending on your emotion tone, you see different reactions and messages from the bot. Below you can asee some sample interactions:
 
-    turn on windshield wipers
-    play music
+![Alt text](examples.png?raw=true)
 
-If you say *"Wipers on"* or *"I want to turn on the windshield wipers"*, the system
-understands that in both cases your intent is the same and responds accordingly.
 
 <a name="bluemix">
 # Getting Started using Bluemix
@@ -59,6 +59,7 @@ understands that in both cases your intent is the same and responds accordingly.
 * This performs two actions:
   - Creates the app
   - Creates a Conversation service instance that the user needs for workspace creation
+  - Creates a Tone service instance that the user needs for workspace creation
 
 * The status of the deployment is shown. This can take some time.
 
@@ -138,7 +139,7 @@ To build the application:
 
   The application uses [Node.js](http://nodejs.org/) and [npm](https://www.npmjs.com/).
 
-1 Copy the credentials from your `conversation-service` service in Bluemix to a `.env` file in the root.
+1 Copy the credentials from your `conversation-service` and "tone-analyzer" service in Bluemix to a `.env` file in the root.
 
 2 Use the Conversation tooling app to [import a workspace](#workspace) and add the workspace ID environment variable to the `.env` file. For details about obtaining the workspace ID, see Step 5 in the workspace section.
 
@@ -170,6 +171,8 @@ _Note: If you are interested in deploying you local application or the changes y
 
 3 Copy the credentials (or remember this location) for later use.
 
+4 Repeat this step for tone analyzer service instance.
+
 
 <a name="workspace">
 # Import a workspace
@@ -183,7 +186,7 @@ For more information on workspaces, see the full  [Conversation service  documen
 
 2 Go to the **Manage** menu item and select **Launch Tool**. This opens a new tab in your browser, where you are prompted to login if you have not done so before. Use your Bluemix credentials.
 
-3 If you are deploying through Bluemix, download the [exported JSON file](https://raw.githubusercontent.com/watson-developer-cloud/conversation-simple/master/training/car_workspace.json) that contains the Workspace contents. If deploying locally,  this was cloned and is in the training folder (training/car_workspace.json).
+3 Use the workspace file available in training folder (training/food_coach_workspace_v3.6.json)
 
 4 Select the import icon: ![](readme_images/importGA.PNG). Browse to (or drag and drop) the JSON file. Choose to import **Everything(Intents, Entities, and Dialog)**. Then select **Import** to finish importing the workspace.
 
