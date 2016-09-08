@@ -185,6 +185,7 @@ div {
   left: 0.04rem;
   width: 1.5rem;
   height: 1.5rem;
+  sizingMethod: 'cover';
 }
 
 .from-watson.latest.positive p:before {
@@ -197,6 +198,7 @@ div {
   left: 0.04rem;
   width: 1.5rem;
   height: 1.5rem;
+  sizingMethod: 'cover';
 }
 
 .from-watson.latest.negative p:before {
@@ -209,6 +211,7 @@ div {
   left: 0.04rem;
   width: 1.5rem;
   height: 1.5rem;
+  sizingMethod: 'cover';
 }
 
 #textInput {
