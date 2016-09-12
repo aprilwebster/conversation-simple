@@ -203,6 +203,7 @@
 		}],
 		"description": null
 	}],
+	"updated": "2016-09-12T21:49:02.067Z",
 	"entities": [{
 		"entity": "food",
 		"values": [{
@@ -11423,7 +11424,6 @@
 	}],
 	"language": "en",
 	"metadata": null,
-	"modified": "2016-09-09T16:34:53.676Z",
 	"description": "A conversation coach for meal monitoring - ensure one eats regularly (meals, snacks), and makes healthy choices.",
 	"dialog_nodes": [{
 		"go_to": null,
@@ -11465,7 +11465,7 @@
 	}, {
 		"go_to": null,
 		"output": {
-			"text": "Here is a good resource on healthy vs unhealthy food to start out with <a  target=\"_blank\" href= \"http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/choose-choix/index-eng.php\">Food and nutrition Guide</a>.\n<br><br>\nEnjoy your day ! Refresh if you want to start again. If that does not work, close this window and reopen."
+			"text": "Here is a good resource on healthy vs unhealthy food to start out with <a  target=\"_blank\" href= \"http://www.hc-sc.gc.ca/fn-an/food-guide-aliment/choose-choix/index-eng.php\">Food and nutrition Guide</a>.\n<br/><br/>This is end of conversation. Bye.<br/><br/><a href=\"#\" onclick=\"window.location.reload(true);\">Click here to restart conversation</a>"
 		},
 		"parent": null,
 		"context": {
