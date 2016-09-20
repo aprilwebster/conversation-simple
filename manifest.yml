@@ -13,8 +13,8 @@ applications:
   instances: 1
   memory: 512MB
   services:
-  - conversation-demo
-  - tone-analyzer-demo
+  - conversation-service
+  - tone-analyzer-standard
   env:
     NPM_CONFIG_PRODUCTION: false
 
