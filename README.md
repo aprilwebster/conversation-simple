@@ -1,19 +1,19 @@
 # Food Couch
 
-![Demo GIF](readme_images/demo.gif?raw=true)
-
 This application demonstrates how the Conversation service uses tone along with intents and entities in a simple chat interface.
 
-For more information about Conversation, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml).
+![Demo GIF](readme_images/demo.gif?raw=true)
 
+
+For more information about Conversation, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml).
 For more information about Tone, see the [detailed documentation](http://www.ibm.com/watson/developercloud/tone-analyzer.html).
 
-
-<b>Either way you deploy this app, you must have a Bluemix account and run some steps within Bluemix.</b>
+<b> You can deploy this app on Bluemix or locally. However, either way you deploy this app, you must have a Bluemix account and run some steps within Bluemix.</b>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/bluemix.png" width="200"/>](#bluemix)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/local.png" width="200"/>](#local)
 
-## How the app works
+# What does this app do - More Details
+
 The app interface is designed for chatting with a coaching kind of guided bot, which asks if you about your meal, based on time of day and then points you to a guide on healthy eating. The chat interface is on the left, and the
 JSON that the JavaScript code receives from the server is on the right. Your questions and commands are run against a small set of sample data trained with intents like these:
 
