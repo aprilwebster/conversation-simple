@@ -1,10 +1,8 @@
-# Conversation Sample Application
-[![Build Status](https://travis-ci.org/watson-developer-cloud/conversation-simple.svg?branch=master)](http://travis-ci.org/watson-developer-cloud/conversation-simple)
-[![codecov.io](https://codecov.io/github/watson-developer-cloud/conversation-simple/coverage.svg?branch=master)](https://codecov.io/github/watson-developer-cloud/conversation-simple?branch=master)
+# Food Couch
+
+![Demo GIF](readme_images/demo.gif?raw=true)
 
 This application demonstrates how the Conversation service uses tone along with intents and entities in a simple chat interface.
-
-[See the app demo](http://watson-food-coach-with-tone.mybluemix.net/).
 
 For more information about Conversation, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml).
 
@@ -28,7 +26,7 @@ These intents and entities help the system to understand variations of user resp
 
 The bot starts by asking you it you ate, followed by what you ate and finally, how you feel about it. Depending on your emotion tone, you see different reactions and messages from the bot. Below you can see some sample interactions:
 
-![Alt text](readmeImages/examples.png?raw=true)
+![Alt text](readme_images/examples.jpeg?raw=true)
 
 In order to integrate tone with conversation, the approach followed was:
 <ul>
@@ -39,11 +37,11 @@ In order to integrate tone with conversation, the approach followed was:
 
 You can see the raw responses in right hand column. 
 
-![Alt text](readmeImages/tone_context.png?raw=true)
+![Alt text](readme_images/tone_context.jpeg?raw=true)
 
 In the conversation template, alternative bot responses were encoded based on emotional tone of user. For example - 
 
-![Alt text](readmeImages/rule.png?raw=true)
+![Alt text](readme_images/rule.png?raw=true)
 
 <a name="bluemix">
 # Getting Started using Bluemix
@@ -200,7 +198,7 @@ For more information on workspaces, see the full  [Conversation service  documen
 
 2 Go to the **Manage** menu item and select **Launch Tool**. This opens a new tab in your browser, where you are prompted to login if you have not done so before. Use your Bluemix credentials.
 
-3 Use the workspace file available in training folder (training/food_coach_workspace_v3.6.json)
+3 Use the workspace file available in training folder (training/food_couch_workspace.json)
 
 4 Select the import icon: ![](readme_images/importGA.PNG). Browse to (or drag and drop) the JSON file. Choose to import **Everything(Intents, Entities, and Dialog)**. Then select **Import** to finish importing the workspace.
 
