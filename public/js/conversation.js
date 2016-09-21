@@ -197,7 +197,7 @@ var ConversationPanel = (function() {
     var messageArray = [];
 
     textArray.forEach(function(currentText) {
-      if (currentText && currentText.trim() != "") {
+      if (currentText && currentText.trim() !== '') {
         var messageJson = {
           // <div class='segments'>
           'tagName': 'div',
