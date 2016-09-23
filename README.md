@@ -122,8 +122,15 @@ To build the application:
  $ cf create-service conversation free conversation-service
 
  ```
+6 Create the Tone Analyzer service in Bluemix:
 
-6 Push it live:
+ ```sh
+
+ $ cf create-service tone-analyzer standard tone-analyzer-standard
+
+ ```
+
+7 Push it live:
 
  ```sh
 
