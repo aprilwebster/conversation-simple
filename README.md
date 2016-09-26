@@ -126,7 +126,7 @@ To build the application:
 
  ```sh
 
- $ cf create-service tone-analyzer standard tone-analyzer-standard
+ $ cf create-service tone_analyzer standard tone-analyzer-standard
 
  ```
 

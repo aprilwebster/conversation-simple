@@ -4,7 +4,7 @@ declared-services:
     label: conversation
     plan: free
   tone-analyzer-standard:
-    label: tone-analyzer
+    label: tone_analyzer
     plan: standard
 applications:
 - name: watson-food-coach-with-tone
