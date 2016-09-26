@@ -1,4 +1,4 @@
-# Food Couch
+# Food-Coach
 
 This application demonstrates how the Conversation service uses tone along with intents and entities in a simple chat interface.
 
@@ -205,7 +205,7 @@ For more information on workspaces, see the full  [Conversation service  documen
 
 2 Go to the **Manage** menu item and select **Launch Tool**. This opens a new tab in your browser, where you are prompted to login if you have not done so before. Use your Bluemix credentials.
 
-3 Use the workspace file available in training folder (training/food_couch_workspace.json)
+3 Use the workspace file available in training folder (training/food_coach_workspace.json)
 
 4 Select the import icon: ![](readme_images/importGA.PNG). Browse to (or drag and drop) the JSON file. Choose to import **Everything(Intents, Entities, and Dialog)**. Then select **Import** to finish importing the workspace.
 

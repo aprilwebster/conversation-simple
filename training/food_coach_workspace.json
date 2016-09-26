@@ -1,5 +1,5 @@
 {
-	"name": "Food Couch",
+	"name": "Food Coach",
 	"created": "2016-09-02T17:13:28.775Z",
 	"intents": [{
 		"intent": "help",
