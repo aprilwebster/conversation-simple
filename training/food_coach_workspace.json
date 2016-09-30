@@ -236,7 +236,7 @@
 			"metadata": null,
 			"synonyms": []
 		}, {
-			"value": "acohol",
+			"value": "alcohol",
 			"created": "2016-09-02T17:13:28.775Z",
 			"metadata": null,
 			"synonyms": []
@@ -722,11 +722,6 @@
 			"synonyms": []
 		}, {
 			"value": "barberry",
-			"created": "2016-09-02T17:13:28.775Z",
-			"metadata": null,
-			"synonyms": []
-		}, {
-			"value": "barely",
 			"created": "2016-09-02T17:13:28.775Z",
 			"metadata": null,
 			"synonyms": []
@@ -11350,27 +11345,27 @@
 			"value": "cake",
 			"created": "2016-09-02T17:13:28.775Z",
 			"metadata": null,
-			"synonyms": ["cheesecake", "chocolate cake", "cupcake"]
+			"synonyms": ["muffin", "muffins", "cheesecake", "chocolate cake", "cupcake", "cakes", "brownie", "brownies"]
 		}, {
 			"value": "candy",
 			"created": "2016-09-02T17:13:28.775Z",
 			"metadata": null,
-			"synonyms": []
+			"synonyms": ["candies"]
 		}, {
 			"value": "chips",
 			"created": "2016-09-02T17:13:28.775Z",
 			"metadata": null,
-			"synonyms": ["crisps", "doritos", "potato chips"]
+			"synonyms": ["crisps", "doritos", "potato chips", "cheetos"]
 		}, {
 			"value": "chocolate",
 			"created": "2016-09-02T17:13:28.775Z",
 			"metadata": null,
-			"synonyms": ["chocolate bar"]
+			"synonyms": ["chocolate bar", "chocolates"]
 		}, {
 			"value": "cookies",
 			"created": "2016-09-02T17:13:28.775Z",
 			"metadata": null,
-			"synonyms": []
+			"synonyms": ["cookie", "oreos"]
 		}, {
 			"value": "cronut",
 			"created": "2016-09-02T17:13:28.775Z",
@@ -11380,7 +11375,7 @@
 			"value": "donut",
 			"created": "2016-09-02T17:13:28.775Z",
 			"metadata": null,
-			"synonyms": ["doughnut"]
+			"synonyms": ["doughnut", "donuts"]
 		}, {
 			"value": "frappucino",
 			"created": "2016-09-02T17:13:28.775Z",
@@ -11400,7 +11395,7 @@
 			"value": "ice cream",
 			"created": "2016-09-02T17:13:28.775Z",
 			"metadata": null,
-			"synonyms": []
+			"synonyms": ["cream", "gelato"]
 		}, {
 			"value": "latte",
 			"created": "2016-09-02T17:13:28.775Z",
@@ -11410,23 +11405,44 @@
 			"value": "maple syrup",
 			"created": "2016-09-02T17:13:28.775Z",
 			"metadata": null,
-			"synonyms": ["liquid gold"]
+			"synonyms": ["liquid gold", "sugar syrup"]
 		}, {
 			"value": "milkshake",
 			"created": "2016-09-02T17:13:28.775Z",
 			"metadata": null,
-			"synonyms": []
+			"synonyms": ["milkshakes"]
 		}, {
 			"value": "pizza",
 			"created": "2016-09-02T17:13:28.775Z",
 			"metadata": null,
-			"synonyms": []
+			"synonyms": ["pizzas"]
 		}, {
 			"value": "pop",
 			"created": "2016-09-02T17:13:28.775Z",
 			"metadata": null,
 			"synonyms": ["coke", "soda", "sprite"]
-		}],
+		}, {
+			"value": "popcorn",
+			"created": "2016-09-02T17:13:28.775Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "nuggets",
+			"created": "2016-09-02T17:13:28.775Z",
+			"metadata": null,
+			"synonyms": []
+		}, {
+			"value": "mac n cheese",
+			"created": "2016-09-02T17:13:28.775Z",
+			"metadata": null,
+			"synonyms": ["mac and cheese"]
+		}, {
+			"value": "hot dog",
+			"created": "2016-09-02T17:13:28.775Z",
+			"metadata": null,
+			"synonyms": ["hot dogs"]
+		}
+],
 		"created": "2016-09-02T17:13:28.775Z",
 		"open_list": false,
 		"description": null
