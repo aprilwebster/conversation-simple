@@ -179,39 +179,13 @@ div {
   content: ".";
   color: #9855D4;
   background-image: url("../img/marker_image.png");
-  background-size: 1.5rem 1.5rem;
+  background-size: 0.3125rem 1.3125rem;
   position: absolute;
   z-index: 2;
-  left: 0.04rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  sizingMethod: 'cover';
-}
-
-.from-watson.latest.positive p:before {
-  content: ".";
-  color: #9855D4;
-  background-image: url("../img/marker_image_positive.png");
-  background-size: 1.5rem 1.5rem;
-  position: absolute;
-  z-index: 2;
-  left: 0.04rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  sizingMethod: 'cover';
-}
-
-.from-watson.latest.negative p:before {
-  content: ".";
-  color: #9855D4;
-  background-image: url("../img/marker_image_negative.png");
-  background-size: 1.5rem 1.5rem;
-  position: absolute;
-  z-index: 2;
-  left: 0.04rem;
-  width: 1.5rem;
-  height: 1.5rem;
-  sizingMethod: 'cover';
+  left: 0.4375rem;
+  width: 0.3125rem;
+  height: 1.3125rem;
+  line-height: 1.3125rem;
 }
 
 #textInput {
@@ -261,11 +235,6 @@ input:-moz-placeholder {
   border-bottom: 0.0625rem solid #aeaeae;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-}
-
-.appDescription {
-  text-align: center;
-  color: #B5B5B5;
 }
 
 #textInputDummy {
@@ -460,4 +429,3 @@ html{
   font-weight: normal;
   font-style: normal;
 }
-

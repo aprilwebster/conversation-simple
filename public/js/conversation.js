@@ -182,14 +182,7 @@ var ConversationPanel = (function() {
   // Constructs new DOM element from a message payload
   function buildMessageDomElements(newPayload, isUser) {
     var textArray = isUser ? newPayload.input.text : newPayload.output.text;
-    var emotionClass = 'top';
-
-    if (newPayload.context && newPayload.context.user) {
-      var emotion = newPayload.context.user.tone.emotion.current;
-      if (emotion === 'joy') emotionClass = 'positive';
-      else if (emotion === 'neutral') emotionClass = 'top';
-      else emotionClass = 'negative';
-    }
+    emotionClass = 'top';
 
     if (Object.prototype.toString.call( textArray ) !== '[object Array]') {
       textArray = [textArray];
