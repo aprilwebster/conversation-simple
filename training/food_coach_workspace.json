@@ -212,7 +212,7 @@
 		}],
 		"description": null
 	}],
-	"updated": "2016-10-02T23:00:43.032Z",
+	"updated": "2016-10-02T23:25:52.713Z",
 	"entities": [{
 		"entity": "food",
 		"values": [{
@@ -11738,40 +11738,6 @@
 			"dialog_node": "node_2_1471557599743"
 		},
 		"output": {
-			"text": "<i class=\"em em-angel\"></i> Hmm.  I'm sorry you don't feel very good about that meal.  Hope you are more satisfied with your other food choices."
-		},
-		"parent": "node_2_1471562391421",
-		"context": null,
-		"created": "2016-09-30T23:41:03.173Z",
-		"metadata": null,
-		"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"fear\" || $user.tone.emotion.current == \"disgust\"",
-		"description": null,
-		"dialog_node": "node_26_1472062571307",
-		"previous_sibling": "node_24_1472062523020"
-	}, {
-		"go_to": {
-			"return": null,
-			"selector": "body",
-			"dialog_node": "node_2_1471557599743"
-		},
-		"output": {
-			"text": "<i class=\"em em-angel\"></i> Hmmm.  Seems like you are not happy with your $time. At least nothing shows up in my unhealthy list ! Hope you enjoy your future meals !"
-		},
-		"parent": "node_17_1472591903720",
-		"context": null,
-		"created": "2016-09-30T23:41:03.173Z",
-		"metadata": null,
-		"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
-		"description": null,
-		"dialog_node": "node_21_1472595736144",
-		"previous_sibling": "node_20_1472595623381"
-	}, {
-		"go_to": {
-			"return": null,
-			"selector": "body",
-			"dialog_node": "node_2_1471557599743"
-		},
-		"output": {
 			"text": "<i class=\"em em-angel\"></i> Mmm.  Skipping meals isn't a great idea. Try to get something healthy to eat as soon as you can!"
 		},
 		"parent": "node_9_1471394498445",
@@ -11799,6 +11765,40 @@
 		"description": null,
 		"dialog_node": "node_9_1472590769657",
 		"previous_sibling": "node_8_1472590746914"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "<i class=\"em em-cop\"></i> Hmm.  I'm sorry you don't feel very good about that meal.  Hope you are more satisfied with your other food choices."
+		},
+		"parent": "node_2_1471562391421",
+		"context": null,
+		"created": "2016-09-30T23:41:03.173Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"fear\" || $user.tone.emotion.current == \"disgust\"",
+		"description": null,
+		"dialog_node": "node_26_1472062571307",
+		"previous_sibling": "node_24_1472062523020"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "<i class=\"em em-cop\"></i> Hmmm.  Seems like you are not happy with your $time. At least nothing shows up in my unhealthy list ! Hope you enjoy your future meals !"
+		},
+		"parent": "node_17_1472591903720",
+		"context": null,
+		"created": "2016-09-30T23:41:03.173Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
+		"description": null,
+		"dialog_node": "node_21_1472595736144",
+		"previous_sibling": "node_20_1472595623381"
 	}, {
 		"go_to": {
 			"return": null,
