@@ -1,5 +1,5 @@
 {
-    "name": "food_coach_v4.0",
+    "name": "food-coach-workspace",
     "created": "2016-09-30T23:41:03.173Z",
     "intents": [{
         "intent": "help",
