@@ -1,14 +1,14 @@
 # Food-Coach
 
-This application demonstrates how the Conversation service can be adapted to use tone along with intents and entities in a simple chat interface.
+This application demonstrates how the Conversation Service can be adapted to use Tone Analyzer's tone along with intents and entities in a simple chat interface.
 
 ![Demo GIF](readme_images/demo.gif?raw=true)
 
 
-For more information about Conversation, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml).
-For more information about Tone, see the [detailed documentation](http://www.ibm.com/watson/developercloud/tone-analyzer.html).
+For more information about the Conversation Service, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml).
+For more information about the Tone Analyzer Service, see the [detailed documentation](http://www.ibm.com/watson/developercloud/tone-analyzer.html).
 
-<b> You can deploy this app on Bluemix or locally. However, either way you deploy this app, you must have a Bluemix account and run some steps within Bluemix.</b>
+<b> You can deploy this app either on Bluemix or locally. However, either way you deploy this app, you must have a Bluemix account and run some steps within Bluemix.</b>
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/bluemix.png" width="200"/>](#bluemix)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/local.png" width="200"/>](#local)
 
@@ -31,9 +31,9 @@ After asking the user what s/he ate (if a meal was consumed), the bot asks the u
 
 In order to integrate tone with conversation, the approach followed was:
 <ul>
-<li>Intercept the user message. Before sending it to the Conversation Service, invoke the Tone Analyzer. See function - invokeToneConversation in ![a relative link](app.js)
-<li>Parse the JSON response object from the Tone Analyzer, and add appropriate variables to the context object of the JSON payload to send to the Conversation Service. See - ![a relative link](addons/tone_detection.js)
-<li>Send the user input, along with the updated context to the Conversation Service. See function - invokeToneConversation in ![a relative link](app.js)
+<li>Intercept the user message. Before sending it to the Conversation Service, invoke the Tone Analyzer. See function - invokeToneConversation in ![https://github.com/aprilwebster/conversation-simple-coach/blob/master/app.js](app.js)
+<li>Parse the JSON response object from the Tone Analyzer, and add appropriate variables to the context object of the JSON payload to send to the Conversation Service. See - [https://github.com/aprilwebster/conversation-simple-coach/blob/master/addons/tone_detection.js](addons/tone_detection.js)
+<li>Send the user input, along with the updated context to the Conversation Service. See function - invokeToneConversation in ![https://github.com/aprilwebster/conversation-simple-coach/blob/master/app.js](app.js)
 </ul>
 
 You can see the raw responses in the right hand panel. 
