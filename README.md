@@ -1,6 +1,6 @@
 # Food-Coach
 
-This application demonstrates how the Conversation service uses tone along with intents and entities in a simple chat interface.
+This application demonstrates how the Conversation service can be adapted to use tone along with intents and entities in a simple chat interface.
 
 ![Demo GIF](readme_images/demo.gif?raw=true)
 
@@ -14,34 +14,40 @@ For more information about Tone, see the [detailed documentation](http://www.ibm
 
 # What does this app do - More Details
 
-The app interface is designed for chatting with a coaching kind of guided bot, which asks if you about your meal, based on time of day and then points you to a guide on healthy eating. The chat interface is on the left, and the
-JSON that the JavaScript code receives from the server is on the right. Your questions and commands are run against a small set of sample data trained with intents like these:
+The app interface is designed for chatting with a coaching bot.  It asks the user if they've had a particular meal - breakfast, lunch, or dinner - based on time of day, and what s/he ate.
+
+The chat interface is in the left panel of the UI, and the JSON response object that the Conversation Service returns in the right panel. The user's input is run against a small set of sample data trained with the following intents:
 
     yes: acknowledgment that you ate food
-    no: nak that you did not food
+    no: you did not eat a particular meal
     help
+    exit
 
-It is also trained on a list of entities that list food items and unhealthy food itema.
-These intents and entities help the system to understand variations of user responses.
+The dialog is also trained on two types of entities - food items and unhealthy food items. These intents and entities help the system understand variations on user input.
 
-The bot starts by asking you it you ate, followed by what you ate and finally, how you feel about it. Depending on your emotion tone, you see different reactions and messages from the bot. Below you can see some sample interactions:
+After asking the user what s/he ate (if a meal was consumed), the bot asks the user how s/he feel about it. Depending on the user's emotional tone, the bot provides different feedback. Below you can see some sample interactions:
 
 ![Alt text](readme_images/examples.jpeg?raw=true)
 
 In order to integrate tone with conversation, the approach followed was:
 <ul>
-<li>Intercept user message. Before sending it to conversation service, invoke tone. See function - invokeToneConversation in ![a relative link](app.js)
-<li>Parse tone response and add appropriate variables to context. See - ![a relative link](addons/tone_detection.js)
-<li>Send the user input, along with updated context to conversation service. See function - invokeToneConversation in ![a relative link](app.js)
+<li>Intercept the user message. Before sending it to the Conversation Service, invoke the Tone Analyzer. See function - invokeToneConversation in ![a relative link](app.js)
+<li>Parse the JSON response object from the Tone Analyzer, and add appropriate variables to the context object of the JSON payload to send to the Conversation Service. See - ![a relative link](addons/tone_detection.js)
+<li>Send the user input, along with the updated context to the Conversation Service. See function - invokeToneConversation in ![a relative link](app.js)
 </ul>
 
-You can see the raw responses in right hand column. 
+You can see the raw responses in the right hand panel. 
 
 ![Alt text](readme_images/tone_context.jpeg?raw=true)
 
-In the conversation template, alternative bot responses were encoded based on emotional tone of user. For example - 
+In the conversation template, alternative bot responses were encoded based on the user's emotional. For example - 
 
 ![Alt text](readme_images/rule.png?raw=true)
+
+
+
+
+# FIX THIS SECTION #
 
 <a name="bluemix">
 # Getting Started using Bluemix
