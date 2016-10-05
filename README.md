@@ -12,6 +12,7 @@ For more information about the Tone Analyzer Service, see the [detailed document
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/bluemix.png" width="200"/>](#bluemix)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/local.png" width="200"/>](#local)
 
+<a name="what-app-does">
 # What does this app do - More Details
 
 The app interface is designed for chatting with a coaching bot.  It asks the user if they've had a particular meal - breakfast, lunch, or dinner - based on time of day, and what s/he ate.
@@ -44,7 +45,7 @@ In the conversation template, alternative bot responses were encoded based on th
 
 ![Alt text](readme_images/rule.png?raw=true)
 
-
+</a>
 
 
 # FIX THIS SECTION #
@@ -143,7 +144,7 @@ To build the application:
  $ cf push <application-name>
 
  ```
- The name you use determinates your application URL initially, such as `<application-name>.mybluemix.net`.
+ The name you use determines your application URL initially, such as `<application-name>.mybluemix.net`.
 
 <a name="local">
 # Getting Started locally
