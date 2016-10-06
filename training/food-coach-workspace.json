@@ -212,7 +212,7 @@
 		}],
 		"description": null
 	}],
-	"updated": "2016-10-06T22:31:39.385Z",
+	"updated": "2016-10-06T23:14:22.578Z",
 	"entities": [{
 		"entity": "food",
 		"values": [{
@@ -20333,23 +20333,6 @@
 			"dialog_node": "node_2_1471557599743"
 		},
 		"output": {
-			"text": "<i class=\"em em-fork_and_knife\"></i> It can seem like a plus to skip meals, but your body actually holds onto calories longer when it’s not sure when your next meal is coming. The more regularly you eat the right portions, the faster you’ll see results."
-		},
-		"parent": "node_9_1471394498445",
-		"context": null,
-		"created": "2016-10-06T20:12:30.709Z",
-		"metadata": null,
-		"conditions": "$user.tone.emotion.current == \"joy\"",
-		"description": null,
-		"dialog_node": "node_9_1471995740654",
-		"previous_sibling": "node_9_1472247409386"
-	}, {
-		"go_to": {
-			"return": null,
-			"selector": "body",
-			"dialog_node": "node_2_1471557599743"
-		},
-		"output": {
 			"text": "<i class=\"em em-heart\"></i> You’re worth taking care of. Let’s try harder tomorrow to make sure you live a long, happy life."
 		},
 		"parent": "node_3_1472665334598",
@@ -20360,23 +20343,6 @@
 		"description": null,
 		"dialog_node": "node_6_1472665533113",
 		"previous_sibling": "node_5_1472665413763"
-	}, {
-		"go_to": {
-			"return": null,
-			"selector": "body",
-			"dialog_node": "node_2_1471557599743"
-		},
-		"output": {
-			"text": "<i class=\"em em-triangular_flag_on_post\"></i> Remember, skipping meals can really slow your metabolism. Try to get something healthy to eat as soon as you can!"
-		},
-		"parent": "node_9_1471394498445",
-		"context": null,
-		"created": "2016-10-06T20:12:30.709Z",
-		"metadata": null,
-		"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
-		"description": null,
-		"dialog_node": "node_10_1471995750417",
-		"previous_sibling": "node_9_1471995740654"
 	}, {
 		"go_to": {
 			"return": null,
@@ -20469,6 +20435,23 @@
 			"dialog_node": "node_2_1471557599743"
 		},
 		"output": {
+			"text": "<i>I detected $user.tone.emotion.current</i><br/><br/><i class=\"em em-fork_and_knife\"></i> It can seem like a plus to skip meals, but your body actually holds onto calories longer when it’s not sure when your next meal is coming. The more regularly you eat the right portions, the faster you’ll see results."
+		},
+		"parent": "node_9_1471394498445",
+		"context": null,
+		"created": "2016-10-06T20:12:30.709Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"joy\"",
+		"description": null,
+		"dialog_node": "node_9_1471995740654",
+		"previous_sibling": "node_9_1472247409386"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
 			"text": "<i>I detected $user.tone.emotion.current</i><br/><br/><i class=\"em em-runner\"></i> Hey now, that was a big splurge! Make sure to reduce or burn more calories to offset times you spoil yourself!"
 		},
 		"parent": "node_7_1472512341593",
@@ -20513,6 +20496,23 @@
 		"description": null,
 		"dialog_node": "node_20_1472595623381",
 		"previous_sibling": "node_23_1472595915897"
+	}, {
+		"go_to": {
+			"return": null,
+			"selector": "body",
+			"dialog_node": "node_2_1471557599743"
+		},
+		"output": {
+			"text": "<i>I detected $user.tone.emotion.current</i><br/><br/><i class=\"em em-triangular_flag_on_post\"></i> Remember, skipping meals can really slow your metabolism. Try to get something healthy to eat as soon as you can!"
+		},
+		"parent": "node_9_1471394498445",
+		"context": null,
+		"created": "2016-10-06T20:12:30.709Z",
+		"metadata": null,
+		"conditions": "$user.tone.emotion.current == \"sadness\" || $user.tone.emotion.current == \"anger\" || $user.tone.emotion.current == \"disgust\" || $user.tone.emotion.current == \"fear\"",
+		"description": null,
+		"dialog_node": "node_10_1471995750417",
+		"previous_sibling": "node_9_1471995740654"
 	}, {
 		"go_to": {
 			"return": null,
