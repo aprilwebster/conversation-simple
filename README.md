@@ -8,10 +8,6 @@ This application demonstrates how the Conversation Service can be adapted to use
 For more information about the Conversation Service, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml).
 For more information about the Tone Analyzer Service, see the [detailed documentation](http://www.ibm.com/watson/developercloud/tone-analyzer.html).
 
-<b> You can deploy this app either on Bluemix or locally. However, either way you deploy this app, you must have a Bluemix account and run some steps within Bluemix.</b>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/bluemix.png" width="200"/>](https://hub.jazz.net/deploy/index.html?repository=https://github.com/aprilwebster/conversation-simple-coach)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/local.png" width="200"/>](#local)
-
 # What does this app do - More Details
 
 The app interface is designed for chatting with a coaching bot.  It asks the user if they've had a particular meal (breakfast, lunch, or dinner) based on the time of day, and what the user ate.
