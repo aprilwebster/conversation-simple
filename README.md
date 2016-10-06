@@ -78,16 +78,16 @@ If you want to experiment with modifying the application or use it as a basis fo
 
 1. Make sure you have logged in to your Bluemix account using Cloud Foundry. For more information, see [the Watson Developer Cloud documentation](https://www.ibm.com/watson/developercloud/doc/getting_started/gs-cf.shtml).
 
-1. Create an instance of the Conversation service in the IBM cloud:
+1. Create an instance of the Conversation Service in the IBM cloud:
 
    ```bash
-   cf create-service Conversation <service_plan> <service_instance>
+   cf create-service conversation <service_plan> <service_instance>
    ```
    
    For example:
    
    ```bash
-   cf create-service Conversation free conversation-simple-demo-test1
+   cf create-service conversation free conversation-simple-coach
    ```
 
 1. Create a service key:
@@ -99,7 +99,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
 
    ```bash
-   cf create-service-key conversation-simple-demo-test1 conversation-simple-demo-test1-key1
+   cf create-service-key conversation-simple-coach conversation-simple-coach-key
    ```
 
 ## Setting up the Tone Analyzer service
@@ -116,7 +116,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
    
    ```bash
-   cf create-service tone_analyzer free tone-analyzer-demo-test1
+   cf create-service tone_analyzer free tone-analyzer-simple-coach
    ```
 
 1. Create a service key:
@@ -128,7 +128,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
 
    ```bash
-   cf create-service-key tone-analyzer-demo-test1 tone-analyzer-demo-test1-key1
+   cf create-service-key tone-analyzer-simple-coach tone-analyzer-simple-coach-key
    ```
 
 ### Importing the Conversation workspace
@@ -164,7 +164,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
 
    ```bash
-   cf service-key conversation-simple-demo-test1 conversation-simple-demo-test1-key1
+   cf service-key conversation-simple-coach conversation-simple-coach-key
    ```
 
    The output from this command is a JSON object, as in this example:
@@ -232,20 +232,21 @@ If you want to subsequently deploy your local version of the application to the 
    ```YAML
    ---
    declared-services:
-     conversation-service:
+     conversation-simple-coach:
        label: conversation
        plan: free
-     tone-analyzer-service:
+     tone-analyzer-simple-coach:
        label: tone_analyzer
        plan: standard
    applications:
-   - name: conversation-simple-with-tone-app-test1
+   - name: conversation-simple-demo-app
      command: npm start
      path: .
      memory: 256M
      instances: 1
      services:
-     - conversation-simple-with-tone-demo-test1
+     - conversation-simple-coach
+     - tone-analyzer-simple-coach
      env:
        NPM_CONFIG_PRODUCTION: false
        WORKSPACE_ID: fdeab5e4-0ebe-4183-8d10-6e5557a6d842
