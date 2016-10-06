@@ -8,7 +8,7 @@ This application demonstrates how the Conversation Service can be adapted to use
 For more information about the Conversation Service, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml).
 For more information about the Tone Analyzer Service, see the [detailed documentation](http://www.ibm.com/watson/developercloud/tone-analyzer.html).
 
-# What does this app do - More Details
+# What does Food Coach do?
 
 The app interface is designed for chatting with a coaching bot.  It asks the user if they've had a particular meal (breakfast, lunch, or dinner) based on the time of day, and what the user ate.
 
@@ -33,9 +33,9 @@ Below you can see some sample interactions:
 ![Alt text](readme_images/examples.jpeg?raw=true)
 
 In order to integrate tone with conversation, the approach followed was:
-   * Intercept the user message. Before sending it to the Conversation Service, invoke the Tone Analyzer. See function `invokeToneConversation` in ![app.js](app.js)
-   * Parse the JSON response object from the Tone Analyzer, and add appropriate variables to the context object of the JSON payload to send to the Conversation Service. See ![tone_detection.js](addons/tone_detection.js)
-   * Send the user input, along with the updated context to the Conversation Service. See function `invokeToneConversation` in ![app.js](app.js)
+   * Intercept the user message. Before sending it to the Conversation Service, invoke the Tone Analyzer. See function `invokeToneConversation` in ![app.js](app.js).
+   * Parse the JSON response object from the Tone Analyzer, and add appropriate variables to the context object of the JSON payload to send to the Conversation Service. See ![tone_detection.js](addons/tone_detection.js).
+   * Send the user input, along with the updated context to the Conversation Service. See function `invokeToneConversation` in ![app.js](app.js).
 
 
 You can see the raw responses in the right hand panel. 
