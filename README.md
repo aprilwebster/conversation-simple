@@ -30,9 +30,9 @@ After asking the user what s/he ate (if a meal was consumed), the bot asks the u
 ![Alt text](readme_images/examples.jpeg?raw=true)
 
 In order to integrate tone with conversation, the approach followed was:
-   * Intercept the user message. Before sending it to the Conversation Service, invoke the Tone Analyzer. See function - invokeToneConversation in ![app.js](app.js)
-   * Parse the JSON response object from the Tone Analyzer, and add appropriate variables to the context object of the JSON payload to send to the Conversation Service. See - ![tone_detection.js](addons/tone_detection.js)
-   * Send the user input, along with the updated context to the Conversation Service. See function - invokeToneConversation in ![app.js](app.js)
+   * Intercept the user message. Before sending it to the Conversation Service, invoke the Tone Analyzer. See function `invokeToneConversation` in ![app.js](app.js)
+   * Parse the JSON response object from the Tone Analyzer, and add appropriate variables to the context object of the JSON payload to send to the Conversation Service. See ![tone_detection.js](addons/tone_detection.js)
+   * Send the user input, along with the updated context to the Conversation Service. See function `invokeToneConversation` in ![app.js](app.js)
 
 
 You can see the raw responses in the right hand panel. 
