@@ -25,18 +25,15 @@ The chat interface is in the left panel of the UI, and the JSON response object 
 
 The dialog is also trained on two types of entities - food items and unhealthy food items. These intents and entities help the system understand variations on user input.
 
-![app.js](app.js)
-
 After asking the user what s/he ate (if a meal was consumed), the bot asks the user how s/he feel about it. Depending on the user's emotional tone, the bot provides different feedback. Below you can see some sample interactions:
 
 ![Alt text](readme_images/examples.jpeg?raw=true)
 
 In order to integrate tone with conversation, the approach followed was:
-<ul>
-<li>Intercept the user message. Before sending it to the Conversation Service, invoke the Tone Analyzer. See function - invokeToneConversation in ![app.js](app.js)
-<li>Parse the JSON response object from the Tone Analyzer, and add appropriate variables to the context object of the JSON payload to send to the Conversation Service. See - ![tone_detection.js](addons/tone_detection.js)
-<li>Send the user input, along with the updated context to the Conversation Service. See function - invokeToneConversation in [app.js](app.js)
-</ul>
+1. Intercept the user message. Before sending it to the Conversation Service, invoke the Tone Analyzer. See function - invokeToneConversation in ![app.js](app.js)
+2. Parse the JSON response object from the Tone Analyzer, and add appropriate variables to the context object of the JSON payload to send to the Conversation Service. See - ![tone_detection.js](addons/tone_detection.js)
+3. Send the user input, along with the updated context to the Conversation Service. See function - invokeToneConversation in ![app.js](app.js)
+
 
 You can see the raw responses in the right hand panel. 
 
