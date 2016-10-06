@@ -239,7 +239,7 @@ If you want to subsequently deploy your local version of the application to the 
        label: tone_analyzer
        plan: standard
    applications:
-   - name: conversation-simple-demo-app
+   - name: conversation-simple-coach-demo-app
      command: npm start
      path: .
      memory: 256M
