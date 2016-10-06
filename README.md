@@ -111,7 +111,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    ```bash
    cf create-service tone_analyzer <service_plan> <service_instance>
    ```
-   <service_plan> options include standard and premium.
+   ```<service_plan>``` options include standard and premium.
    
    For example:
    
