@@ -83,7 +83,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
    
    ```bash
-   cf create-service conversation free conversation-simple-coach
+   cf create-service conversation free conversation-food-coach
    ```
 
 1. Create a service key:
@@ -95,7 +95,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
 
    ```bash
-   cf create-service-key conversation-simple-coach conversation-simple-coach-key
+   cf create-service-key conversation-food-coach conversation-food-coach-key
    ```
 
 ## Setting up the Tone Analyzer service
@@ -112,7 +112,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
    
    ```bash
-   cf create-service tone_analyzer free tone-analyzer-simple-coach
+   cf create-service tone_analyzer free tone-analyzer-food-coach
    ```
 
 1. Create a service key:
@@ -124,7 +124,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
 
    ```bash
-   cf create-service-key tone-analyzer-simple-coach tone-analyzer-simple-coach-key
+   cf create-service-key tone-analyzer-food-coach tone-analyzer-food-coach-key
    ```
 
 ### Importing the Conversation workspace
@@ -160,7 +160,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
 
    ```bash
-   cf service-key conversation-simple-coach conversation-simple-coach-key
+   cf service-key conversation-food-coach conversation-food-coach-key
    ```
 
    The output from this command is a JSON object, as in this example:
@@ -228,21 +228,21 @@ If you want to subsequently deploy your local version of the application to the 
    ```YAML
    ---
    declared-services:
-     conversation-simple-coach:
+     conversation-food-coach:
        label: conversation
        plan: free
-     tone-analyzer-simple-coach:
+     tone-analyzer-food-coach:
        label: tone_analyzer
        plan: standard
    applications:
-   - name: conversation-simple-coach-demo-app
+   - name: conversation-food-coach-demo
      command: npm start
      path: .
      memory: 256M
      instances: 1
      services:
-     - conversation-simple-coach
-     - tone-analyzer-simple-coach
+     - conversation-food-coach
+     - tone-analyzer-food-coach
      env:
        NPM_CONFIG_PRODUCTION: false
        WORKSPACE_ID: fdeab5e4-0ebe-4183-8d10-6e5557a6d842
