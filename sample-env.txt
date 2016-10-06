@@ -1,5 +1,0 @@
-CONVERSATION_USERNAME=<conversation_service_username>
-CONVERSATION_PASSWORD=<conversation_service_password>
-WORKSPACE_ID=<workspace_id>
-TONE_ANALYZER_USERNAME=<tone_analyzer_service_username>
-TONE_ANALYZER_PASSWORD=<tone_analyzer_service_password>
