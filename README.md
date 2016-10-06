@@ -33,15 +33,15 @@ After asking the user what s/he ate (if a meal was consumed), the bot asks the u
 In order to integrate tone with conversation, the approach followed was:
 <ul>
 <li>Intercept the user message. Before sending it to the Conversation Service, invoke the Tone Analyzer. See function - invokeToneConversation in ![app.js](app.js)
-<li>Parse the JSON response object from the Tone Analyzer, and add appropriate variables to the context object of the JSON payload to send to the Conversation Service. See - ![addons/tone_detection.js](https://github.com/aprilwebster/conversation-simple-coach/blob/master/addons/tone_detection.js)
-<li>Send the user input, along with the updated context to the Conversation Service. See function - invokeToneConversation in ![app.js](app.js)
+<li>Parse the JSON response object from the Tone Analyzer, and add appropriate variables to the context object of the JSON payload to send to the Conversation Service. See - ![tone_detection.js](addons/tone_detection.js)
+<li>Send the user input, along with the updated context to the Conversation Service. See function - invokeToneConversation in [app.js](app.js)
 </ul>
 
 You can see the raw responses in the right hand panel. 
 
 ![Alt text](readme_images/tone_context.jpeg?raw=true)
 
-In the conversation template, alternative bot responses were encoded based on the user's emotional. For example - 
+In the conversation template, alternative bot responses were encoded based on the user's emotional tone. For example: 
 
 ![Alt text](readme_images/rule.png?raw=true)
 
