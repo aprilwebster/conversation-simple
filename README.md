@@ -64,15 +64,15 @@ If you want to experiment with the application or use it as a basis for building
 
 1. Download the application code to your computer. You can do this in either of the following ways:
 
-   * [Download the .zip file](https://github.com/watson-developer-cloud/<TO BE ADDED>/archive/master.zip) of the GitHub repository and extract the files to a local directory
+   * [Download the .zip file](https://github.com/watson-developer-cloud/food-coach/archive/master.zip) of the GitHub repository and extract the files to a local directory
    
    * Use GitHub to clone the repository locally
    
-1. At the command line, go to the local project directory (`<TO BE ADDED>`).
+1. At the command line, go to the local project directory (`food-coach`).
 
 ## Setting up the Conversation service
 
-1. Make sure you have logged in to your Bluemix account using Cloud Foundry. For more information, see [the Watson Developer Cloud documentation](https://www.ibm.com/watson/developercloud/doc/getting_started/gs-cf.shtml).
+1. Make sure you have logged into your Bluemix account using Cloud Foundry. For more information, see [the Watson Developer Cloud documentation](https://www.ibm.com/watson/developercloud/doc/getting_started/gs-cf.shtml).
 
 1. Create an instance of the Conversation Service in the IBM cloud:
 
@@ -99,8 +99,6 @@ If you want to experiment with the application or use it as a basis for building
    ```
 
 ## Setting up the Tone Analyzer service
-
-1. Make sure you have logged in to your Bluemix account using Cloud Foundry. For more information, see [the Watson Developer Cloud documentation](https://www.ibm.com/watson/developercloud/doc/getting_started/gs-cf.shtml).
 
 1. Create an instance of the Tone Analyzer service in the IBM cloud:
 
