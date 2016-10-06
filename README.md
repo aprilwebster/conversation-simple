@@ -14,7 +14,7 @@ For more information about the Tone Analyzer Service, see the [detailed document
 
 # What does this app do - More Details
 
-The app interface is designed for chatting with a coaching bot.  It asks the user if they've had a particular meal - breakfast, lunch, or dinner - based on time of day, and what s/he ate.
+The app interface is designed for chatting with a coaching bot.  It asks the user if they've had a particular meal (breakfast, lunch, or dinner) based on the time of day, and what the user ate.
 
 The chat interface is in the left panel of the UI, and the JSON response object that the Conversation Service returns in the right panel. The user's input is run against a small set of sample data trained with the following intents:
 
@@ -23,9 +23,16 @@ The chat interface is in the left panel of the UI, and the JSON response object 
     help
     exit
 
-The dialog is also trained on two types of entities - food items and unhealthy food items. These intents and entities help the system understand variations on user input.
+The dialog is also trained on two types of entities:
 
-After asking the user what s/he ate (if a meal was consumed), the bot asks the user how s/he feel about it. Depending on the user's emotional tone, the bot provides different feedback. Below you can see some sample interactions:
+    food items
+    unhealthy food items
+
+These intents and entities help the system understand variations on user input.
+
+After asking the user what they ate (if a meal was consumed), the bot asks the user how they feel about it. Depending on the user's emotional tone, the bot provides different feedback. 
+
+Below you can see some sample interactions:
 
 ![Alt text](readme_images/examples.jpeg?raw=true)
 
@@ -208,7 +215,7 @@ The application is now deployed and running on the local system. Go to `http://l
 
 ## Optional: Deploying from the local system to Bluemix
 
-If you want to subsequently deploy your local version of the application to the Bluemix cloud, you can use Cloud Foundry to do so.
+If you want to subsequently deploy your local version of the application to the Bluemix cloud, you can use Cloud Foundry.
 
 1. In the project root directory, open the `manifest.yml` file in a text editor.
 

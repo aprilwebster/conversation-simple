@@ -20231,7 +20231,7 @@
     }, {
         "go_to": null,
         "output": {
-            "text": "What did you have?"
+            "text": "Can you tell me about what you ate today?"
         },
         "parent": null,
         "context": null,
@@ -20248,7 +20248,7 @@
             "dialog_node": "node_16_1471462209846"
         },
         "output": {
-            "text": "<i class='em em-grinning'></i> I detect happiness in your reply but not an answer to my question. Let me assume you had $time."
+            "text": "<i class=\"em em-grinning\"></i> You sound cheerful today! I’m guessing you had $time?"
         },
         "parent": null,
         "context": null,
@@ -20316,7 +20316,7 @@
             "dialog_node": "node_2_1471557599743"
         },
         "output": {
-            "text": "<i class=\"em em--1\"></i> Eating something unhealthy is okay once in a while, but if you make a habit of it, don't be surprised if you can't fit into your jeans any more!"
+            "text": "<i class=\"em em-smirk\"></i> Hope you enjoyed the treat! Sometimes it’s better to cure cravings with a taste of what you want. Good health and happiness is all about balance and moderation."
         },
         "parent": "node_3_1472665334598",
         "context": null,
@@ -20333,7 +20333,7 @@
             "dialog_node": "node_2_1471557599743"
         },
         "output": {
-            "text": "<i class=\"em em---1\"></i> Good, good.  Keep at it!"
+            "text": "<i class=\"em em-trophy\"></i> Great job, keep at it!"
         },
         "parent": "node_2_1471562391421",
         "context": null,
@@ -20350,7 +20350,7 @@
             "dialog_node": "node_2_1471557599743"
         },
         "output": {
-            "text": "<i class=\"em em--1\"></i> Unrepenting!  I get that @unhealthy_food can taste great, but it's not something you should eat on a regular basis."
+            "text": "<i class=\"em em-runner\"></i> Hey now, that was a big splurge! Make sure to reduce or burn more calories to offset times you spoil yourself!" 
         },
         "parent": "node_7_1472512341593",
         "context": null,
@@ -20367,7 +20367,7 @@
             "dialog_node": "node_2_1471557599743"
         },
         "output": {
-            "text": "<i class=\"em em--1\"></i> You seem happy that you missed out on $time!  Why??  Food is wonderful. Try not to make a habit of it.  Skipping meals can backfire."
+            "text": "<i class=\"em em-fork_and_knife\"></i> It can seem like a plus to skip meals, but your body actually holds onto calories longer when it’s not sure when your next meal is coming. The more regularly you eat the right portions, the faster you’ll see results." 
         },
         "parent": "node_9_1471394498445",
         "context": null,
@@ -20384,7 +20384,7 @@
             "dialog_node": "node_2_1471557599743"
         },
         "output": {
-            "text": "<i class=\"em em---1\"></i> You seem relatively happy. Keep up the good work!"
+            "text": "<i class=\"em em-tada\"></i> Sounds like things are going well, way to go!"
         },
         "parent": "node_17_1472591903720",
         "context": null,
@@ -20401,7 +20401,7 @@
             "dialog_node": "node_2_1471557599743"
         },
         "output": {
-            "text": "<i class=\"em em-angel\"></i> Don't worry!  Eating something unhealthy from time to time is okay.  It's only a problem if you make a habit of it.  Don't let it put you off track for the rest of the day!"
+            "text": "<i class=\"em em-angel\"></i> Don't worry, indulging from time to time is okay – especially if it brings you joy! It's only a problem when we make a habit of it. Don't let it put you off track for the rest of the day!" 
         },
         "parent": "node_3_1472665334598",
         "context": null,
@@ -20418,7 +20418,7 @@
             "dialog_node": "node_2_1471557599743"
         },
         "output": {
-            "text": "<i class=\"em em-angel\"></i> Mmm.  Skipping meals isn't a great idea. Try to get something healthy to eat as soon as you can!"
+            "text": "<i class=\"em em-triangular_flag_on_post\"></i> Remember, skipping meals can really slow your metabolism. Try to get something healthy to eat as soon as you can!"
         },
         "parent": "node_9_1471394498445",
         "context": null,
@@ -20435,7 +20435,7 @@
             "dialog_node": "node_2_1471557599743"
         },
         "output": {
-            "text": "<i class=\"em em-angel\"></i> Yes, it's not the best choice, but it's okay to have something unhealthy from time to time.  Everything in moderation!"
+            "text": "<i class=\"em em-angel\"></i> Yes, it's not the best choice, but it's okay to have something unhealthy from time to time. Everything in moderation!"
         },
         "parent": "node_7_1472512341593",
         "context": null,
@@ -20452,7 +20452,7 @@
             "dialog_node": "node_2_1471557599743"
         },
         "output": {
-            "text": "<i class=\"em em-cop\"></i> Hmm.  I'm sorry you don't feel very good about that meal.  Hope you are more satisfied with your other food choices."
+            "text": "<i class=\"em em-apple\"></i> I'm sorry you didn’t enjoy that last meal. Let’s find something tasty next time." 
         },
         "parent": "node_2_1471562391421",
         "context": null,
@@ -20469,7 +20469,7 @@
             "dialog_node": "node_2_1471557599743"
         },
         "output": {
-            "text": "<i class=\"em em-cop\"></i> Hmmm.  Seems like you are not happy with your $time. At least nothing shows up in my unhealthy list ! Hope you enjoy your future meals !"
+            "text": "<i class=\"em em-clap\"></i> Feeling down about your $time? Don’t fret, nothing shows up on my unhealthy list – you’re doing great!"
         },
         "parent": "node_17_1472591903720",
         "context": null,
@@ -20486,7 +20486,7 @@
             "dialog_node": "node_2_1471557599743"
         },
         "output": {
-            "text": "<i class=\"em em-cop\"></i> It seems you aren't too bothered by the choice.  I assume this is something you don't do on a regular basis, or perhaps you don't care much.  Anyhow, if you're concerned about health, @unhealthy_food is something that should be eaten only in moderation."
+            "text": "<i class=\"em em-dart\"></i> Hey now, I know it’s hard to resist treats, but I’m here to support you, remember? Put down the burger and pick up the grilled chicken next time, you can do this!" 
         },
         "parent": "node_7_1472512341593",
         "context": null,
@@ -20503,7 +20503,7 @@
             "dialog_node": "node_2_1471557599743"
         },
         "output": {
-            "text": "<i class=\"em em-cop\"></i> Well, you don't appear to be too concerned about your food. It's not a healthy choice, so try not to make a habit of it unless you don't mind tight pants!"
+            "text": "<i class=\"em em-heart\"></i> You’re worth taking care of. Let’s try harder tomorrow to make sure you live a long, happy life."
         },
         "parent": "node_3_1472665334598",
         "context": null,
@@ -20537,7 +20537,7 @@
             "dialog_node": "node_2_1471557599743"
         },
         "output": {
-            "text": "You seem relatively neutral about your choices.  You're doing a good job, keep it up! <i class=\"em em---1\"></i>"
+            "text": "I know it’s tough, but you have lots to be proud of.  You're making great food choices, keep up the good work and you’ll see results soon! <i class=\"em em-wave\"></i>"
         },
         "parent": "node_17_1472591903720",
         "context": null,
@@ -20572,7 +20572,12 @@
         },
         "output": {
             "text": {
-                "values": ["<i class='em em-cop'></i> It's best if you don't skip meals.  Grab something healthy to eat as soon as you can!", "<i class='em em-cop'></i> Tsk tsk!  Eating regularly is important.  If your blood sugar drops, your ability to make good choices flies out the window.", "<i class='em em-cop'></i> Eat something healthy soon!  You don't want to find yourself reaching for a Luther burger!", "<i class='em em-cop'></i> Ohhh dear.  If you skip meals, you might find yourself in the In N' Out drive-thru ordering a large animal style fries, a huge milkshake and a 4 x 4.  It might seem like a great idea at the time.  It really isn't."],
+                "values": [
+"<i class='em em-checkered_flag'></i> Did you forget to eat $time today? Remember to take care of yourself by grabbing something healthy to eat as soon as you can!",
+"<i class='em em-balloon'></i> When humans don’t give their bodies fuel every 3-6 hours, their blood sugar can drop, making them feel tired and cranky. Let’s keep your spirits and your energy up today - remember to make time for a healthy snack soon!",
+"<i class='em em-dart'></i> Nutrition time! Pick a snack that’ll make me proud!",
+"<i class='em em-rocket’></i> (Psst - skipping meals can lead to an emergency fast food splurge when you realize you’re starving! Let’s take care of future you - grab a snack your body will appreciate ASAP.)"
+],
                 "selection_policy": "random"
             }
         },
