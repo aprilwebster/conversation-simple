@@ -12,7 +12,7 @@ For more information on the Tone Analyzer Service, see the [detailed documentati
 
 The food coach is a sample chat-bot application.  The bot asks the user if they've had a particular meal (breakfast, lunch, or dinner) based on the time of day, and what the user ate for that meal.
 
-The chat interface is in the left panel of the UI, and the JSON response object that the Conversation Service returns in the right panel. The user's input is run against a small set of sample data trained with the following intents:
+The chat interface is in the left panel of the UI, and the JSON response object returned by the Conversation Service in the right panel. The user's input is run against a small set of sample data trained with the following intents:
 
     yes: acknowledgment that the specified meal was eaten
     no: the specified meal was not eaten
@@ -24,7 +24,7 @@ The dialog is also trained on two types of entities:
     food items
     unhealthy food items
 
-These intents and entities help the system understand variations on user input.
+These intents and entities help the bot understand variations on user input.
 
 After asking the user what they ate (if a meal was consumed), the bot asks the user how they feel about it. Depending on the user's emotional tone, the bot provides different feedback. 
 
@@ -33,12 +33,12 @@ Below you can find some sample interactions:
 ![Alt text](readme_images/examples.jpeg?raw=true)
 
 In order to integrate tone with conversation, the following approach was taken:
-   * Intercept the user's message. Before sending it to the Conversation Service, invoke the Tone Analyzer Service. See the function `invokeToneConversation` in ![app.js](app.js).
-   * Parse the JSON response object from the Tone Analyzer Service, and add appropriate variables to the context object of the JSON payload to be sent to the Conversation Service. See ![tone_detection.js](addons/tone_detection.js).
-   * Send the user input, along with the updated context object to the Conversation Service. See the function `invokeToneConversation` in ![app.js](app.js).
+   * Intercept the user's message. Before sending it to the Conversation Service, invoke the Tone Analyzer Service. See the call to `toneDetection.invokeToneAsync` in the `invokeToneConversation` function in ![app.js](app.js).
+   * Parse the JSON response object from the Tone Analyzer Service, and add appropriate variables to the context object of the JSON payload to be sent to the Conversation Service. See the `toneDetection.updateUserTone` function in ![tone_detection.js](addons/tone_detection.js).
+   * Send the user input, along with the updated context object in the payload to the Conversation Service. See the call to `conversation.message` in the `invokeToneConversation` function in ![app.js](app.js).
 
 
-You can see the raw response from the Conversation Service in the right hand panel. 
+You can see the JSON response object from the Conversation Service in the right hand panel. 
 
 ![Alt text](readme_images/tone_context.jpeg?raw=true)
 
