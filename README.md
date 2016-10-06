@@ -105,13 +105,14 @@ If you want to experiment with modifying the application or use it as a basis fo
 1. Create an instance of the Tone Analyzer service in the IBM cloud:
 
    ```bash
-   cf create-service Tone-Analyzer <service_plan> <service_instance>
+   cf create-service tone_analyzer <service_plan> <service_instance>
    ```
+   <service_plan> options include standard and premium.
    
    For example:
    
    ```bash
-   cf create-service Tone-Analyzer free tone-analyzer-demo-test1
+   cf create-service tone_analyzer free tone-analyzer-demo-test1
    ```
 
 1. Create a service key:
@@ -146,7 +147,7 @@ If you want to experiment with modifying the application or use it as a basis fo
 
 1. Select **Everything (Intents, Entities, and Dialog)** and then click **Import**. The food coach workspace is created.
 
-## Configuring the application environmnet
+## Configuring the application environment
 
 1. Copy the `.env.example` file to a new `.env` file. Open this file in a text editor.
 
@@ -231,7 +232,7 @@ If you want to subsequently deploy your local version of the application to the 
        label: conversation
        plan: free
      tone-analyzer-service:
-       label: tone-analyzer
+       label: tone_analyzer
        plan: standard
    applications:
    - name: conversation-simple-with-tone-app-test1
