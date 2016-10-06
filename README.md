@@ -1,22 +1,18 @@
-# Food-Coach
+# Food Coach
 
 This application demonstrates how the Conversation Service can be adapted to use Tone Analyzer's tone along with intents and entities in a simple chat interface.
 
 ![Demo GIF](readme_images/demo.gif?raw=true)
 
 
-For more information about the Conversation Service, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml).
-For more information about the Tone Analyzer Service, see the [detailed documentation](http://www.ibm.com/watson/developercloud/tone-analyzer.html).
+For more information on the Conversation Service, see the [detailed documentation](http://www.ibm.com/watson/developercloud/doc/conversation/overview.shtml).
+For more information on the Tone Analyzer Service, see the [detailed documentation](http://www.ibm.com/watson/developercloud/tone-analyzer.html).
 
-<b> You can deploy this app either on Bluemix or locally. However, either way you deploy this app, you must have a Bluemix account and run some steps within Bluemix.</b>
+# What does the Food Coach do?
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/bluemix.png" width="200"/>](https://hub.jazz.net/deploy/index.html?repository=https://github.com/aprilwebster/conversation-simple-coach)     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[<img src="readme_images/local.png" width="200"/>](#local)
+The food coach is a sample chat-bot application.  The bot asks the user if they've had a particular meal (breakfast, lunch, or dinner) based on the time of day, and what the user ate for that meal.
 
-# What does this app do - More Details
-
-The app interface is designed for chatting with a coaching bot.  It asks the user if they've had a particular meal (breakfast, lunch, or dinner) based on the time of day, and what the user ate.
-
-The chat interface is in the left panel of the UI, and the JSON response object that the Conversation Service returns in the right panel. The user's input is run against a small set of sample data trained with the following intents:
+The chat interface is in the left panel of the UI, and the JSON response object returned by the Conversation Service in the right panel. The user's input is run against a small set of sample data trained with the following intents:
 
     yes: acknowledgment that the specified meal was eaten
     no: the specified meal was not eaten
@@ -28,21 +24,21 @@ The dialog is also trained on two types of entities:
     food items
     unhealthy food items
 
-These intents and entities help the system understand variations on user input.
+These intents and entities help the bot understand variations on user input.
 
 After asking the user what they ate (if a meal was consumed), the bot asks the user how they feel about it. Depending on the user's emotional tone, the bot provides different feedback. 
 
-Below you can see some sample interactions:
+Below you can find some sample interactions:
 
 ![Alt text](readme_images/examples.jpeg?raw=true)
 
-In order to integrate tone with conversation, the approach followed was:
-   * Intercept the user message. Before sending it to the Conversation Service, invoke the Tone Analyzer. See function `invokeToneConversation` in ![app.js](app.js)
-   * Parse the JSON response object from the Tone Analyzer, and add appropriate variables to the context object of the JSON payload to send to the Conversation Service. See ![tone_detection.js](addons/tone_detection.js)
-   * Send the user input, along with the updated context to the Conversation Service. See function `invokeToneConversation` in ![app.js](app.js)
+In order to integrate tone with conversation, the following approach was taken:
+   * Intercept the user's message. Before sending it to the Conversation Service, invoke the Tone Analyzer Service. See the call to `toneDetection.invokeToneAsync` in the `invokeToneConversation` function in ![app.js](app.js).
+   * Parse the JSON response object from the Tone Analyzer Service, and add appropriate variables to the context object of the JSON payload to be sent to the Conversation Service. See the `toneDetection.updateUserTone` function in ![tone_detection.js](addons/tone_detection.js).
+   * Send the user input, along with the updated context object in the payload to the Conversation Service. See the call to `conversation.message` in the `invokeToneConversation` function in ![app.js](app.js).
 
 
-You can see the raw responses in the right hand panel. 
+You can see the JSON response object from the Conversation Service in the right hand panel. 
 
 ![Alt text](readme_images/tone_context.jpeg?raw=true)
 
@@ -54,7 +50,7 @@ In the conversation template, alternative bot responses were encoded based on th
 
 # Deploying the application
 
-If you want to experiment with modifying the application or use it as a basis for building your own application, you need to deploy it in your own environment. You can then explore the files, make changes, and see how those changes affect the running application. After making modifications, you can deploy your modified version of the application to the Bluemix cloud.
+If you want to experiment with the application or use it as a basis for building your own application, you need to deploy it in your own environment. You can then explore the files, make changes, and see how those changes affect the running application. After making modifications, you can deploy your modified version of the application to the Bluemix cloud.
 
 ## Before you begin
 
@@ -87,7 +83,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
    
    ```bash
-   cf create-service conversation free conversation-simple-coach
+   cf create-service conversation free conversation-food-coach
    ```
 
 1. Create a service key:
@@ -99,7 +95,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
 
    ```bash
-   cf create-service-key conversation-simple-coach conversation-simple-coach-key
+   cf create-service-key conversation-food-coach conversation-food-coach-key
    ```
 
 ## Setting up the Tone Analyzer service
@@ -116,7 +112,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
    
    ```bash
-   cf create-service tone_analyzer free tone-analyzer-simple-coach
+   cf create-service tone_analyzer free tone-analyzer-food-coach
    ```
 
 1. Create a service key:
@@ -128,7 +124,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
 
    ```bash
-   cf create-service-key tone-analyzer-simple-coach tone-analyzer-simple-coach-key
+   cf create-service-key tone-analyzer-food-coach tone-analyzer-food-coach-key
    ```
 
 ### Importing the Conversation workspace
@@ -164,7 +160,7 @@ If you want to experiment with modifying the application or use it as a basis fo
    For example:
 
    ```bash
-   cf service-key conversation-simple-coach conversation-simple-coach-key
+   cf service-key conversation-food-coach conversation-food-coach-key
    ```
 
    The output from this command is a JSON object, as in this example:
@@ -232,21 +228,21 @@ If you want to subsequently deploy your local version of the application to the 
    ```YAML
    ---
    declared-services:
-     conversation-simple-coach:
+     conversation-food-coach:
        label: conversation
        plan: free
-     tone-analyzer-simple-coach:
+     tone-analyzer-food-coach:
        label: tone_analyzer
        plan: standard
    applications:
-   - name: conversation-simple-coach-demo-app
+   - name: conversation-food-coach-demo
      command: npm start
      path: .
      memory: 256M
      instances: 1
      services:
-     - conversation-simple-coach
-     - tone-analyzer-simple-coach
+     - conversation-food-coach
+     - tone-analyzer-food-coach
      env:
        NPM_CONFIG_PRODUCTION: false
        WORKSPACE_ID: fdeab5e4-0ebe-4183-8d10-6e5557a6d842
