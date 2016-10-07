@@ -34,7 +34,7 @@ Below you can find some sample interactions:
 
 In order to integrate tone with conversation, the following approach was taken:
    * Intercept the user's message. Before sending it to the Conversation Service, invoke the Tone Analyzer Service. See the call to `toneDetection.invokeToneAsync` in the `invokeToneConversation` function in ![app.js](app.js).
-   * Parse the JSON response object from the Tone Analyzer Service, and add appropriate variables to the context object of the JSON payload to be sent to the Conversation Service. See the `toneDetection.updateUserTone` function in ![tone_detection.js](addons/tone_detection.js).
+   * Parse the JSON response object from the Tone Analyzer Service, and add appropriate variables to the context object of the JSON payload to be sent to the Conversation Service. See the `updateUserTone` function in ![tone_detection.js](addons/tone_detection.js).
    * Send the user input, along with the updated context object in the payload to the Conversation Service. See the call to `conversation.message` in the `invokeToneConversation` function in ![app.js](app.js).
 
 
@@ -54,9 +54,9 @@ If you want to experiment with the application or use it as a basis for building
 
 ## Before you begin
 
-* You must have a Bluemix account, and your account must have available space for at least 1 application and 1 service. To register for a Bluemix account, go to https://console.ng.bluemix.net/registration/. Your Bluemix console shows your available space.
+* You must have a Bluemix account, and your account must have available space for at least 1 application and 2 services. To register for a Bluemix account, go to https://console.ng.bluemix.net/registration/. Your Bluemix console shows your available space.
 
-* You must have the following prerequisites installed:
+* You must also have the following prerequisites installed:
   * the [Node.js](http://nodejs.org/) runtime (including the npm package manager)
   * the [Cloud Foundry command-line client](https://github.com/cloudfoundry/cli#downloads)
 
@@ -64,11 +64,9 @@ If you want to experiment with the application or use it as a basis for building
 
 1. Download the application code to your computer. You can do this in either of the following ways:
 
-   * [Download the .zip file](https://github.com/watson-developer-cloud/food-coach/archive/master.zip) of the GitHub repository and extract the files to a local directory
+   * [Download the .zip file](https://github.com/watson-developer-cloud/food-coach/archive/master.zip) of the GitHub repository and extract the files to a local directory, OR
    
    * Use GitHub to clone the repository locally
-   
-1. At the command line, go to the local project directory (`food-coach`).
 
 ## Setting up the Conversation service
 
@@ -110,7 +108,7 @@ If you want to experiment with the application or use it as a basis for building
    For example:
    
    ```bash
-   cf create-service tone_analyzer free tone-analyzer-food-coach
+   cf create-service tone_analyzer standard tone-analyzer-food-coach
    ```
 
 1. Create a service key:
@@ -141,11 +139,13 @@ If you want to experiment with the application or use it as a basis for building
 
 1. Click **Import**. When prompted, specify the location of the workspace JSON file in your local copy of the application project:
 
-   `<project_root>/training/food-coach-workspace.json`
+   `<project_root>/food-coach/training/food-coach-workspace.json`
 
 1. Select **Everything (Intents, Entities, and Dialog)** and then click **Import**. The food coach workspace is created.
 
 ## Configuring the application environment
+
+1. At the command line, navigate to the local project directory (`<project_root>/food-coach`).
 
 1. Copy the `.env.example` file to a new `.env` file. Open this file in a text editor.
 
