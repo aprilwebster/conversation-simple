@@ -75,15 +75,19 @@ If you want to experiment with the application or use it as a basis for building
 1. Create an instance of the Conversation Service in the IBM cloud:
 
    ```bash
-   cf create-service conversation <service_plan> <service_instance>
+   cf create-service conversation <service_plan> <service_instance_name>
    ```
+   Notes: 
+      * <service_plan>: options include free, standard or premium. 
+      * <service_instance_name>: this is a unique name of your choosing.
+   
    
    For example:
    
    ```bash
    cf create-service conversation free conversation-food-coach
    ```
-
+  
 1. Create a service key:
 
    ```bash
@@ -101,7 +105,7 @@ If you want to experiment with the application or use it as a basis for building
 1. Create an instance of the Tone Analyzer service in the IBM cloud:
 
    ```bash
-   cf create-service tone_analyzer <service_plan> <service_instance>
+   cf create-service tone_analyzer <service_plan> <service_instance_name>
    ```
    ```<service_plan>``` options include standard and premium.  Please note that either of these options will incur a cost.
    
@@ -127,13 +131,15 @@ If you want to experiment with the application or use it as a basis for building
 
 1. In your browser, navigate to your [Bluemix console](https://console.ng.bluemix.net).
 
-1. From the **Dashboard** tab, click the newly created Conversation service in the **Services** list.
+1. From the **Dashboard** tab, click the newly created Conversation service in the **Services** list.  It'll have the name you gave it (the <service_instance_name>) in the previous step.
 
    ![Screen capture of Services list](readme_images/conversation_food_coach_service.png)
 
    The Service Details page opens.
 
-1. Click the **Launch tool** button. 
+1. Click the **Launch tool** button.
+
+   ![Screen capture of Launch tool button](readme_images/conversation_tooling_launch_tool_button.png) 
 
    The Conversation service tool opens.
 
