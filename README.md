@@ -62,7 +62,7 @@ If you want to experiment with the application or use it as a basis for building
 
 ## Getting the files
 
-1. Download the application code to your computer. You can do this in either of the following ways:
+1. Download the food coach application code to your computer. You can do this in either of the following ways:
 
    * [Download the .zip file](https://github.com/watson-developer-cloud/food-coach/archive/master.zip) of the GitHub repository and extract the files to a local directory, OR
    
@@ -143,11 +143,12 @@ If you want to experiment with the application or use it as a basis for building
 
    The Conversation service tool opens.
 
-1. Click **Import**. When prompted, specify the location of the workspace JSON file in your local copy of the application project:
+1. Click **Import** to add the food coach workspace. When prompted, specify the location of the workspace JSON file in your local copy of the application project:
 
    `<project_root>/food-coach/training/food-coach-workspace.json`
 
 1. Select **Everything (Intents, Entities, and Dialog)** and then click **Import**. The food coach workspace is created.
+   * If you have any problems uploading the workspace using Chrome, please try another browser such as Firefox or Safari.
 
 ## Configuring the application environment
 
@@ -191,7 +192,7 @@ Do the same for the Tone Analyzer service, and paste the values into the `TONE_A
 
 1. Click the menu icon in the upper right corner of the workspace tile, and then select **View details**.
 
-   ![Screen capture of workspace tile menu](readme_images/workspace_details.png)
+   ![Screen capture of workspace tile menu](readme_images/conversation_food_coach_workspace_details.png)
    
    The tile shows the workspace details.
    
