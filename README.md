@@ -103,7 +103,7 @@ If you want to experiment with the application or use it as a basis for building
    ```bash
    cf create-service tone_analyzer <service_plan> <service_instance>
    ```
-   ```<service_plan>``` options include standard and premium.
+   ```<service_plan>``` options include standard and premium.  Please note that either of these options will incur a cost.
    
    For example:
    
@@ -125,11 +125,11 @@ If you want to experiment with the application or use it as a basis for building
 
 ### Importing the Conversation workspace
 
-1. In your browser, navigate to your Bluemix console.
+1. In your browser, navigate to your [Bluemix console](https://console.ng.bluemix.net).
 
-1. From the **All Items** tab, click the newly created Conversation service in the **Services** list.
+1. From the **Dashboard** tab, click the newly created Conversation service in the **Services** list.
 
-   ![Screen capture of Services list](readme_images/conversation_service.png)
+   ![Screen capture of Services list](readme_images/conversation_food_coach_service.png)
 
    The Service Details page opens.
 
