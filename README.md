@@ -78,8 +78,8 @@ If you want to experiment with the application or use it as a basis for building
    cf create-service conversation <service_plan> <service_instance_name>
    ```
    Notes: 
-      * <service_plan>: options include free, standard or premium. 
-      * <service_instance_name>: this is a unique name of your choosing.
+      * ```<service_plan>```: options include free, standard or premium. 
+      * ```<service_instance_name>```: this is a unique name of your choosing.
    
    
    For example:
@@ -160,7 +160,7 @@ If you want to experiment with the application or use it as a basis for building
    cp .env.example .env
    ```
 
-1. Retrieve the credentials from the service key:
+1. Retrieve the credentials from the service key for both the conversation and tone analyzer services:
 
    ```bash
    cf service-key <service_instance_name> <service_key>
@@ -170,6 +170,10 @@ If you want to experiment with the application or use it as a basis for building
 
    ```bash
    cf service-key conversation-food-coach conversation-food-coach-key
+   ```
+   AND
+   ```bash
+   cf service-key tone-analyzer-food-coach tone-analyzer-food-coach-key
    ```
 
    The output from this command is a JSON object, as in this example:
@@ -210,7 +214,7 @@ Do the same for the Tone Analyzer service, and paste the values into the `TONE_A
 
    ![Screen capture of env file](readme_images/env_file_example.png)
 
-Save and close the file.
+   Save and close the file. Please note that the logging...ADD THIS IN
 
 1. Install the demo application package into the local Node.js runtime environment:
    
