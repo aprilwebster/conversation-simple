@@ -189,7 +189,7 @@ If you want to experiment with the application or use it as a basis for building
    CONVERSATION_PASSWORD=87iT7aqpvU7l
    ```
 Do the same for the Tone Analyzer service, and paste the values into the `TONE_ANALYZER_PASSWORD` and `TONE_ANALYZER_USERNAME` variables in the `.env` file
-```
+   ```
    TONE_ANALYZER_USERNAME=mhl715fg-y6h5-2113-6540-ytr78nhs8u64
    TONE_ANALYZER_PASSWORD=124GHaq31M9l
    ```
