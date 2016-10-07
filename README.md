@@ -156,10 +156,14 @@ If you want to experiment with the application or use it as a basis for building
 
 1. Copy the `.env.example` file to a new `.env` file. Open this file in a text editor.
 
+```bash
+   cp .env.example .env
+   ```
+
 1. Retrieve the credentials from the service key:
 
    ```bash
-   cf service-key <service_instance> <service_key>
+   cf service-key <service_instance_name> <service_key>
    ```
    
    For example:
@@ -185,6 +189,10 @@ If you want to experiment with the application or use it as a basis for building
    CONVERSATION_PASSWORD=87iT7aqpvU7l
    ```
 Do the same for the Tone Analyzer service, and paste the values into the `TONE_ANALYZER_PASSWORD` and `TONE_ANALYZER_USERNAME` variables in the `.env` file
+```
+   TONE_ANALYZER_USERNAME=mhl715fg-y6h5-2113-6540-ytr78nhs8u64
+   TONE_ANALYZER_PASSWORD=124GHaq31M9l
+   ```
 
    Leave the `.env` file open in your text editor.
 
@@ -196,9 +204,13 @@ Do the same for the Tone Analyzer service, and paste the values into the `TONE_A
    
    The tile shows the workspace details.
    
-1. Click the ![Copy](readme_images/copy_icon.png) icon to copy the workspace ID to the clipboard.
+1. Click the ![Copy](readme_images/copy_icon.png) icon next to the workspace ID to copy the workspace ID to the clipboard.
 
-1. On the local system, paste the workspace ID into the WORKSPACE_ID variable in the `.env` file. Save and close the file.
+1. Back on your local system, paste the workspace ID into the WORKSPACE_ID variable in the `.env` file you previously created. At this point, your `.env` file should look like the following:
+
+   ![Screen capture of env file](readme_images/env_file_example.png)
+
+Save and close the file.
 
 1. Install the demo application package into the local Node.js runtime environment:
    
