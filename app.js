@@ -20,23 +20,14 @@ require( 'dotenv' ).config( {silent: true} );
 
 var express = require( 'express' );  // app server
 var bodyParser = require( 'body-parser' );  // parser for post requests
-var watson = require('watson-developer-cloud');
-
-
-/** **** TONE INTEGRATION ******/
-var toneDetection = require('./addons/tone_detection.js'); // required for tone detection
-var maintainToneHistory = false;
-
 
 // The following requires are needed for logging purposes
 var uuid = require( 'uuid' );
 var vcapServices = require( 'vcap_services' );
 var basicAuth = require( 'basic-auth-connect' );
 
-// The app owner may optionally configure a cloudand db to track user input.
-// This cloudand db is not required, the app will operate without it.
-// If logging is enabled the app must also enable basic auth to secure logging
-// endpoints
+// The app owner may optionally configure a cloudant db to track user input. Application will operate without cloudant.
+// If logging is enabled the app must also enable basic auth to secure logging endpoints
 var cloudantCredentials = vcapServices.getCredentials( 'cloudantNoSQLDB' );
 var cloudantUrl = null;
 if ( cloudantCredentials ) {
@@ -44,11 +35,21 @@ if ( cloudantCredentials ) {
 }
 cloudantUrl = cloudantUrl || process.env.CLOUDANT_URL; // || '<cloudant_url>';
 var logs = null;
+
+// define the application
 var app = express();
 
 // Bootstrap application settings
 app.use( express.static( './public' ) ); // load UI from public folder
 app.use( bodyParser.json() );
+
+
+// Watson service requirements
+var watson = require('watson-developer-cloud');
+var toneDetection = require('./addons/tone_detection.js'); // required for tone detection
+var maintainToneHistory = false;
+
+var personalityInsightsHelper = require('./addons/personality-insights-helper');
 
 
 /**
@@ -64,6 +65,14 @@ var conversation = new watson.ConversationV1({
 var toneAnalyzer =  new watson.ToneAnalyzerV3({
   version_date: '2016-05-19'
 });
+
+
+personalityInsightsHelper.getPersonalityProfileAsync({screen_name: 'adele', count: 20});
+
+
+
+
+
 
 
 // Endpoint to be called from the client side
@@ -101,6 +110,7 @@ app.post( '/api/message', function(req, res) {
     /** **** TONE INTEGRATION ******/
     // Invoke the tone-aware call to the Conversation Service
     invokeToneConversation(payload, res);
+   
   }
 });
 
@@ -115,37 +125,18 @@ function updateMessage(input, response) {
   var id = null;
 
   if ( !response.output ) {
-    response.output = {};
+    response.output = {
+        "text": null
+    };
   } else {
     if ( logs ) {
       // If the logs db is set, then we want to record all input and responses
       id = uuid.v4();
       logs.insert( {'_id': id, 'request': input, 'response': response, 'time': new Date()});
     }
-    return response;
+    console.log(JSON.stringify(response,null,2));
   }
 
-  if ( response.intents && response.intents[0] ) {
-    var intent = response.intents[0];
-    // Depending on the confidence of the response the app can return different messages.
-    // The confidence will vary depending on how well the system is trained. The service will always try to assign
-    // a class/intent to the input. If the confidence is low, then it suggests the service is unsure of the
-    // user's intent . In these cases it is usually best to return a disambiguation message
-    // ('I did not understand your intent, please rephrase your question', etc..)
-    if ( intent.confidence >= 0.75 ) {
-      responseText = 'I understood your intent was ' + intent.intent;
-    } else if ( intent.confidence >= 0.5 ) {
-      responseText = 'I think your intent was ' + intent.intent;
-    } else {
-      responseText = 'I did not understand your intent';
-    }
-  }
-  response.output.text = responseText;
-  if ( logs ) {
-    // If the logs db is set, then we want to record all input and responses
-    id = uuid.v4();
-    logs.insert( {'_id': id, 'request': input, 'response': response, 'time': new Date()});
-  }
   return response;
 }
 
@@ -179,6 +170,8 @@ function invokeToneConversation(payload, res) {
     console.log(JSON.stringify(err, null, 2));
   });
 }
+
+
 
 
 /**
