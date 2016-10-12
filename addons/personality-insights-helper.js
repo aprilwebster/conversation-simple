@@ -24,44 +24,9 @@ var personalityInsights = new watson.PersonalityInsightsV2({
  * Public functions for this module
  */
 module.exports = {
-  getPersonalityProfileAsync: getPersonalityProfileAsync,
-  initPersonality: initPersonality,
+  invokePersonalityAsync: invokePersonalityAsync,
   setUserPersonality: setUserPersonality
 };
-
-
-/**
- * 
- * @param params
- * sample params JSON object: {screen_name: 'adele', count: 20}
- * @returns
- */
-
-function getPersonalityProfileAsync(params) {
-  console.log(params);
-  console.log("getPersonalityProfileAsync call.");
-  //console.log(JSON.stringify(conversationPayload,2,null));
-  //console.log("</conversationPayload>");
-
-  twitterHelper.getTweetsAsync(params) //get the tweets for the user
-  .then(function(tweets) {
-      personalityInsights.profile({'contentItems': twitterHelper.getContentItems(tweets)},
-          function(err, data) {
-            var returnObject = null;
-             if (err) {
-              console.error(JSON.stringify(err, null, 2));
-            } else {
-              console.log("getPersonalityProfile in main function")
-              console.log(JSON.stringify(data, null, 2));
-              return data;
-            }
-      });
-  })
-  .catch(function(err) {
-    console.log(JSON.stringify(err, null, 2));
-  });
-}
-
 
 function invokePersonalityAsync(tweets) {
   console.log('getPersonalityProfileAsync');
@@ -97,13 +62,7 @@ function setUserPersonality(conversationPayload, personalityInsightsPayload) {
   var immoderation = null;
   var dutifulness = null;
 
-  console.log('setUserPersonality');
-  //console.log(conversationPayload);
-  //console.log(conversationPayload.context);
-  
   conversationPayload.context.user.personality = initPersonality();
-  
-  
   var tree = personalityInsightsPayload.tree.children;
 
   personalityInsightsPayload.tree.children.forEach(
@@ -115,7 +74,6 @@ function setUserPersonality(conversationPayload, personalityInsightsPayload) {
 
   personality.children[0].children.forEach(
       function(facet) {
-        //console.log(facet);
         if (facet.id === "Neuroticism") {
           neuroticism = facet;
         }
@@ -146,16 +104,9 @@ function setUserPersonality(conversationPayload, personalityInsightsPayload) {
   conversationPayload.context.user.personality.dutifulness = dutifulness.percentage;
   conversationPayload.context.user.personality.immoderation = immoderation.percentage;
   conversationPayload.context.user.personality.self_discipline = self_discipline.percentage;
-  //console.log(JSON.stringify(conversationPayload,2, null));
-  
+
   return conversationPayload;
-  /*
-  console.log(neuroticism.id, neuroticism.percentage);
-  console.log(conscientiousness.id,conscientiousness.percentage);
-  console.log(immoderation.id, immoderation.percentage);
-  console.log(self_discipline.id, self_discipline.percentage);
-  console.log(dutifulness.id, dutifulness.percentage);
-  */
+
 
 }
 

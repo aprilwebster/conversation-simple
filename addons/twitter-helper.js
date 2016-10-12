@@ -26,65 +26,10 @@ var params = {screen_name: 'adele', count: 2};
  */
 module.exports = {
   getTweetsAsync: getTweetsAsync,
-  toContentItem: toContentItem,
-  englishAndNoRetweet: englishAndNoRetweet,
   getContentItems: getContentItems
-  //getPersonalityProfileAsync: getPersonalityProfileAsync
 };
 
-
-/*
-function getUserPersonalityProfile(params) {
-  return getTweetsAsync(params)
-  .then(function(tweets) {
-    var contentItems = getContentItems(tweets);
-    console.log(contentItems);
-    return personalityInsights.getProfile({contentItems:contentItems})
-    .then(function(profile) {
-      if (!profile)
-        return;
-      user.profile = JSON.stringify(profile);
-      console.log(JSON.stringify(user.profile, null, 2));
-      return user.profile;
-    });
-  });
-}
-*/
-
-/*
-function getPersonalityProfileAsync(contentItems){
-  personalityInsights.profile({contentItems: contentItemsTest},
-    function (err, response) {
-      if (err)
-        console.log('error:', err);
-      else
-        console.log(JSON.stringify(response, null, 2));
-        return response;
-  });
-}
-*/
-
-/*
-function getPersonalityProfileAsync(contentItems) {
-  console.log('getPersonalityProfileAsync');
-  console.log(contentItems);
-  return new Promise(
-      function(resolve, reject) {
-        personalityInsights.profile({'contentItems': contentItems},
-            (err, response) => {
-              if (err) {
-                reject(err);
-              } else {
-                console.log(response);
-                resolve(response);
-              }
-            });
-      });
-}
-*/
-
 function getTweetsAsync(params) {
-  console.log("getTweetsAsync called");
   return new Promise(
       function(resolve, reject) {
         twitter.get(
@@ -93,23 +38,19 @@ function getTweetsAsync(params) {
               if (error) {
                 reject(error);
               } else {
-                //console.log(tweets[0]);
                 resolve(tweets);
               }
             });
       });
 }
 
-
 function getContentItems(tweets){
-  console.log("getContentItems");
   var contentItems = [];
   for (var i = 0, len = tweets.length; i < len; i++) {
     if(englishAndNoRetweet(tweets[i])){
       contentItems = contentItems.concat(toContentItem(tweets[i]));
     }
   }
-  console.log(contentItems[0]);
   return contentItems;
 }
 
