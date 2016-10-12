@@ -43,13 +43,13 @@ var app = express();
 app.use( express.static( './public' ) ); // load UI from public folder
 app.use( bodyParser.json() );
 
-
 // Watson service requirements
 var watson = require('watson-developer-cloud');
 var toneDetection = require('./addons/tone_detection.js'); // required for tone detection
 var maintainToneHistory = false;
-
 var personalityInsightsHelper = require('./addons/personality-insights-helper');
+var twitterHelper = require('./addons/twitter-helper');
+var user = require('./addons/user');
 
 
 /**
@@ -60,16 +60,26 @@ var conversation = new watson.ConversationV1({
 });
 
 
-/** **** TONE INTEGRATION ******/
+/****** TONE INTEGRATION ******/
 // Instantiate the Watson Tone Analyzer Service as per WDC 2.2.0
 var toneAnalyzer =  new watson.ToneAnalyzerV3({
   version_date: '2016-05-19'
 });
 
+var watson = require('watson-developer-cloud');
+var personalityInsights = new watson.PersonalityInsightsV2({
+  version_date: '2016-08-31'
+});
 
-personalityInsightsHelper.getPersonalityProfileAsync({screen_name: 'adele', count: 20});
 
+//personalityInsightsHelper.getPersonalityProfileAsync({screen_name: 'adele', count: 20});
+//var test = personalityInsightsHelper.getPersonalityProfileAsync({screen_name: 'rennyavm', count: 20});
+//console.log('test ' + test);
 
+//Endpoint to be called from the client side
+app.post( '/api/personality', function(req, res) {
+
+});
 
 
 
@@ -88,30 +98,108 @@ app.post( '/api/message', function(req, res) {
       }
     } );
   }
-  var payload = {
+  var conversationPayload = {
     workspace_id: workspace,
     context: {},
     input: {}
   };
 
+  console.log('message endpoint in app');
+  console.log('The request body from the UI is:');
+  console.log(req.body);
 
+  // pull input and context from the UI request if it exists
   if ( req.body ) {
     if ( req.body.input ) {
-      payload.input = req.body.input;
+      conversationPayload.input = req.body.input;
     }
     if ( req.body.context ) {
-      payload.context = req.body.context;
+      conversationPayload.context = req.body.context; //must maintain the context from the request
+      
+      if ( req.body.context.user ){
+        console.log("testing");
+      }
     } else {
-      /** **** TONE INTEGRATION ******/
       // Add the user object (containing tone) to the context object for Conversation
-      payload.context = toneDetection.initUser();
+      conversationPayload.context = toneDetection.initUser();
+      //payload.context = user.initUser();
+      console.log('app: user is ' + JSON.stringify(conversationPayload.context,2,null));
     }
 
-    /** **** TONE INTEGRATION ******/
     // Invoke the tone-aware call to the Conversation Service
-    invokeToneConversation(payload, res);
-   
-  }
+    //invokeToneConversation(responsePayload, res);
+    //personalityInsightsHelper.getPersonalityProfileAsync({screen_name: data.context.user.twitter_handle, count: 20});
+
+    /*
+    if( req.body.context.user.twitter_handle && !data.context.user.personality){
+      console.log("There's a twitter handle: " + data.context.user.twitter_handle + " but no personality!");
+    }
+    */
+    
+    toneDetection.invokeToneAsync(conversationPayload, toneAnalyzer)
+    .then( (tone) => {
+      toneDetection.updateUserTone(conversationPayload, tone, maintainToneHistory);
+      console.log(JSON.stringify(conversationPayload,2,null));
+      conversation.message(conversationPayload, function(err, conversationResponse) {
+        var returnObject = null;
+        if (err) {
+          //returnObject = res.status(err.code || 500).json(err);
+          res.status(err.code || 500).json(err);
+          console.log("ERROR");
+        } else {
+          
+          
+          
+          // start if for twitter handle
+          if( conversationResponse.context.user.twitter_handle && !conversationResponse.context.user.personality){
+            console.log("There's a twitter handle: " + conversationResponse.context.user.twitter_handle + " but no personality!");
+            
+            twitterHelper.getTweetsAsync({screen_name: conversationResponse.context.user.twitter_handle, count: 20}) //get the tweets for the user
+            .then(function(tweets) {
+                console.log("tweets are " + JSON.stringify(tweets[0],2,null));
+                personalityInsights.profile({'contentItems': twitterHelper.getContentItems(tweets)},
+                    function(err, profile) {
+                      var returnObject = null;
+                      if (err) {
+                        console.log("there's an error with PI profile!");
+                        console.error(JSON.stringify(err, null, 2));
+                        res.status(err.code || 500).json(err);
+                      } else {
+                        //console.log("getPersonalityProfile");
+                        //console.log(JSON.stringify(profile, null, 2));
+                        console.log("payload before personality added:");
+                        console.log(JSON.stringify(conversationResponse,2,null));
+                        var updatedPayload = personalityInsightsHelper.setUserPersonality(conversationResponse, profile);
+                        console.log("payload with personality added:");
+                        console.log(JSON.stringify(updatedPayload,2,null));
+                        returnObject = updatedPayload;
+                      }
+                      res.json( updatedPayload );
+                });
+            })
+            .catch(function(err) {
+              console.log(JSON.stringify(err, null, 2));
+            });
+          }else{
+          //end if for twitter handle and personality
+
+
+          console.log("return object is");
+          console.log(JSON.stringify(conversationResponse,2,null));
+          //returnObject = res.json( updateMessage( responsePayload, data) );
+          res.json( conversationResponse );
+          }
+        }
+        //return returnObject;
+        });
+      })
+      //.then( ())
+      .catch(function(err) {
+        console.log(JSON.stringify(err, null, 2));
+      });
+    //end toneDetection call
+    
+    }
 });
 
 /**
@@ -151,7 +239,9 @@ function updateMessage(input, response) {
  * @param {Object} res response object
  *
  */
+/*
 function invokeToneConversation(payload, res) {
+  console.log("invokeToneConversation");
   toneDetection.invokeToneAsync(payload, toneAnalyzer)
   .then( (tone) => {
     toneDetection.updateUserTone(payload, tone, maintainToneHistory);
@@ -161,6 +251,17 @@ function invokeToneConversation(payload, res) {
         console.error(JSON.stringify(err, null, 2));
         returnObject = res.status(err.code || 500).json(err);
       } else {
+        
+        if( data.context.user.twitter_handle && !data.context.user.personality){
+          console.log("There's a twitter handle: " + data.context.user.twitter_handle + " but no personality!");
+          //var test = personalityInsightsHelper.getPersonalityProfileAsync({screen_name: data.context.user.twitter_handle, count: 20});
+          //personalityInsightsHelper.setUserPersonality(payload, personality);
+          //console.log('this is the output from getPersonalityProfileAsync');
+          //console.log(test);
+          //console.log('AFTER output from getPersonalityProfileAsync');
+        }
+        
+        console.log("no twitter handle");
         returnObject = res.json( updateMessage( payload, data ) );
       }
       return returnObject;
@@ -170,7 +271,54 @@ function invokeToneConversation(payload, res) {
     console.log(JSON.stringify(err, null, 2));
   });
 }
+*/
 
+function invokeToneConversation(payload, res) {
+  console.log("invokeToneConversation");
+  toneDetection.invokeToneAsync(payload, toneAnalyzer)
+  .then( (tone) => {
+    toneDetection.updateUserTone(payload, tone, maintainToneHistory);
+    conversation.message(payload, function(err, data) {
+      var returnObject = null;
+      if (err) {
+        console.error(JSON.stringify(err, null, 2));
+        returnObject = res.status(err.code || 500).json(err);
+      } else {
+        
+        if( data.context.user.twitter_handle && !data.context.user.personality){
+          console.log("There's a twitter handle: " + data.context.user.twitter_handle + " but no personality!");
+          
+          twitterHelper.getTweetsAsync(params) //get the tweets for the user
+          .then(function(tweets) {
+              personalityInsights.profile({'contentItems': twitterHelper.getContentItems(tweets)},
+                  function(err, data) {
+                    var returnObject = null;
+                    if (err) {
+                      console.error(JSON.stringify(err, null, 2));
+                    } else {
+                      console.log("getPersonalityProfile in main function")
+                      console.log(JSON.stringify(data, null, 2));
+                      personalityInsightsHelpter.setUserPersonality(conversationPayload, personalityInsightsPayload)
+                      
+                    }
+              });
+          })
+          .catch(function(err) {
+            console.log(JSON.stringify(err, null, 2));
+          });
+        }
+        //end if for twitter handle and personality
+        
+        console.log("no twitter handle");
+        returnObject = res.json( updateMessage( payload, data ) );
+      }
+      return returnObject;
+    });
+  })
+  .catch(function(err) {
+    console.log(JSON.stringify(err, null, 2));
+  });
+}
 
 
 

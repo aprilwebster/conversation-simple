@@ -19,6 +19,8 @@
 
 var Promise = require('bluebird');
 
+var user = require('./user');
+
 /**
  * Thresholds for identifying meaningful tones returned by the Watson Tone Analyzer.  Current values are
  * based on the recommendations made by the Watson Tone Analyzer at
@@ -89,6 +91,7 @@ function updateUserTone(conversationPayload, toneAnalyzerPayload, maintainHistor
   }
 
   if (!conversationPayload.context.user) {
+   // conversationPayload.context.user = user.initUser();
     conversationPayload.context.user = initUser();
   }
 
@@ -124,6 +127,7 @@ function updateUserTone(conversationPayload, toneAnalyzerPayload, maintainHistor
  * tone identifies the tone for a specific conversation turn, and the history provides the conversation for
  * all tones up to the current tone for a conversation instance with a user.
  */
+
 function initUser() {
   return (
     {

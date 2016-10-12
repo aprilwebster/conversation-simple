@@ -84,6 +84,7 @@ function getPersonalityProfileAsync(contentItems) {
 */
 
 function getTweetsAsync(params) {
+  console.log("getTweetsAsync called");
   return new Promise(
       function(resolve, reject) {
         twitter.get(
@@ -92,7 +93,7 @@ function getTweetsAsync(params) {
               if (error) {
                 reject(error);
               } else {
-                //console.log(tweets);
+                //console.log(tweets[0]);
                 resolve(tweets);
               }
             });
@@ -101,12 +102,14 @@ function getTweetsAsync(params) {
 
 
 function getContentItems(tweets){
+  console.log("getContentItems");
   var contentItems = [];
   for (var i = 0, len = tweets.length; i < len; i++) {
     if(englishAndNoRetweet(tweets[i])){
       contentItems = contentItems.concat(toContentItem(tweets[i]));
     }
   }
+  console.log(contentItems[0]);
   return contentItems;
 }
 
