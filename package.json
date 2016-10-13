@@ -28,7 +28,8 @@
     "nano" : "*",
     "uuid": "2.0.2",
     "vcap_services": "^0.2.0",
-    "bluebird": "^3.4.1"
+    "bluebird": "^3.4.1",
+    "twitter": "^0.2.13"
   },
   "devDependencies": {
     "browser-sync": "^2.14.0",
